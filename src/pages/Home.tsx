@@ -1,13 +1,12 @@
-import headImage from '../assets/renewable-energy.jpg'
+import './Home.css'
+
 
 export const Home = () => {
   return (
   <section data-testid='home-container'>
     <header>
-      <figure className="h-[130px]">
-        <img className='w-full h-full object-cover' 
-          src={headImage} 
-          alt="Renewable energy image"/>
+      <figure>
+        <div id='mask-header' className='w-full h-[130px]'></div>
       </figure>
       <h1 className="text-center text-2xl font-bold mt-5">INFORMATION</h1>  
     </header>

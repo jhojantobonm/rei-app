@@ -1,0 +1,8 @@
+#mask-header{
+  background-image: url(../assets/renewable-energy.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  mask-image: url(../assets/mask-header.png);
+  mask-size: 100% 100%;
+  
+}
