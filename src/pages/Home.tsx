@@ -1,5 +1,6 @@
 import { ContentInformation } from '../components/ContentInformation'
 import { ContentInformationSolar } from '../components/ContentInformationSolar'
+import { FooterApp } from '../components/FooterApp'
 import { HeaderApp } from '../components/HeaderApp'
 import { MenuInformation } from '../components/MenuInformation'
 import './Home.css'
@@ -20,6 +21,7 @@ export const Home = () => {
     
 
     </section>
+    <FooterApp/>
   </section>
   )
 }
