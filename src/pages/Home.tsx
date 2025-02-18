@@ -1,3 +1,4 @@
+import { ContentInformation } from '../components/ContentInformation'
 import { MenuInformation } from '../components/MenuInformation'
 import './Home.css'
 
@@ -13,6 +14,7 @@ export const Home = () => {
     </header>
     <section className='pl-6 pr-6'>
       <MenuInformation className='mt-10' />
+      <ContentInformation/>
 
     </section>
   </section>
