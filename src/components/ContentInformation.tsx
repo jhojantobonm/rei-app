@@ -1,22 +1,22 @@
+import { ReactNode } from "react"
 
 
-export const ContentInformation = () => {
+interface ContentInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  title?: string,
+  image?: string,
+  children?: ReactNode,
+}
+
+export const ContentInformation = ({title,image,children,...props}: ContentInfoProps) => {
 
   return (
-    <section data-testid='content-info'>
-      <div>
-        <h2>Solar Energy</h2>
-        <figure>
-          <img src="" alt="" />
+      <div data-testid='content-info' {...props}>
+        <h2 className="text-3xl font-semibold">{title}</h2>
+        <figure className="mt-3.5 rounded-2xl overflow-hidden">
+          <img src={image} alt={`This is an image about ${title}`}
+          className="w-full w-full" />
         </figure>
-          <p>Solar energy is a renewable energy source that comes from the sun and can be harnessed in several ways. There are two main technologies for capturing it:
-
-          Photovoltaic solar energy: Uses solar panels to convert sunlight into electricity. Ideal for homes, businesses and large solar parks.
-          Solar thermal energy: It is used to heat water or generate electricity using mirrors that concentrate sunlight on one point.
-
-          In Colombia, the use of solar energy has grown due to reduced costs and abundant solar radiation.</p>
+        {children}
       </div>
-
-    </section>
   )
 }
