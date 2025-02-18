@@ -6,7 +6,9 @@ import solarIcon from '../assets/images/icons/solar-energy.png'
 import bioFuelIcon from '../assets/images/icons/biofuel.png'
 import geoThermalIcon from '../assets/images/icons/geothermal-energy.png'
 
-export const MenuInformation = () => {
+interface MenuProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>{}
+
+export const MenuInformation = (props: MenuProps) => {
   const renewableEnergiesIcons=[
     damIcon,
     windIcon,
@@ -16,8 +18,8 @@ export const MenuInformation = () => {
   ];
   return (
     <>
-      <nav data-testid='menu-info'>
-        <ul className="flex">
+      <nav data-testid='menu-info' {...props}>
+        <ul className="flex gap-2.5">
           {
             renewableEnergiesIcons.map(item=><MenuInformationItem src={item}/>)
           }

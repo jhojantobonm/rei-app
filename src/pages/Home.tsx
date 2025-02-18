@@ -11,7 +11,10 @@ export const Home = () => {
       </figure>
       <h1 className="text-center text-3xl font-bold mt-5">INFORMATION</h1> 
     </header>
-    <MenuInformation/>
+    <section className='pl-6 pr-6'>
+      <MenuInformation className='mt-10' />
+
+    </section>
   </section>
   )
 }
