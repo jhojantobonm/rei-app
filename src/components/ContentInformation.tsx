@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-
+import './ContentInformationSolar.css'
 
 interface ContentInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   title?: string,
