@@ -19,7 +19,7 @@ export const MenuInformation = (props: MenuProps) => {
   return (
     <>
       <nav data-testid='menu-info' {...props}>
-        <ul className="flex flex-wrap justify-center gap-2.5">
+        <ul className="flex flex-wrap justify-around gap-2.5 md:gap-8 md:justify-end">
           {
             renewableEnergiesIcons.map(item=><MenuInformationItem src={item}/>)
           }
