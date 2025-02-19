@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 
 
 
-interface Props{
-  id: number,
-  src:string,
+interface Props {
+  id?: number,
+  src?: string,
 }
 
 export const MenuInformationItem = ({ id, src }:Props) => {
   const {setContentId}= useContextApp();
   const [isBounce,setIsBounce] = useState<boolean>(false);
-
+  if(!id) id=0;
   const handleClick = ()=>{
     setContentId(id);
   }
