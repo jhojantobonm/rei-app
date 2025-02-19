@@ -3,11 +3,13 @@ import { FooterApp } from '../components/FooterApp'
 import { HeaderApp } from '../components/HeaderApp'
 import { MenuInformation } from '../components/MenuInformation'
 import { content } from '../content/content'
+import { useContextApp } from '../context/useContextApp'
 import './Home.css'
 
 
 export const Home = () => {
-
+  const {contentId} = useContextApp();
+  
   return (
   <>
     <HeaderApp title='INFORMATION'/>
@@ -16,9 +18,9 @@ export const Home = () => {
           className='pl-6 pr-6 md:pl-[9rem] md:pr-[9rem]' >
           <MenuInformation className='mt-3 md:mt-12' />
           {
-            content.map(item=><ContentInformation 
-              title={item.title} 
-              image={item.image}>{item.description}</ContentInformation>)
+            <ContentInformation 
+            title={content[contentId].title} 
+            image={content[contentId].image}>{content[contentId].description}</ContentInformation>
           }
         </section>
     </main>

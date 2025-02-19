@@ -10,18 +10,18 @@ interface MenuProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLEle
 
 export const MenuInformation = (props: MenuProps) => {
   const renewableEnergiesIcons=[
-    damIcon,
-    windIcon,
-    solarIcon,
-    bioFuelIcon,
-    geoThermalIcon
+    {id:0,icon: damIcon},
+    {id:1,icon: windIcon,},
+    {id:2,icon: solarIcon,},
+    {id:3,icon: bioFuelIcon,},
+    {id:4,icon: geoThermalIcon,}
   ];
   return (
     <>
       <nav data-testid='menu-info' {...props}>
         <ul className="flex flex-wrap justify-around gap-2.5 md:gap-8 md:justify-end">
           {
-            renewableEnergiesIcons.map(item=><MenuInformationItem src={item}/>)
+            renewableEnergiesIcons.map(item=><MenuInformationItem key={item.id} id={item.id} src={item.icon} />)
           }
         </ul>
       </nav>
