@@ -1,5 +1,9 @@
+import { useState } from 'react';
 import { useContextApp } from '../context/useContextApp'
 import './MenuInformationItem.css'
+import { motion } from "framer-motion";
+
+
 
 interface Props{
   id: number,
@@ -8,19 +12,33 @@ interface Props{
 
 export const MenuInformationItem = ({ id, src }:Props) => {
   const {setContentId}= useContextApp();
+  const [isBounce,setIsBounce] = useState<boolean>(false);
 
   const handleClick = ()=>{
     setContentId(id);
   }
 
+  const handleMouseEnter = ()=>{
+    setIsBounce(true);
+  }
+  const handleMouseLeave = ()=>{
+    setIsBounce(false);
+  }
+
   return (
       <li data-testid='menu-info-item'>
-        <button className='cursor-pointer w-[5rem]'
-        onClick={handleClick}
+        <motion.div
+            animate={{ scale: isBounce ? 1.4 : 1 }}
+            transition={{type: 'spring', bounce:0.7}}
+            onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
         >
-          <img id="menu-info-item-image" 
-          src={src} alt={`Image of ${src}`}/>
-        </button>
+          <button className='cursor-pointer w-[5rem]'
+          onClick={handleClick}
+          >
+            <img id="menu-info-item-image" 
+            src={src} alt={`Image of ${src}`}/>
+          </button>
+        </motion.div>
       </li>
   )
 }

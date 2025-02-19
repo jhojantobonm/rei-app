@@ -12,6 +12,16 @@ interface ContentInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<
 export const ContentInformation = ({title,image,children,...props}: ContentInfoProps) => {
   const {contentId} = useContextApp();
   const [isScaled, setIsScaled] = useState(false);
+  const [isBounce,setIsBounce] = useState<boolean>(false);
+
+
+  const handleMouseEnter = ()=>{
+    setIsBounce(true);
+  }
+  const handleMouseLeave = ()=>{
+    setIsBounce(false);
+  }
+
   useEffect(()=>{
     setIsScaled(true);
     const timeId =  setTimeout(() => {
@@ -32,10 +42,16 @@ export const ContentInformation = ({title,image,children,...props}: ContentInfoP
 
           <h2 className="text-3xl font-semibold">{title}</h2>
           <div className="md:flex md:flex-row-reverse">
-            <figure className="md:w-[50%] md:h-[25rem] mt-3.5 rounded-2xl overflow-hidden shadow-2xl">
-              <img src={image} alt={`This is an image about ${title}`}
-              className="w-full h-full object-fill" />
-            </figure>
+            <motion.div className="md:w-[50%] md:h-[25rem] mt-3.5 rounded-2xl overflow-hidden shadow-2xl"
+              animate={{ scale: isBounce ? 1.05 : 1 }}
+              transition={{type: 'spring', bounce:0.7}}
+              onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+            >
+              <figure className="w-full h-full">
+                <img src={image} alt={`This is an image about ${title}`}
+                className="w-full h-full object-fill" />
+              </figure>
+            </motion.div>
             <div className="md:w-[50%] mr-6">
               {children}
             </div>
