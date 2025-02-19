@@ -10,13 +10,17 @@ interface ContentInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<
 export const ContentInformation = ({title,image,children,...props}: ContentInfoProps) => {
 
   return (
-      <div data-testid='content-info' {...props}>
+      <div data-testid='content-info' {...props} className=' mt-7 text-[1.4rem]'>
         <h2 className="text-3xl font-semibold">{title}</h2>
-        <figure className="mt-3.5 rounded-2xl overflow-hidden">
-          <img src={image} alt={`This is an image about ${title}`}
-          className="w-full w-full" />
-        </figure>
-        {children}
+        <div className="md:flex md:flex-row-reverse">
+          <figure className="md:w-[50%] md:h-[25rem] mt-3.5 rounded-2xl overflow-hidden shadow-2xl">
+            <img src={image} alt={`This is an image about ${title}`}
+            className="w-full h-full object-fill" />
+          </figure>
+          <div className="md:w-[50%] mr-6">
+            {children}
+          </div>
+        </div>
       </div>
   )
 }
