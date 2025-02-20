@@ -1,5 +1,4 @@
 import { ContentInformation } from '../components/ContentInformation'
-import { FooterApp } from '../components/FooterApp'
 import { HeaderApp } from '../components/HeaderApp'
 import { MenuInformation } from '../components/MenuInformation'
 import { content } from '../content/content'
@@ -12,6 +11,7 @@ export const Home = () => {
   
   return (
   <>
+    <HeaderApp title='INFORMATION'/>
     <main>
         <section data-testid='home-container' 
           className='pl-6 pr-6 md:pl-[9rem] md:pr-[9rem]' >
