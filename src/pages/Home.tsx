@@ -12,7 +12,6 @@ export const Home = () => {
   
   return (
   <>
-    <HeaderApp title='INFORMATION'/>
     <main>
         <section data-testid='home-container' 
           className='pl-6 pr-6 md:pl-[9rem] md:pr-[9rem]' >
@@ -24,7 +23,6 @@ export const Home = () => {
           }
         </section>
     </main>
-    <FooterApp/>
   </>
 
   )

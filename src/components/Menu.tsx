@@ -1,11 +1,12 @@
 import { IoClose } from "react-icons/io5";
 import './Menu.css'
 import { useContextApp } from "../context/useContextApp";
+import { NavLink } from "react-router-dom";
 
 export const Menu = () => {
     const {setIsMenuOpen} = useContextApp();
 
-    const handleClick = ()=>{
+    const handleClose = ()=>{
       setIsMenuOpen(false);
     }
     
@@ -15,18 +16,18 @@ export const Menu = () => {
 
     return (
       <>
-      <div onClick={(e)=>{}}></div>
         <div data-testid='menu' 
-          className="fixed top-0 left-0 right-0 bottom-0" id='menu' onClick={handleClick}>
+          className="fixed top-0 left-0 right-0 bottom-0" id='menu' onClick={handleClose}>
             <div className='bg-white h-full w-[24rem] p-4' onClick={handlePropagation}>
               <div className="flex justify-end">
-                <IoClose size={'2.4rem'} className="cursor-pointer" onClick={handleClick}/>
+                <IoClose size={'2.4rem'} className="cursor-pointer" onClick={handleClose}/>
               </div>
               <nav>
                 <ul>
-                  <li>Item 1</li>
-                  <li>Item 2</li>
-                  <li>Item 3</li>
+                  <NavLink to='/home'>Home</NavLink>
+                  <NavLink to='/data'>Data</NavLink>
+                  <NavLink to='/calculator'>Calculator</NavLink>
+                  <NavLink to='/dashboard'>Dashboard</NavLink>
                 </ul>
               </nav>
             </div>
