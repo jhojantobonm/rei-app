@@ -14,7 +14,7 @@ export const Home = () => {
     <HeaderApp title='INFORMATION'/>
     <main>
         <section data-testid='home-container' 
-          className='pl-6 pr-6 md:pl-[9rem] md:pr-[9rem]' >
+          className='pl-6 pr-6 pb-[6rem] md:pl-[9rem] md:pr-[9rem]' >
           <MenuInformation className='mt-3 md:mt-12' />
           {
             <ContentInformation 

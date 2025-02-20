@@ -1,157 +1,3 @@
-// import {
-//   Table,
-//   TableBody,
-//   TableCaption,
-//   TableCell,
-//   TableFooter,
-//   TableHead,
-//   TableHeader,
-//   TableRow,
-// } from "@/components/ui/table"
-
-// const invoices = [
-//   {
-//     invoice: "INV001",
-//     paymentStatus: "Paid",
-//     totalAmount: "$250.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV002",
-//     paymentStatus: "Pending",
-//     totalAmount: "$150.00",
-//     paymentMethod: "PayPal",
-//   },
-//   {
-//     invoice: "INV003",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$350.00",
-//     paymentMethod: "Bank Transfer",
-//   },
-//   {
-//     invoice: "INV004",
-//     paymentStatus: "Paid",
-//     totalAmount: "$450.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV005",
-//     paymentStatus: "Paid",
-//     totalAmount: "$550.00",
-//     paymentMethod: "PayPal",
-//   },
-//   {
-//     invoice: "INV006",
-//     paymentStatus: "Pending",
-//     totalAmount: "$200.00",
-//     paymentMethod: "Bank Transfer",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-//   {
-//     invoice: "INV007",
-//     paymentStatus: "Unpaid",
-//     totalAmount: "$300.00",
-//     paymentMethod: "Credit Card",
-//   },
-// ]
-
-// export function DataTable() {
-//   return (
-//     <Table>
-//       <TableCaption>A list of your recent invoices.</TableCaption>
-//       <TableHeader>
-//         <TableRow>
-//           <TableHead className="w-[100px]">Invoice</TableHead>
-//           <TableHead>Status</TableHead>
-//           <TableHead>Method</TableHead>
-//           <TableHead className="text-right">Amount</TableHead>
-//         </TableRow>
-//       </TableHeader>
-//       <TableBody>
-//         {invoices.map((invoice) => (
-//           <TableRow key={invoice.invoice}>
-//             <TableCell className="font-medium">{invoice.invoice}</TableCell>
-//             <TableCell>{invoice.paymentStatus}</TableCell>
-//             <TableCell>{invoice.paymentMethod}</TableCell>
-//             <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-//           </TableRow>
-//         ))}
-//       </TableBody>
-//       <TableFooter>
-//         <TableRow>
-//           <TableCell colSpan={3}>Total</TableCell>
-//           <TableCell className="text-right">$2,500.00</TableCell>
-//         </TableRow>
-//       </TableFooter>
-//     </Table>
-//   )
-// }
-
 import * as React from "react"
 import {
   ColumnDef,
@@ -188,47 +34,68 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-const data: Payment[] = [
-  {
-    id: "m5gr84i9",
-    amount: 316,
-    status: "success",
-    email: "ken99@yahoo.com",
-  },
-  {
-    id: "3u1reuv4",
-    amount: 242,
-    status: "success",
-    email: "Abe45@gmail.com",
-  },
-  {
-    id: "derv1ws0",
-    amount: 837,
-    status: "processing",
-    email: "Monserrat44@gmail.com",
-  },
-  {
-    id: "5kma53ae",
-    amount: 874,
-    status: "success",
-    email: "Silas22@gmail.com",
-  },
-  {
-    id: "bhqecj4p",
-    amount: 721,
-    status: "failed",
-    email: "carmella@hotmail.com",
-  },
-]
 
-export type Payment = {
-  id: string
-  amount: number
-  status: "pending" | "processing" | "success" | "failed"
-  email: string
+const data: FileData01[] =[
+
+    {    
+          entity: "Africa",
+          code: "",
+          year: "1965",
+          "Renewables (% equivalent primary energy)": "5.7474947"
+    },
+    {
+          entity: "Africa",
+          code: "",
+          year: "1966",
+          "Renewables (% equivalent primary energy)": "6.122062"
+    },
+    {
+          entity: "Africa",
+          code: "",
+          year: "1967",
+          "Renewables (% equivalent primary energy)": "6.325731"
+    },
+    {
+          entity: "Africa",
+          code: "",
+          year: "1968",
+          "Renewables (% equivalent primary energy)": "7.005293"
+    },
+    {
+          entity: "Africa",
+          code: "",
+          year: "1969",
+          "Renewables (% equivalent primary energy)": "7.9560876"
+    },
+    {
+          entity: "Africa",
+          code: "",
+          year: "1970",
+          "Renewables (% equivalent primary energy)": "9.16206"
+    },
+    {
+          entity: "Africa",
+          code: "",
+          year: "1970",
+          "Renewables (% equivalent primary energy)": "9.16206"
+    },
+    {
+          entity: "Africa",
+          code: "",
+          year: "1970",
+          "Renewables (% equivalent primary energy)": "9.16206"
+    },
+  ]
+
+
+export type FileData01 = {
+  entity: string,
+  code: string,
+  year: string,
+  "Renewables (% equivalent primary energy)": string,
 }
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<FileData01>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -252,71 +119,66 @@ export const columns: ColumnDef<Payment>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("status")}</div>
-    ),
-  },
-  {
-    accessorKey: "email",
+    accessorKey: "entity",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Email
+          Entity
           <ArrowUpDown />
         </Button>
       )
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+    cell: ({ row }) => <div className="text-center">{row.getValue("entity")}</div>,
   },
   {
-    accessorKey: "amount",
-    header: () => <div className="text-right">Amount</div>,
-    cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"))
-
-      // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount)
-
-      return <div className="text-right font-medium">{formatted}</div>
-    },
-  },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const payment = row.original
-
+    accessorKey: "code",
+    header: ({ column }) => {
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
-            >
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Code
+          <ArrowUpDown />
+        </Button>
       )
     },
+    cell: ({ row }) => <div className="uppercase text-center">{row.getValue("code")}</div>,
   },
+  {
+    accessorKey: "year",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Year
+          <ArrowUpDown />
+        </Button>
+      )
+    },
+    cell: ({ row }) => <div className="text-center">{row.getValue("year")}</div>,
+  },
+  {
+    accessorKey: "renewables",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          {'Renewables (% equivalent primary energy)'}
+          <ArrowUpDown />
+        </Button>
+      )
+    },
+    cell: ({ row }) => <div className="text-center">{row.getValue("renewables")}</div>,
+  },
+  
 ]
 
 export function DataTable() {
@@ -348,13 +210,13 @@ export function DataTable() {
   })
 
   return (
-    <div data-testid='data-table' className="w-full">
+    <div data-testid='data-table' className="flex flex-col w-full h-[50vh] md:h-[70rem] bg-white rounded-2xl p-5 shadow-2xl">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          placeholder="Filter by entity..."
+          value={(table.getColumn("entity")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("entity")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -385,7 +247,7 @@ export function DataTable() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md border overflow-y-scroll">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
