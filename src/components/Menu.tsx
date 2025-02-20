@@ -24,7 +24,7 @@ export const Menu = () => {
               </div>
               <nav>
                 <ul className="flex flex-col items-center gap-6 text-2xl">
-                  <NavLink to='/home' onClick={handleClose}>Home</NavLink>
+                  <NavLink to='/' onClick={handleClose}>Home</NavLink>
                   <NavLink to='/data' onClick={handleClose}>Data</NavLink>
                   <NavLink to='/calculator' onClick={handleClose}>Calculator</NavLink>
                   <NavLink to='/dashboard' onClick={handleClose}>Dashboard</NavLink>
