@@ -1,3 +1,4 @@
+import path from "path"
 import { defineConfig as defineConfigVite,mergeConfig} from 'vite'
 import { defineConfig as defineConfigVitest} from 'vitest/config'
 import react from '@vitejs/plugin-react-swc'
@@ -6,6 +7,11 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 const viteConfig =  defineConfigVite({
   plugins: [react(),tailwindcss(),],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 });
 
 const vitestConfig =  defineConfigVitest({
