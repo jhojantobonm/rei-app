@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import { FooterApp } from "./components/FooterApp";
 import { Data } from "./pages/Data";
 import { Calculator } from "./pages/Calculator";
+import { Dashboard } from "./pages/Dashboard";
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/data" element={<Data/>}/>
         <Route path="/calculator" element={<Calculator/>}/>
-        <Route path="/dashboard" element={<div>Dashboard</div>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="*" element={<Home/>}/>
       </Routes>
       <FooterApp/>
