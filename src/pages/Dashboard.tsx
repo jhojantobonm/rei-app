@@ -1,4 +1,3 @@
-import { BarsChart } from '@/components/BarsChart'
 import { HeaderApp } from '../components/HeaderApp'
 import './Dashboard.css'
 import { ChartWrapper } from '@/components/ChartWrapper'
