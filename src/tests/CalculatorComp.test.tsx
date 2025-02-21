@@ -2,7 +2,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { CalculatorComp } from "../components/CalculatorComp";
 import { render, screen } from "@testing-library/react";
 
-describe('Test CalculatorComp page',()=>{
+describe('Test CalculatorComp component',()=>{
   let calculator: HTMLElement;
   
   beforeAll(()=>{

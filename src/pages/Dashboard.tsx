@@ -1,3 +1,4 @@
+import { BarsChart } from '@/components/BarsChart'
 import { HeaderApp } from '../components/HeaderApp'
 import './Dashboard.css'
 
@@ -10,7 +11,7 @@ export const Dashboard = () => {
         <section data-testid='dashboard-container'
           className='p-10 pb-24 md:pl-[9rem] md:pr-[9rem]'
         >
-
+          <BarsChart/>
         </section>
     </main>
   </>
