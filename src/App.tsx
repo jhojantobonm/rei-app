@@ -5,6 +5,8 @@ import { useContextApp } from "./context/useContextApp"
 import { Route, Routes } from "react-router-dom";
 import { FooterApp } from "./components/FooterApp";
 import { Data } from "./pages/Data";
+import { Calculator } from "./pages/Calculator";
+
 
 function App() {
   const {isMenuOpen} = useContextApp();
@@ -14,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/data" element={<Data/>}/>
-        <Route path="/calculator" element={<div>Calculator</div>}/>
+        <Route path="/calculator" element={<Calculator/>}/>
         <Route path="/dashboard" element={<div>Dashboard</div>}/>
         <Route path="*" element={<Home/>}/>
       </Routes>
