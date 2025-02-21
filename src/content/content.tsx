@@ -1,3 +1,4 @@
+import { BarsChart } from "@/components/BarsChart";
 import { ContentInformationBioFuel } from "../components/ContentInformationBioFuel";
 import { ContentInformationGeothermal } from "../components/ContentInformationGeothermal";
 import { ContentInformationHydro } from "../components/ContentInformationHydro";
@@ -31,3 +32,11 @@ export const content = [
     description: <ContentInformationGeothermal/> 
   },
 ];
+
+export const chartContents = [
+  {
+    title: 'Renewable Energy Production by Source',
+    description: 'Shows the amount of energy produced by each renewable source.',
+    chart: <BarsChart/>
+  }
+]
