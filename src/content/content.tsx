@@ -5,6 +5,7 @@ import { ContentInformationHydro } from "../components/ContentInformationHydro";
 import { ContentInformationSolar } from "../components/ContentInformationSolar";
 import { ContentInformationWind } from "../components/ContentInformationWind";
 import { PieChartComp } from "@/components/PieChartComp";
+import { LineChartComp } from "@/components/LineChartComp";
 
 export const content = [
   {
@@ -48,7 +49,7 @@ export const chartContents = [
   {
     title: 'Trend in installed capacity',
     description: 'It shows the evolution of the installed capacity of different renewable energy sources over time.',
-    chart: <div>3</div>
+    chart: <LineChartComp/>
   },
   {
     title: 'Comparison between Renewable and Conventional Energy Consumption',
