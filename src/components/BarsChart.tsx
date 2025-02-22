@@ -3,6 +3,7 @@ import { Bar, BarChart, XAxis, YAxis } from "recharts"
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -47,9 +48,10 @@ const chartConfig = {
 export const BarsChart = ()=>{
 
   return(
-    <Card data-testid='bars-chart-component' className="text-[1.4rem]">
+    <Card data-testid='bars-chart-component'>
       <CardHeader>
-        <CardTitle>Renewable energy production</CardTitle>
+        <CardTitle className="text-[1.4rem] text-center">Renewable energy production</CardTitle>
+        <CardDescription className="text-[1rem] text-center">From 1965 to 2022</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
