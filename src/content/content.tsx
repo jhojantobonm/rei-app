@@ -6,6 +6,7 @@ import { ContentInformationSolar } from "../components/ContentInformationSolar";
 import { ContentInformationWind } from "../components/ContentInformationWind";
 import { PieChartComp } from "@/components/PieChartComp";
 import { LineChartComp } from "@/components/LineChartComp";
+import { AreaChartComp } from "@/components/AreaChartComp";
 
 export const content = [
   {
@@ -54,6 +55,6 @@ export const chartContents = [
   {
     title: 'Comparison between Renewable and Conventional Energy Consumption',
     description: 'Compares renewable energy consumption with conventional energy consumption over time.',
-    chart: <div>4</div>
+    chart: <AreaChartComp/>
   },
 ]
