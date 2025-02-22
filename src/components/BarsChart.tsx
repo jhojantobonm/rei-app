@@ -1,4 +1,4 @@
-import { Bar, BarChart, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, LabelList, XAxis, YAxis } from "recharts"
 
 import {
   Card,
@@ -81,7 +81,15 @@ export const BarsChart = ()=>{
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <Bar dataKey="capacity" layout="vertical" radius={5} />
+            <Bar dataKey="capacity" layout="vertical" radius={5}>
+            <LabelList
+                dataKey="capacity"
+                position="right"
+                offset={8}
+                className="fill-[--color-label]"
+                fontSize={8}
+              />
+            </Bar>
           </BarChart>
         </ChartContainer>
       </CardContent>

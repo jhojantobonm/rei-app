@@ -13,14 +13,16 @@ import {
 import {
   ChartConfig,
   ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
 const chartData = [
-  { browser: "hydro", participation: 275, fill: "var(--color-hydro)" },
-  { browser: "wind", participation: 200, fill: "var(--color-wind)" },
-  { browser: "solar", participation: 287, fill: "var(--color-solar)" },
-  { browser: "otherRenewables", participation: 190, fill: "var(--color-otherRenewables)" },
+  { source: "hydro", participation: 275, fill: "var(--color-hydro)" },
+  { source: "wind", participation: 200, fill: "var(--color-wind)" },
+  { source: "solar", participation: 287, fill: "var(--color-solar)" },
+  { source: "otherRenewables", participation: 190, fill: "var(--color-otherRenewables)" },
 ]
 
 const chartConfig = {
@@ -66,12 +68,15 @@ const totalVisitors = React.useMemo(() => {
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
+
             <Pie
               data={chartData}
               dataKey="participation"
-              nameKey="browser"
-              innerRadius={60}
-              strokeWidth={5}
+              nameKey="source"
+              innerRadius={40}
+              strokeWidth={1}
+              label
+              
             >
               <Label
                 content={({ viewBox }) => {
@@ -103,17 +108,21 @@ const totalVisitors = React.useMemo(() => {
                 }}
               />
             </Pie>
+            <ChartLegend
+              content={<ChartLegendContent nameKey="source" />}
+              className="-translate-y-2 flex-wrap  gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
+            />
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
+      {/* <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
           Showing total participation for the last 6 months
         </div>
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   )
 }
