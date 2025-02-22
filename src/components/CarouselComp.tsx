@@ -1,7 +1,8 @@
 import { chartContents } from "@/content/content";
 import { useContextApp } from "@/context/useContextApp";
-import { useEffect} from "react"
-
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
+import { CarouselCompItem } from "./CarouselCompItem";
 
 export const CarouselComp: React.FC = ()=>{
   const {carouselCount,setCarouselCount} = useContextApp();
@@ -18,24 +19,19 @@ export const CarouselComp: React.FC = ()=>{
     if(carouselCount <= 0)
       setCarouselCount(length-1);
   }
-
-  useEffect(()=>{
-    console.log(carouselCount);
-
-  },[carouselCount])
   
   return(
-    <div data-testid='carousel-component' className="flex justify-center gap-7">
-      <button type="button" onClick={handleClickDecrease}>Prev</button>
-        <ul className="flex justify-center gap-8">
+    <div data-testid='carousel-component' className="flex flex-wrap justify-center gap-7 items-center my-10">
+      <button type="button" onClick={handleClickDecrease} className="cursor-pointer"><IoIosArrowBack size='3rem'/></button>
+        <ul className="flex flex-wrap justify-center items-center gap-8">
           {
-            chartContents.map(c=>{
-              return <li key={c.title} className="w-[1rem] h-[1rem] bg-amber-700 rounded-full"></li>
+            chartContents.map((c,i)=>{
+              return <CarouselCompItem key={c.title} i={i} />
             })
             
           }
         </ul>
-      <button type="button" onClick={handleClickIncrease}>Next</button>
+      <button type="button" onClick={handleClickIncrease} className="cursor-pointer"><IoIosArrowForward size='3rem'/></button>
     </div>
   )
 }
