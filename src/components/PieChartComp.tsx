@@ -43,7 +43,7 @@ const chartConfig = {
   },
   otherRenewables: {
     label: "Other Renewables",
-    color: "hsl(27 87% 67%)",
+    color: "hsl(300, 95%, 36%)",
   },
 } satisfies ChartConfig
 

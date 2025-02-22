@@ -41,7 +41,7 @@ const chartConfig = {
   },
   geothermal: {
     label: "Geothermal",
-    color: "hsl(27 87% 67%)",
+    color: "hsl(2 87% 67%)",
   },
 } satisfies ChartConfig
 
