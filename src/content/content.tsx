@@ -4,6 +4,7 @@ import { ContentInformationGeothermal } from "../components/ContentInformationGe
 import { ContentInformationHydro } from "../components/ContentInformationHydro";
 import { ContentInformationSolar } from "../components/ContentInformationSolar";
 import { ContentInformationWind } from "../components/ContentInformationWind";
+import { PieChartComp } from "@/components/PieChartComp";
 
 export const content = [
   {
@@ -42,7 +43,7 @@ export const chartContents = [
   {
     title: 'Participation of Renewable Energies',
     description: 'Shows the percentage of each type of renewable energy in total electricity consumption.',
-    chart: <div>2</div>
+    chart: <PieChartComp/>
   },
   {
     title: 'Trend in installed capacity',
@@ -51,7 +52,7 @@ export const chartContents = [
   },
   {
     title: 'Comparison between Renewable and Conventional Energy Consumption',
-    description: 'Compara el consumo de energía renovable con el consumo de energía convencional a lo largo del tiempo.',
+    description: 'Compares renewable energy consumption with conventional energy consumption over time.',
     chart: <div>4</div>
   },
 ]
