@@ -1,3 +1,5 @@
+import './HeaderApp.css'
+
 import { MenuButton } from "./MenuButton"
 
 export const HeaderApp = ({title}:{title?:string})=>{
