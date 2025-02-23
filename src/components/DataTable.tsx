@@ -32,13 +32,14 @@ import {
 } from "@/components/ui/table"
 
 
-const data: FileData01[] =[
+const data =[
 
     {    
           Entity: "Africa",
           Code: "",
           Year: "1965",
-          "Renewables (% equivalent primary energy)": "5.7474947"
+          "Renewables (% equivalent primary energy)": "5.7474947",
+          Other: "5.7474947",
     },
     {
           Entity: "Africa",
@@ -85,14 +86,28 @@ const data: FileData01[] =[
   ]
 
 
-export type FileData01 = {
-  Entity: string,
-  Code: string,
-  Year: string,
-  "Renewables (% equivalent primary energy)": string,
-}
+const dataKeys = Object.keys(data[0]);
 
-export const columns: ColumnDef<FileData01>[] = [
+const templateColumns: ColumnDef<typeof data[0]>[]= dataKeys.map((key)=>{
+  return {
+    accessorKey: key,
+    header: ({ column }) => {
+      return (
+        <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          {key}
+          <ArrowUpDown />
+        </Button>
+      )
+    },
+    cell: ({ row }) => <div className="text-center">{row.getValue(key)}</div>,
+  }
+})
+
+
+export const columns: ColumnDef<typeof data[0]>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -115,68 +130,9 @@ export const columns: ColumnDef<FileData01>[] = [
     enableSorting: false,
     enableHiding: false,
   },
-  {
-    accessorKey: "Entity",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Entity
-          <ArrowUpDown />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <div className="text-center">{row.getValue("Entity")}</div>,
-  },
-  {
-    accessorKey: "Code",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Code
-          <ArrowUpDown />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <div className="uppercase text-center">{row.getValue("Code")}</div>,
-  },
-  {
-    accessorKey: "Year",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Year
-          <ArrowUpDown />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <div className="text-center">{row.getValue("Year")}</div>,
-  },
-  {
-    accessorKey: "Renewables",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          {'Renewables (% equivalent primary energy)'}
-          <ArrowUpDown />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <div className="text-center">{row.getValue("Renewables")}</div>,
-  },
-  
+  ...templateColumns
 ]
+
 
 export function DataTable() {
   const keys = Object.keys(data[0]);
@@ -206,6 +162,8 @@ export function DataTable() {
       rowSelection,
     },
   })
+
+
 
   return (
     <div data-testid='data-table' className="flex flex-col w-full md:h-[70rem] bg-white rounded-2xl p-5 mt-5 shadow-2xl">
