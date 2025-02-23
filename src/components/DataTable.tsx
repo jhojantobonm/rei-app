@@ -11,7 +11,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, ChevronDown } from "lucide-react"
+import { ArrowUpDown, ChevronDown, Key } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -35,60 +35,60 @@ import {
 const data: FileData01[] =[
 
     {    
-          entity: "Africa",
-          code: "",
-          year: "1965",
+          Entity: "Africa",
+          Code: "",
+          Year: "1965",
           "Renewables (% equivalent primary energy)": "5.7474947"
     },
     {
-          entity: "Africa",
-          code: "",
-          year: "1966",
+          Entity: "Africa",
+          Code: "",
+          Year: "1966",
           "Renewables (% equivalent primary energy)": "6.122062"
     },
     {
-          entity: "Africa",
-          code: "",
-          year: "1967",
+          Entity: "Africa",
+          Code: "",
+          Year: "1967",
           "Renewables (% equivalent primary energy)": "6.325731"
     },
     {
-          entity: "Africa",
-          code: "",
-          year: "1968",
+          Entity: "Africa",
+          Code: "",
+          Year: "1968",
           "Renewables (% equivalent primary energy)": "7.005293"
     },
     {
-          entity: "Africa",
-          code: "",
-          year: "1969",
+          Entity: "Africa",
+          Code: "",
+          Year: "1969",
           "Renewables (% equivalent primary energy)": "7.9560876"
     },
     {
-          entity: "Africa",
-          code: "",
-          year: "1970",
+          Entity: "Africa",
+          Code: "",
+          Year: "1970",
           "Renewables (% equivalent primary energy)": "9.16206"
     },
     {
-          entity: "Africa",
-          code: "",
-          year: "1970",
+          Entity: "Africa",
+          Code: "",
+          Year: "1970",
           "Renewables (% equivalent primary energy)": "9.16206"
     },
     {
-          entity: "Africa",
-          code: "",
-          year: "1970",
+          Entity: "Africa",
+          Code: "",
+          Year: "1970",
           "Renewables (% equivalent primary energy)": "9.16206"
     },
   ]
 
 
 export type FileData01 = {
-  entity: string,
-  code: string,
-  year: string,
+  Entity: string,
+  Code: string,
+  Year: string,
   "Renewables (% equivalent primary energy)": string,
 }
 
@@ -116,7 +116,7 @@ export const columns: ColumnDef<FileData01>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "entity",
+    accessorKey: "Entity",
     header: ({ column }) => {
       return (
         <Button
@@ -128,10 +128,10 @@ export const columns: ColumnDef<FileData01>[] = [
         </Button>
       )
     },
-    cell: ({ row }) => <div className="text-center">{row.getValue("entity")}</div>,
+    cell: ({ row }) => <div className="text-center">{row.getValue("Entity")}</div>,
   },
   {
-    accessorKey: "code",
+    accessorKey: "Code",
     header: ({ column }) => {
       return (
         <Button
@@ -143,10 +143,10 @@ export const columns: ColumnDef<FileData01>[] = [
         </Button>
       )
     },
-    cell: ({ row }) => <div className="uppercase text-center">{row.getValue("code")}</div>,
+    cell: ({ row }) => <div className="uppercase text-center">{row.getValue("Code")}</div>,
   },
   {
-    accessorKey: "year",
+    accessorKey: "Year",
     header: ({ column }) => {
       return (
         <Button
@@ -158,10 +158,10 @@ export const columns: ColumnDef<FileData01>[] = [
         </Button>
       )
     },
-    cell: ({ row }) => <div className="text-center">{row.getValue("year")}</div>,
+    cell: ({ row }) => <div className="text-center">{row.getValue("Year")}</div>,
   },
   {
-    accessorKey: "renewables",
+    accessorKey: "Renewables",
     header: ({ column }) => {
       return (
         <Button
@@ -173,16 +173,17 @@ export const columns: ColumnDef<FileData01>[] = [
         </Button>
       )
     },
-    cell: ({ row }) => <div className="text-center">{row.getValue("renewables")}</div>,
+    cell: ({ row }) => <div className="text-center">{row.getValue("Renewables")}</div>,
   },
   
 ]
 
 export function DataTable() {
+  const keys = Object.keys(data[0]);
   const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  )
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+  const [filterValue, setFilterValue] = React.useState<string>(keys[0])
+
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = React.useState({})
@@ -207,44 +208,77 @@ export function DataTable() {
   })
 
   return (
-    <div data-testid='data-table' className="flex flex-col w-full h-[50vh] md:h-[70rem] bg-white rounded-2xl p-5 mt-5 shadow-2xl">
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter by entity..."
-          value={(table.getColumn("entity")?.getFilterValue() as string) ?? ""}
+    <div data-testid='data-table' className="flex flex-col w-full md:h-[70rem] bg-white rounded-2xl p-5 mt-5 shadow-2xl">
+      <div className="flex flex-wrap justify-between py-4 gap-3">
+        <div className="flex flex-wrap gap-3">   
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="ml-auto">
+                Filter by {filterValue} <ChevronDown />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {table
+                .getAllColumns()
+                .filter((column) => column.getCanHide())
+                .map((column) => {
+                  return (
+                    <DropdownMenuCheckboxItem
+                      key={column.id}
+                      className="capitalize"
+                      // checked={column.getIsVisible()}
+                      onCheckedChange={()=>{
+                  
+                        setFilterValue(column.id);
+                      }}
+                      >
+                      {column.id}
+                    </DropdownMenuCheckboxItem>
+                  )
+                })}
+            </DropdownMenuContent>
+          </DropdownMenu>     
+          <Input
+          placeholder={`Filter by ${filterValue}...`}
+          value={(table.getColumn(filterValue)?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("entity")?.setFilterValue(event.target.value)
+            table.getColumn(filterValue)?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Columns <ChevronDown />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                )
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+
+        </div>
+        <div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="ml-auto">
+                Show columns <ChevronDown />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {table
+                .getAllColumns()
+                .filter((column) => column.getCanHide())
+                .map((column) => {
+                  return (
+                    <DropdownMenuCheckboxItem
+                      key={column.id}
+                      className="capitalize"
+                      checked={column.getIsVisible()}
+                      onCheckedChange={(value) =>
+                        column.toggleVisibility(!!value)
+                      }
+                    >
+                      {column.id}
+                    </DropdownMenuCheckboxItem>
+                  )
+                })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+
       </div>
-      <div className="rounded-md border overflow-y-scroll">
+      <div className="rounded-md border overflow-y-scroll h-full">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
