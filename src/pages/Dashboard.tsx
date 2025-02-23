@@ -5,9 +5,6 @@ import { chartContents } from '@/content/content'
 import { CarouselComp } from '@/components/CarouselComp'
 import { useContextApp } from '@/context/useContextApp'
 
-
-
-
 export const Dashboard = () => {
   const {carouselCount} = useContextApp();
 
@@ -15,7 +12,7 @@ export const Dashboard = () => {
   <>
     <HeaderApp title='DASHBOARD'/>
     <main>
-        <section data-testid='dashboard-container'
+        <section data-testid='dashboard-container' id='dashboard-container'
           className='p-10 pb-24 md:pl-[9rem] md:pr-[9rem]'
         >
           <CarouselComp/>

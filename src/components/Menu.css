@@ -1,3 +1,16 @@
 #menu{
+  animation: move-menu 0.3s ease-in-out forwards;
+}
+#menu-modal{
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+@keyframes move-menu {
+  0% {
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+

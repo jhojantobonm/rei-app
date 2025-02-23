@@ -11,7 +11,7 @@ export function Loader(){
   }, []);
   return<>
   {isLoading ? (<div className="w-screen h-screen flex justify-center items-center animate-spin">
-    <AiOutlineLoading3Quarters size={'3rem'}/>
+    <AiOutlineLoading3Quarters size={'6rem'} color="green"/>
 
   </div>) : <App /> }
   </> 

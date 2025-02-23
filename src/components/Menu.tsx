@@ -4,7 +4,7 @@ import { useContextApp } from "../context/useContextApp";
 import { NavLink } from "react-router-dom";
 
 export const Menu = () => {
-    const {setIsMenuOpen} = useContextApp();
+    const {isMenuOpen,setIsMenuOpen} = useContextApp();
 
     const handleClose = ()=>{
       setIsMenuOpen(false);
@@ -17,8 +17,11 @@ export const Menu = () => {
     return (
       <>
         <div data-testid='menu' 
-          className="fixed top-0 left-0 right-0 bottom-0" id='menu' onClick={handleClose}>
-            <div className='bg-white h-full w-[24rem] p-4' onClick={handlePropagation}>
+          className="fixed top-0 left-0 right-0 bottom-0" id='menu-modal' onClick={handleClose}>
+          <div className='bg-white h-full w-[24rem] p-4' onClick={handlePropagation}
+            id='menu'
+          > 
+            
               <div className="flex justify-end">
                 <IoClose size={'2.4rem'} className="cursor-pointer" onClick={handleClose}/>
               </div>
@@ -30,8 +33,8 @@ export const Menu = () => {
                   <NavLink to='/dashboard' onClick={handleClose}>Dashboard</NavLink>
                 </ul>
               </nav>
-            </div>
-
+            
+          </div>
 
         </div>
       
