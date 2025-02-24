@@ -4,7 +4,7 @@ import { useContextApp } from "../context/useContextApp";
 import { NavLink } from "react-router-dom";
 
 export const Menu = () => {
-    const {isMenuOpen,setIsMenuOpen} = useContextApp();
+    const {setIsMenuOpen} = useContextApp();
 
     const handleClose = ()=>{
       setIsMenuOpen(false);

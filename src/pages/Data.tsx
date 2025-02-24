@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { DataTable } from '@/components/DataTable'
 import { HeaderApp } from '../components/HeaderApp'
 

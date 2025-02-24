@@ -42,7 +42,7 @@ export function AppProvider({children}:ProviderProps){
   const [selectedFile, setSelectedFile] = useState<string>('01-renewable-share-energy.csv'); 
   
   useEffect(()=>{
-    fetchList().then(data=>setFileList(data));
+    fetchList().then(data=>setFileList(data)).catch(e=>console.log('Data Not Found',e))
   },[])
   
   return (
