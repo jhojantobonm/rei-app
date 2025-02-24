@@ -1,0 +1,14 @@
+import { config } from "@/config/config";
+
+export const fetchList = async ()=>{
+  const apiUrl = import.meta.env.VITE_API_URL
+  const response = await fetch(`${apiUrl}/files/list`);
+  const data = await response.json();
+  return await data;
+}
+
+export const fetchFile = async (file:string)=>{
+  const response = await fetch(`${config.apiUrl}/files/${file}`);
+  const data = await response.json();
+  return await data;
+}

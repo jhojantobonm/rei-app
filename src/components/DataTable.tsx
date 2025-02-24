@@ -11,7 +11,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, ChevronDown, Key } from "lucide-react"
+import { ArrowUpDown, ChevronDown } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -30,6 +30,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { useContextApp } from "@/context/useContextApp"
+import { fetchFile } from "@/utils/dataFetch"
+
+
+
 
 
 const data =[
@@ -83,58 +88,62 @@ const data =[
           Year: "1970",
           "Renewables (% equivalent primary energy)": "9.16206"
     },
-  ]
-
-
-const dataKeys = Object.keys(data[0]);
-
-const templateColumns: ColumnDef<typeof data[0]>[]= dataKeys.map((key)=>{
-  return {
-    accessorKey: key,
-    header: ({ column }) => {
-      return (
-        <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          {key}
-          <ArrowUpDown />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <div className="text-center">{row.getValue(key)}</div>,
-  }
-})
-
-
-export const columns: ColumnDef<typeof data[0]>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  ...templateColumns
 ]
 
 
+
+
+
 export function DataTable() {
+  const dataKeys = Object.keys(data[0]);
+
+  const templateColumns: ColumnDef<typeof data[0]>[]= dataKeys.map((key)=>{
+    return {
+      accessorKey: key,
+      header: ({ column }) => {
+        return (
+          <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            {key}
+            <ArrowUpDown />
+          </Button>
+        )
+      },
+      cell: ({ row }) => <div className="text-center">{row.getValue(key)}</div>,
+    }
+  })
+
+  const columns: ColumnDef<typeof data[0]>[] = [
+    {
+      id: "select",
+      header: ({ table }) => (
+        <Checkbox
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && "indeterminate")
+          }
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
+        />
+      ),
+      cell: ({ row }) => (
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        />
+      ),
+      enableSorting: false,
+      enableHiding: false,
+    },
+    ...templateColumns
+  ]
+
+
+  const {selectedFile} = useContextApp();
+
   const keys = Object.keys(data[0]);
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
@@ -163,6 +172,10 @@ export function DataTable() {
     },
   })
 
+  React.useEffect(()=>{
+    fetchFile(selectedFile).then(data=>console.log((data))
+    );
+  },[selectedFile])
 
 
   return (
