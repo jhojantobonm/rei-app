@@ -193,9 +193,9 @@ export function DataTable() {
     },
   })
   
-  const handleMousedown = (size: number)=>{
-    setPageSize(size)
-  }
+    const handleMousedown = (size: number)=>{
+      setPageSize(size)
+    }
 
 
   React.useEffect(()=>{
@@ -281,7 +281,7 @@ export function DataTable() {
             <SelectGroup>
               <SelectLabel>Number of rows</SelectLabel>
                 {[10, 20, 30, 50, 100].map((size) => (
-                  <SelectItem key={size} value={size + ''} onMouseDown={()=>handleMousedown(size)}>
+                  <SelectItem key={size} value={size + ''} onMouseDown={()=>handleMousedown(size)} >
                     Show {size}
                   </SelectItem>
                 ))}
