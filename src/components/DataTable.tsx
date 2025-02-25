@@ -32,69 +32,81 @@ import {
 } from "@/components/ui/table"
 import { useContextApp } from "@/context/useContextApp"
 import { fetchFile } from "@/utils/dataFetch"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "./ui/select"
 
 
 
 
 
-const data =[
+// const data =[
 
-    {    
-          Entity: "Africa",
-          Code: "",
-          Year: "1965",
-          "Renewables (% equivalent primary energy)": "5.7474947",
-          Other: "5.7474947",
-    },
-    {
-          Entity: "Africa",
-          Code: "",
-          Year: "1966",
-          "Renewables (% equivalent primary energy)": "6.122062"
-    },
-    {
-          Entity: "Africa",
-          Code: "",
-          Year: "1967",
-          "Renewables (% equivalent primary energy)": "6.325731"
-    },
-    {
-          Entity: "Africa",
-          Code: "",
-          Year: "1968",
-          "Renewables (% equivalent primary energy)": "7.005293"
-    },
-    {
-          Entity: "Africa",
-          Code: "",
-          Year: "1969",
-          "Renewables (% equivalent primary energy)": "7.9560876"
-    },
-    {
-          Entity: "Africa",
-          Code: "",
-          Year: "1970",
-          "Renewables (% equivalent primary energy)": "9.16206"
-    },
-    {
-          Entity: "Africa",
-          Code: "",
-          Year: "1970",
-          "Renewables (% equivalent primary energy)": "9.16206"
-    },
-    {
-          Entity: "Africa",
-          Code: "",
-          Year: "1970",
-          "Renewables (% equivalent primary energy)": "9.16206"
-    },
-]
-
+//     {    
+//           Entity: "Africa",
+//           Code: "",
+//           Year: "1965",
+//           "Renewables (% equivalent primary energy)": "5.7474947",
+//           Other: "5.7474947",
+//     },
+//     {
+//           Entity: "Africa",
+//           Code: "",
+//           Year: "1966",
+//           "Renewables (% equivalent primary energy)": "6.122062"
+//     },
+//     {
+//           Entity: "Africa",
+//           Code: "",
+//           Year: "1967",
+//           "Renewables (% equivalent primary energy)": "6.325731"
+//     },
+//     {
+//           Entity: "Africa",
+//           Code: "",
+//           Year: "1968",
+//           "Renewables (% equivalent primary energy)": "7.005293"
+//     },
+//     {
+//           Entity: "Africa",
+//           Code: "",
+//           Year: "1969",
+//           "Renewables (% equivalent primary energy)": "7.9560876"
+//     },
+//     {
+//           Entity: "Africa",
+//           Code: "",
+//           Year: "1970",
+//           "Renewables (% equivalent primary energy)": "9.16206"
+//     },
+//     {
+//           Entity: "Africa",
+//           Code: "",
+//           Year: "1970",
+//           "Renewables (% equivalent primary energy)": "9.16206"
+//     },
+//     {
+//           Entity: "Africa",
+//           Code: "",
+//           Year: "1970",
+//           "Renewables (% equivalent primary energy)": "9.16206"
+//     },
+// ]
 
 
 
 
 export function DataTable() {
+  const [data, setData] = React.useState([
+    {    
+      Entity: "",
+      Code: "",
+      Year: "",
+      "Renewables (% equivalent primary energy)": "",
+    }
+  ]);
+
+  const [pageSize, setPageSize] = React.useState<number>(20);
+  const [pageIndex, setPageIndex] = React.useState(0);
+
   const dataKeys = Object.keys(data[0]);
 
   const templateColumns: ColumnDef<typeof data[0]>[]= dataKeys.map((key)=>{
@@ -169,14 +181,28 @@ export function DataTable() {
       columnFilters,
       columnVisibility,
       rowSelection,
+      pagination: {
+        pageIndex,
+        pageSize,
+      },
+    },
+    onPaginationChange: (updater) => {
+      const newPagination = typeof updater === "function" ? updater({ pageIndex, pageSize }) : updater;
+      setPageIndex(newPagination.pageIndex);
+      setPageSize(newPagination.pageSize);
     },
   })
+  
+  const handleMousedown = (size: number)=>{
+    setPageSize(size)
+  }
+
 
   React.useEffect(()=>{
-    fetchFile(selectedFile).then(data=>console.log((data))
-    );
+    fetchFile(selectedFile).then(data=>setData(data)).catch(e=>console.log('Data Not Found',e));
   },[selectedFile])
 
+  
 
   return (
     <div data-testid='data-table' className="flex flex-col w-full md:h-[70rem] bg-white rounded-2xl p-5 mt-5 shadow-2xl">
@@ -247,7 +273,22 @@ export function DataTable() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
+        <Select>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Select a size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Number of rows</SelectLabel>
+                {[10, 20, 30, 50, 100].map((size) => (
+                  <SelectItem key={size} value={size + ''} onMouseDown={()=>handleMousedown(size)}>
+                    Show {size}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+          </SelectContent>
 
+        </Select>
       </div>
       <div className="rounded-md border overflow-y-scroll h-full">
         <Table>
@@ -308,7 +349,7 @@ export function DataTable() {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => table.previousPage()}
+            onClick={() => setPageIndex(prev=> prev -1)}
             disabled={!table.getCanPreviousPage()}
           >
             Previous
@@ -316,8 +357,9 @@ export function DataTable() {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => table.nextPage()}
+            onClick={() => setPageIndex(prev=>prev + 1)}
             disabled={!table.getCanNextPage()}
+            
           >
             Next
           </Button>
