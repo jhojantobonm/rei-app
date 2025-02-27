@@ -8,11 +8,13 @@ type Props = {
   carouselCount: number,
   fileList:string[],
   selectedFile: string,
+  year: string,
   setContentId:React.Dispatch<React.SetStateAction<number>>,
   setIsMenuOpen:React.Dispatch<React.SetStateAction<boolean>>,
   setCarouselCount:React.Dispatch<React.SetStateAction<number>>,
   setFileList:React.Dispatch<React.SetStateAction<string[]>>,
   setSelectedFile:React.Dispatch<React.SetStateAction<string>>,
+  setYear:React.Dispatch<React.SetStateAction<string>>,
 }
 
 
@@ -22,11 +24,13 @@ export const AppContext = createContext<Props>({
   carouselCount: 0,
   fileList: [],
   selectedFile:'',
+  year: '',
   setContentId: ()=>{},
   setIsMenuOpen: ()=>{},
   setCarouselCount: ()=>{},
   setFileList: ()=>{},
   setSelectedFile: ()=>{},
+  setYear: ()=>{},
 
 });
 
@@ -40,9 +44,11 @@ export function AppProvider({children}:ProviderProps){
   const [carouselCount, setCarouselCount] = useState<number>(0);
   const [fileList, setFileList] = useState<string[]>([]) 
   const [selectedFile, setSelectedFile] = useState<string>('01-renewable-share-energy.csv'); 
+  const [year, setYear] = useState<string>('2022');
   
   useEffect(()=>{
-    fetchList().then(data=>setFileList(data)).catch(e=>console.log('Data Not Found',e))
+    fetchList().then(data=>setFileList(data)).catch(e=>console.log('Data Not Found',e));
+
   },[])
   
   return (
@@ -52,11 +58,13 @@ export function AppProvider({children}:ProviderProps){
       carouselCount,
       fileList,
       selectedFile,
+      year,
       setContentId,
       setIsMenuOpen,
       setCarouselCount,
       setFileList,
       setSelectedFile,
+      setYear
     }}>
       {children}
     </AppContext.Provider>

@@ -4,6 +4,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -15,6 +16,8 @@ import {
 } from "@/components/ui/chart"
 import { useEffect, useState } from "react"
 import { fetchBarsChartData } from "@/utils/dataFetch"
+import { YearSelector } from "./YearSelector"
+import { useContextApp } from "@/context/useContextApp"
 
 // const chartData = [
 //   { source: "hydro", capacity: 500, fill: "var(--color-hydro)" },
@@ -48,18 +51,40 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export const BarsChart = ()=>{
-  const [dataChart, setData] = useState<unknown[]>([])
-  useEffect(()=>{
-    fetchBarsChartData().then(data=>setData(data));
-  },[])
-  
+interface BarProps {
+  source: string,
+  capacity: number,
+  fill: string
+}
 
+export const BarsChart = ()=>{
+  const [dataChart, setData] = useState<BarProps[]>([]);
+  const [hydro, setHydro] = useState<number>(0);
+  const [wind, setWind] = useState<number>(0);
+  const [solar, setSolar] = useState<number>(0);
+  const [biofuel, setBiofuel] = useState<number>(0);
+  const [geo, setGeo] = useState<number>(0);
+
+  const {year} = useContextApp()
+  
+  useEffect(()=>{
+    fetchBarsChartData(year).then(data=>{
+      setData(data);
+      setHydro(data[0].capacity);
+      setWind(data[1].capacity);
+      setSolar(data[2].capacity);
+      setBiofuel(data[3].capacity);
+      setGeo(data[4].capacity);
+    });
+    
+  },[year])
+  
   return(
     <Card data-testid='bars-chart-component'>
       <CardHeader>
         <CardTitle className="text-[1.4rem] text-center">Renewable energy production</CardTitle>
-        <CardDescription className="text-[1rem] text-center">From 1965 to 2022</CardDescription>
+        <CardDescription className="text-[1rem] text-center">Data in {year}</CardDescription>
+        <YearSelector/>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -77,30 +102,42 @@ export const BarsChart = ()=>{
               dataKey="source"
               type="category"
               tickLine={false}
-              tickMargin={10}
+              tickMargin={0}
               axisLine={false}
               tickFormatter={(value) =>
                 chartConfig[value as keyof typeof chartConfig]?.label
               }
-              fontSize='0.8rem'
+              fontSize='0.9rem'
+              
             />
             <XAxis dataKey="capacity" type="number" hide />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              content={<ChartTooltipContent />}
             />
-            <Bar dataKey="capacity" layout="vertical" radius={5}>
-            <LabelList
+            <Bar dataKey="capacity" layout="vertical" radius={5} >
+            {/* <LabelList
                 dataKey="capacity"
                 position="right"
                 offset={8}
                 className="fill-[--color-label]"
                 fontSize={8}
-              />
+              /> */}
             </Bar>
           </BarChart>
         </ChartContainer>
       </CardContent>
+      <CardFooter className="flex justify-center text-[1.2rem]">
+        <div>
+          <ul className="flex flex-wrap gap-6">
+            <li><span className="text-white bg-[#0095ff] p-2 rounded-2xl">Hydro</span> = {hydro + ' TWh;'}</li>
+            <li><span className="text-white bg-[#62beff] p-2 rounded-2xl">Wind</span> = {wind  + ' TWh;'}</li>
+            <li><span className="text-white bg-[#e8c468] p-2 rounded-2xl">Solar</span> = {solar    + ' TWh;'}</li> 
+            <li><span className="text-white bg-[#069932] p-2 rounded-2xl">Biofuel</span> = {biofuel    + ' TWh;'}</li>
+            <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">Geothermal</span> = {geo    + ' TWh'}</li>
+          </ul> 
+        </div>  
+      </CardFooter>
     </Card>
   )
 }

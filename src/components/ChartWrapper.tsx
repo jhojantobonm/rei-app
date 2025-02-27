@@ -26,7 +26,7 @@ export const ChartWrapper = ({title, desc, children}: Props)=>{
   return(
     <motion.div data-testid='chart-wrapper-component'
       animate={{ scale: isScaled ? 0 : 1 }}
-      transition={{type: 'spring', duration: 0.1,bounce:0.5 }}
+      transition={{type: 'spring', duration: 0.5,bounce:0.5 }}
     >
       <h2 className="text-[1.5rem] text-center font-semibold">{title}</h2>
       <p className="text-[1.4rem] mt-3.5">{desc}</p>

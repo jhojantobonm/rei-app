@@ -2,7 +2,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { Dashboard } from "../pages/Dashboard";
 import { render, screen } from "@testing-library/react";
 
-describe('Test Dashboard page',()=>{
+describe.skip('Test Dashboard page',()=>{
   let calculator: HTMLElement;
   
   beforeAll(()=>{

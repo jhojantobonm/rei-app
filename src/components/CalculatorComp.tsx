@@ -5,7 +5,8 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "./ui/select"
 import { fetchRenewableData } from "@/utils/dataFetch"
 import { useEffect, useState } from "react"
-import { CheckedState } from "@radix-ui/react-checkbox"
+import { YearSelector } from "./YearSelector"
+import { useContextApp } from "@/context/useContextApp"
 
 const years: number[] = []
 for (let i = 1965; i <= 2022; i++) {
@@ -19,7 +20,8 @@ export const CalculatorComp = ()=>{
     { source: "renewable", "capacity (TWh)": 323, year: "2022" },
     { source: "non-renewable", "capacity (TWh)": 18120, year: "2022" },
   ])
-  const [year, setYear] = useState('2022');
+  // const [year, setYear] = useState('2022');
+  const {year, setYear} = useContextApp()  
   const [calculate, setCalculate] = useState<boolean>(false);
   const [totalCapacity, setTotalCapacity] = useState<string>('0');
   const [consumption, setConsumption] = useState<string>('0');
@@ -98,7 +100,7 @@ export const CalculatorComp = ()=>{
 
   const handleChecked = (e: boolean)=>{
     
-    setIsChecked(e);
+  setIsChecked(e);
     if (!e) {
       setTotalCapacity(String(data[0]['capacity (TWh)'] + data[1]['capacity (TWh)']));
     }
@@ -107,29 +109,15 @@ export const CalculatorComp = ()=>{
   
   useEffect(()=>{
     setTotalCapacity(String(data[0]['capacity (TWh)'] + data[1]['capacity (TWh)']));
-  },[]);
+    handleMousedown(year);
+  },[year]);
 
   return(
     <div data-testid='calculator-component' className="flex flex-col flex-wrap gap-7 md:gap-20">
       
       <div>
         <p className="text-[1.4rem] pb-2">Data from 03-modern-renewable-prod.csv file</p>
-        <Select>
-          <SelectTrigger className="w-[180px] bg-white text-[1.4rem] p-8 rounded-2xl">
-            <SelectValue placeholder="Select the year"/>
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel className="text-[1.4rem]">Year</SelectLabel>
-                {years.map((y) => (
-                  <SelectItem key={y} value={y + ''} onMouseDown={()=>handleMousedown(y+'')} className="text-[1.4rem]">
-                    {y}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-          </SelectContent>
-
-        </Select>
+        <YearSelector/>
       </div>
       <div>
         <Label htmlFor="consumption" className="text-[1.4rem] font-light">* Total electrical consumption (kWh):</Label>

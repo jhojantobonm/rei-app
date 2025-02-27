@@ -19,8 +19,8 @@ export const fetchRenewableData = async (year?:string)=>{
   return await data;
 }
 
-export const fetchBarsChartData = async ()=>{
-  const response = await fetch(`${config.apiUrl}/bars-chart`);
+export const fetchBarsChartData = async (year?:string)=>{
+  const response = await fetch(`${config.apiUrl}/bars-chart?year=${year}`);
   const data = await response.json();
   return await data;
 }
