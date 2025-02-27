@@ -24,3 +24,9 @@ export const fetchBarsChartData = async (year?:string)=>{
   const data = await response.json();
   return await data;
 }
+
+export const fetchPieChartData = async (year?:string)=>{
+  const response = await fetch(`${config.apiUrl}/pie-chart?year=${year}`);
+  const data = await response.json();
+  return await data;
+}
