@@ -12,3 +12,9 @@ export const fetchFile = async (file:string)=>{
   const data = await response.json();
   return await data;
 }
+
+export const fetchRenewableData = async (year?:string)=>{
+  const response = await fetch(`${config.apiUrl}/calculator?year=${year}`);
+  const data = await response.json();
+  return await data;
+}
