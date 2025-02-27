@@ -151,7 +151,8 @@ export const PieChartComp = ()=>{
           <PieChart>
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              content={<ChartTooltipContent className="p-4 text-[1.2rem]"/>}
+            
             />
 
             <Pie
@@ -161,6 +162,7 @@ export const PieChartComp = ()=>{
               innerRadius={40}
               strokeWidth={1}
               label
+              fontSize={9}
               animationDuration={500}
               
             >
@@ -194,14 +196,10 @@ export const PieChartComp = ()=>{
                 }}
               />
             </Pie>
-            {/* <ChartLegend
-              content={<ChartLegendContent nameKey="source" />}
-              className="-translate-y-2 flex-wrap  gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
-            /> */}
           </PieChart>
         </ChartContainer>}
         {total === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>}
-        </CardContent>
+      </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
       {total !== 0 && <div>
           <ul className="flex flex-wrap gap-6">
@@ -211,9 +209,6 @@ export const PieChartComp = ()=>{
             <li><span className="text-white bg-[#b305b3] p-2 rounded-2xl">Other Renewables</span> = {otherRenewables    + ' %;'}</li>
           </ul> 
         </div>}
-        {/* <div className="flex items-center gap-2 font-medium leading-none">
-          {total}
-        </div> */}
       </CardFooter>
     </Card>
   )

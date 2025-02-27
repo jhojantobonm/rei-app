@@ -1,4 +1,4 @@
-import { Bar, BarChart, LabelList, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, XAxis, YAxis } from "recharts"
 
 import {
   Card,
@@ -65,6 +65,7 @@ export const BarsChart = ()=>{
   const [biofuel, setBiofuel] = useState<number>(0);
   const [geo, setGeo] = useState<number>(0);
 
+
   const {year} = useContextApp()
   
   useEffect(()=>{
@@ -113,9 +114,9 @@ export const BarsChart = ()=>{
             <XAxis dataKey="capacity" type="number" hide />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent />}
+              content={<ChartTooltipContent className="p-4 text-[1.2rem]"/>}
             />
-            <Bar dataKey="capacity" layout="vertical" radius={5} >
+            <Bar dataKey="capacity" layout="vertical" radius={5} animationDuration={700} >
             {/* <LabelList
                 dataKey="capacity"
                 position="right"
