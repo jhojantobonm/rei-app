@@ -57,7 +57,7 @@ export const CalculatorComp = ()=>{
 
   const handleReset = ()=>{
     setCalculate(false);
-    setConsumption('');
+    setConsumption('0');
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{

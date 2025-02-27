@@ -13,14 +13,17 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import { useEffect, useState } from "react"
+import { fetchBarsChartData } from "@/utils/dataFetch"
 
-const chartData = [
-  { source: "hydro", capacity: 500, fill: "var(--color-hydro)" },
-  { source: "wind", capacity: 200, fill: "var(--color-wind)" },
-  { source: "solar", capacity: 187, fill: "var(--color-solar)" },
-  { source: "biofuel", capacity: 173, fill: "var(--color-biofuel)" },
-  { source: "geothermal", capacity: 90, fill: "var(--color-geothermal)" },
-]
+// const chartData = [
+//   { source: "hydro", capacity: 500, fill: "var(--color-hydro)" },
+//   { source: "wind", capacity: 200, fill: "var(--color-wind)" },
+//   { source: "solar", capacity: 187, fill: "var(--color-solar)" },
+//   { source: "biofuel", capacity: 173, fill: "var(--color-biofuel)" },
+//   { source: "geothermal", capacity: 90, fill: "var(--color-geothermal)" },
+// ]
+
 
 const chartConfig = {
   hydro: {
@@ -46,6 +49,11 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export const BarsChart = ()=>{
+  const [dataChart, setData] = useState<unknown[]>([])
+  useEffect(()=>{
+    fetchBarsChartData().then(data=>setData(data));
+  },[])
+  
 
   return(
     <Card data-testid='bars-chart-component'>
@@ -57,7 +65,7 @@ export const BarsChart = ()=>{
         <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer
-            data={chartData}
+            data={dataChart}
             layout="vertical"
             margin={{
               left: 0,
