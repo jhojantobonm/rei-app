@@ -74,7 +74,6 @@ export const PieChartComp = ()=>{
   
   useEffect(()=>{
     fetchPieChartData(year)
-    .then(res=>res.json())
     .then((data: PieProps[])=>{
 
       const totalShare =  Number(data.reduce((acc, curr) => acc + curr.share, 0).toFixed(2));

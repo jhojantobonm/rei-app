@@ -48,7 +48,6 @@ export function AppProvider({children}:ProviderProps){
   
   useEffect(()=>{
     fetchList()
-    .then(res=>res.json())
     .then(data=>setFileList(data));
 
   },[])

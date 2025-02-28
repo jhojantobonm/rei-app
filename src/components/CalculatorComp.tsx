@@ -31,7 +31,6 @@ export const CalculatorComp = ()=>{
     setCalculate(false);
     setYear(y);
     fetchRenewableData(y)
-    .then((res)=> res.json())
     .then((data)=>{
       setTotalCapacity(data[0]['capacity (TWh)'] + data[1]['capacity (TWh)'])
       setData(data);

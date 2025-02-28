@@ -70,7 +70,6 @@ export const BarsChart = ()=>{
   
   useEffect(()=>{
     fetchBarsChartData(year)
-    .then(res=>res.json())
     .then(data=>{
       setDataChart(data);
       setHydro(data[0].capacity);
