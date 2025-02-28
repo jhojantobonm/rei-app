@@ -52,6 +52,7 @@ export const AreaChartComp = ()=>{
   
     useEffect(()=>{
       fetchAreaChartData()
+        .then(res=>res.json())
         .then(data => {
           setChartData(data)
         }).catch(()=>setChartData([]))

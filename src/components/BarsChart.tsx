@@ -69,7 +69,9 @@ export const BarsChart = ()=>{
   const {year} = useContextApp()
   
   useEffect(()=>{
-    fetchBarsChartData(year).then(data=>{
+    fetchBarsChartData(year)
+    .then(res=>res.json())
+    .then(data=>{
       setDataChart(data);
       setHydro(data[0].capacity);
       setWind(data[1].capacity);

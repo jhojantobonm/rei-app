@@ -47,7 +47,9 @@ export function AppProvider({children}:ProviderProps){
   const [year, setYear] = useState<string>('2022');
   
   useEffect(()=>{
-    fetchList().then(data=>setFileList(data)).catch(e=>console.log('Data Not Found',e));
+    fetchList()
+    .then(res=>res.json())
+    .then(data=>setFileList(data));
 
   },[])
   

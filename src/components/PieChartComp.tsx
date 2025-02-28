@@ -73,7 +73,9 @@ export const PieChartComp = ()=>{
   // }, [])
   
   useEffect(()=>{
-    fetchPieChartData(year).then((data: PieProps[])=>{
+    fetchPieChartData(year)
+    .then(res=>res.json())
+    .then((data: PieProps[])=>{
 
       const totalShare =  Number(data.reduce((acc, curr) => acc + curr.share, 0).toFixed(2));
       const hydroShare = Number(((data[0].share * 100) / totalShare).toFixed(2)); 

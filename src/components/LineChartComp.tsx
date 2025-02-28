@@ -106,6 +106,7 @@ export const LineChartComp = ()=>{
 
   useEffect(()=>{
     fetchLineChartData()
+      .then(res=>res.json())
       .then(data => {
         setChartData(data)
       }).catch(()=>setChartData([]))
