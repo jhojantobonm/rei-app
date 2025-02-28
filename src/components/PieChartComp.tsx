@@ -18,6 +18,7 @@ import { YearSelector } from "./YearSelector"
 import { useContextApp } from "@/context/useContextApp"
 import { fetchPieChartData } from "@/utils/dataFetch"
 import { useEffect, useState } from "react"
+import { SpinnerComp } from "./SpinnerComp"
 
 // const chartData = [
 //   { source: "hydro", share: 275, fill: "var(--color-hydro)" },
@@ -137,7 +138,7 @@ export const PieChartComp = ()=>{
   
 
   return (
-    <Card data-testid='pie-chart-component' className="flex flex-col">
+    <Card data-testid='pie-chart-component' className="relative flex flex-col">
       <CardHeader className="">
         <CardTitle className="text-[1.4rem] text-center">Consumption share</CardTitle>
         <CardDescription className="text-[1rem] text-center">Data in {year} </CardDescription>
@@ -199,7 +200,8 @@ export const PieChartComp = ()=>{
             </Pie>
           </PieChart>
         </ChartContainer>}
-        {total === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>}
+        {total === 0 && <SpinnerComp/>}
+        {/* {total === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>} */}
       </CardContent>
       <CardFooter>
       {total !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">

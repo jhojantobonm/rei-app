@@ -17,6 +17,7 @@ import {
 import { useEffect, useState } from "react"
 import { fetchLineChartData } from "@/utils/dataFetch"
 import { useContextApp } from "@/context/useContextApp"
+import { SpinnerComp } from "./SpinnerComp"
 // const chartData = [
 //   { year: "1965", wind: -186, solar: 0, geothermal: 20 },
 //   { year: "1966", wind: 305, solar: 100, geothermal: 400 },
@@ -113,7 +114,7 @@ export const LineChartComp = ()=>{
 
 
   return (
-    <Card data-testid='linear-chart-component'>
+    <Card data-testid='linear-chart-component' className="relative">
       <CardHeader>
         <CardTitle className="text-[1.4rem] text-center">Trend in installed capacity of production</CardTitle>
         <CardDescription className="text-[1rem] text-center">From 1965 to 2022</CardDescription>
@@ -166,7 +167,8 @@ export const LineChartComp = ()=>{
             />
           </LineChart>
         </ChartContainer>}
-      {chartData.length === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>}
+      {chartData.length === 0 && <SpinnerComp/>}
+      {/* {chartData.length === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>} */}
       </CardContent>
       <CardFooter>
       {chartData.length !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">

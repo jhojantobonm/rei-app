@@ -17,6 +17,8 @@ import {
 import { useEffect, useState } from "react"
 import { fetchAreaChartData } from "@/utils/dataFetch"  
 import { useContextApp } from "@/context/useContextApp"
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
+import { SpinnerComp } from "./SpinnerComp"
 // const chartData = [
 //   { year: "January", conventional: 186, renewables: 80 },
 //   { year: "February", conventional: 305, renewables: 200 },
@@ -60,13 +62,14 @@ export const AreaChartComp = ()=>{
 
 
   return(
-    <Card data-testid='area-chart-component'>
+    <Card data-testid='area-chart-component' className="relative">
       <CardHeader>
       <CardTitle className="text-[1.4rem] text-center">Renewables vs Conventional energy consumption</CardTitle>
       <CardDescription className="text-[1rem] text-center">From 1965 to 2022</CardDescription>
       </CardHeader>
       <CardContent>
-      {chartData.length !== 0 && <ChartContainer config={chartConfig}>
+
+      <ChartContainer config={chartConfig}>
           <AreaChart
             accessibilityLayer
             data={chartData}
@@ -128,8 +131,12 @@ export const AreaChartComp = ()=>{
             />
 
           </AreaChart>
-        </ChartContainer>}
-      {chartData.length === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>}
+      </ChartContainer> 
+      
+      {chartData.length === 0 && <SpinnerComp/>}
+
+      {/* {chartData.length === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>} */}
+
       </CardContent>
       <CardFooter>
       {chartData.length !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">

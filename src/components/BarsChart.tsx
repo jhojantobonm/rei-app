@@ -18,6 +18,7 @@ import { useEffect, useState } from "react"
 import { fetchBarsChartData } from "@/utils/dataFetch"
 import { YearSelector } from "./YearSelector"
 import { useContextApp } from "@/context/useContextApp"
+import { SpinnerComp } from "./SpinnerComp"
 
 // const chartDataDummy = [
 //   { source: "hydro", capacity: 500, fill: "var(--color-hydro)" },
@@ -82,7 +83,7 @@ export const BarsChart = ()=>{
   },[year])
   
   return(
-    <Card data-testid='bars-chart-component'>
+    <Card data-testid='bars-chart-component' className="relative">
       <CardHeader>
         <CardTitle className="text-[1.4rem] text-center">Renewable energy production</CardTitle>
         <CardDescription className="text-[1rem] text-center">Data in {year}</CardDescription>
@@ -128,7 +129,8 @@ export const BarsChart = ()=>{
             </Bar>
           </BarChart>
         </ChartContainer>}
-        {chartData.length === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>}
+        {chartData.length === 0 && <SpinnerComp/>}
+        {/* {chartData.length === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>} */}
       </CardContent>
       <CardFooter>
       {chartData.length !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">
