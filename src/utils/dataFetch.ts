@@ -30,8 +30,15 @@ export const fetchPieChartData = async (year?:string)=>{
   const data = await response.json();
   return await data;
 }
+
 export const fetchLineChartData = async ()=>{
   const response = await fetch(`${config.apiUrl}/line-chart`);
+  const data = await response.json();
+  return await data;
+}
+
+export const fetchAreaChartData = async ()=>{
+  const response = await fetch(`${config.apiUrl}/area-chart`);
   const data = await response.json();
   return await data;
 }

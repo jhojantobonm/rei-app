@@ -4,6 +4,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -13,36 +14,59 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-const chartData = [
-  { month: "January", conventional: 186, renewable: 80 },
-  { month: "February", conventional: 305, renewable: 200 },
-  { month: "March", conventional: 237, renewable: 120 },
-  { month: "April", conventional: 73, renewable: 190 },
-  { month: "May", conventional: 209, renewable: 130 },
-  { month: "June", conventional: 214, renewable: 140 },
-]
+import { useEffect, useState } from "react"
+import { fetchAreaChartData } from "@/utils/dataFetch"  
+import { useContextApp } from "@/context/useContextApp"
+// const chartData = [
+//   { year: "January", conventional: 186, renewables: 80 },
+//   { year: "February", conventional: 305, renewables: 200 },
+//   { year: "March", conventional: 237, renewables: 120 },
+//   { year: "April", conventional: 73, renewables: 190 },
+//   { year: "May", conventional: 209, renewables: 130 },
+//   { year: "June", conventional: 214, renewables: 140 },
+// ]
 
 const chartConfig = {
   conventional: {
     label: "Conventional",
     color: "hsl(2 87% 67%)",
   },
-  renewable: {
-    label: "Renewable",
+  renewables: {
+    label: "Renewables",
     color: "rgb(6, 153, 50)",
   },
 } satisfies ChartConfig
 
+
+interface AreaProps {
+  year: string,
+  conventional: number,
+  renewables: number,
+
+}
+
+
 export const AreaChartComp = ()=>{
+    const [chartData, setChartData] = useState<AreaProps[]>([]);
+    const {year} = useContextApp();
+  
+    useEffect(()=>{
+      fetchAreaChartData()
+        .then(data => {
+          setChartData(data)
+        }).catch(()=>setChartData([]))
+    },[year])
+  
+
 
   return(
     <Card data-testid='area-chart-component'>
       <CardHeader>
-      <CardTitle className="text-[1.4rem] text-center">Renewable vs Conventional energy consumption</CardTitle>
+      <CardTitle className="text-[1.4rem] text-center">Renewables vs Conventional energy consumption</CardTitle>
       <CardDescription className="text-[1rem] text-center">From 1965 to 2022</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+      {chartData.length !== 0 && <ChartContainer config={chartConfig}>
           <AreaChart
             accessibilityLayer
             data={chartData}
@@ -53,13 +77,13 @@ export const AreaChartComp = ()=>{
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey="year"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
+              tickFormatter={(value) => value.slice(0, 4)}
             />
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent className="p-4 text-[1.2rem]"/>} />
             <defs>
               <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
                 <stop
@@ -76,22 +100,22 @@ export const AreaChartComp = ()=>{
               <linearGradient id="fillMobile" x1="0" y1="0" x2="0" y2="1">
                 <stop
                   offset="5%"
-                  stopColor="var(--color-renewable)"
+                  stopColor="var(--color-renewables)"
                   stopOpacity={0.8}
                 />
                 <stop
                   offset="95%"
-                  stopColor="var(--color-renewable)"
+                  stopColor="var(--color-renewables)"
                   stopOpacity={0.1}
                 />
               </linearGradient>
             </defs>
             <Area
-              dataKey="renewable"
+              dataKey="renewables"
               type="natural"
               fill="url(#fillMobile)"
               fillOpacity={0.4}
-              stroke="var(--color-renewable)"
+              stroke="var(--color-renewables)"
               stackId="a"
             />
             <Area
@@ -104,20 +128,17 @@ export const AreaChartComp = ()=>{
             />
 
           </AreaChart>
-        </ChartContainer>
+        </ChartContainer>}
+      {chartData.length === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>}
       </CardContent>
-      {/* <CardFooter>
-        <div className="flex w-full items-start gap-2 text-sm">
-          <div className="grid gap-2">
-            <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-            </div>
-            <div className="flex items-center gap-2 leading-none text-muted-foreground">
-              January - June 2024
-            </div>
-          </div>
-        </div>
-      </CardFooter> */}
+      <CardFooter>
+      {chartData.length !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">
+          <ul className="flex flex-wrap flex-col sm:flex-row gap-6">
+            <li><span className="text-white bg-[#069932] p-2 rounded-2xl">Renewables</span></li>
+            <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">Conventional</span></li>
+          </ul> 
+        </div>} 
+      </CardFooter>
     </Card>
   )
 }

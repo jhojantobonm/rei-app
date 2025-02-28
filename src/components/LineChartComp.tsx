@@ -108,7 +108,7 @@ export const LineChartComp = ()=>{
     fetchLineChartData()
       .then(data => {
         setChartData(data)
-      })
+      }).catch(()=>setChartData([]))
   },[year])
 
 
@@ -119,7 +119,7 @@ export const LineChartComp = ()=>{
         <CardDescription className="text-[1rem] text-center">From 1965 to 2022</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+      {chartData.length !== 0 && <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
             data={chartData}
@@ -165,16 +165,17 @@ export const LineChartComp = ()=>{
               animationDuration={3000}
             />
           </LineChart>
-        </ChartContainer>
+        </ChartContainer>}
+      {chartData.length === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>}
       </CardContent>
       <CardFooter>
-        <div className="flex justify-start text-[1.2rem] font-bold">
+      {chartData.length !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">
           <ul className="flex flex-wrap flex-col sm:flex-row gap-6">
             <li><span className="text-black bg-[#0095ff] p-2 rounded-2xl">Wind</span></li>
             <li><span className="text-black bg-[#e8c468] p-2 rounded-2xl">Solar</span></li>
             <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">Geothermal</span></li> 
           </ul> 
-        </div>
+        </div>}
       </CardFooter>
     </Card>
   )

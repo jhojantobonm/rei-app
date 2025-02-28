@@ -19,7 +19,7 @@ import { fetchBarsChartData } from "@/utils/dataFetch"
 import { YearSelector } from "./YearSelector"
 import { useContextApp } from "@/context/useContextApp"
 
-// const chartData = [
+// const chartDataDummy = [
 //   { source: "hydro", capacity: 500, fill: "var(--color-hydro)" },
 //   { source: "wind", capacity: 200, fill: "var(--color-wind)" },
 //   { source: "solar", capacity: 187, fill: "var(--color-solar)" },
@@ -58,7 +58,7 @@ interface BarProps {
 }
 
 export const BarsChart = ()=>{
-  const [dataChart, setData] = useState<BarProps[]>([]);
+  const [chartData, setDataChart] = useState<BarProps[]>([]);
   const [hydro, setHydro] = useState<number>(0);
   const [wind, setWind] = useState<number>(0);
   const [solar, setSolar] = useState<number>(0);
@@ -70,13 +70,13 @@ export const BarsChart = ()=>{
   
   useEffect(()=>{
     fetchBarsChartData(year).then(data=>{
-      setData(data);
+      setDataChart(data);
       setHydro(data[0].capacity);
       setWind(data[1].capacity);
       setSolar(data[2].capacity);
       setBiofuel(data[3].capacity);
       setGeo(data[4].capacity);
-    });
+    }).catch(()=>setDataChart([]));
     
   },[year])
   
@@ -88,10 +88,10 @@ export const BarsChart = ()=>{
         <YearSelector/>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        {chartData.length !== 0 && <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer
-            data={dataChart}
+            data={chartData}
             layout="vertical"
             margin={{
               left: 0,
@@ -126,10 +126,11 @@ export const BarsChart = ()=>{
               /> */}
             </Bar>
           </BarChart>
-        </ChartContainer>
+        </ChartContainer>}
+        {chartData.length === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>}
       </CardContent>
       <CardFooter>
-        <div className="flex justify-start text-[1.2rem] font-bold">
+      {chartData.length !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">
           <ul className="flex flex-wrap flex-col sm:flex-row gap-6">
             <li><span className="text-white bg-[#0095ff] p-2 rounded-2xl">Hydro</span> = {hydro + ' TWh;'}</li>
             <li><span className="text-black bg-[#62beff] p-2 rounded-2xl">Wind</span> = {wind  + ' TWh;'}</li>
@@ -137,7 +138,7 @@ export const BarsChart = ()=>{
             <li><span className="text-white bg-[#069932] p-2 rounded-2xl">Biofuel</span> = {biofuel    + ' TWh;'}</li>
             <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">Geothermal</span> = {geo    + ' TWh'}</li>
           </ul> 
-        </div>  
+        </div>} 
       </CardFooter>
     </Card>
   )

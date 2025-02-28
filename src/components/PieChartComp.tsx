@@ -66,7 +66,7 @@ export const PieChartComp = ()=>{
 
 
 
-  const {year,carouselCount} = useContextApp();
+  const {year} = useContextApp();
   
   // const totalPercentage = ()=> useMemo(() => {
   //   return dataChart.reduce((acc, curr) => acc + curr.share, 0)
