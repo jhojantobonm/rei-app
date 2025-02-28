@@ -128,12 +128,12 @@ export const BarsChart = ()=>{
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex justify-start text-[1.2rem]">
-        <div>
+      <CardFooter>
+        <div className="flex justify-start text-[1.2rem] font-bold">
           <ul className="flex flex-wrap flex-col sm:flex-row gap-6">
             <li><span className="text-white bg-[#0095ff] p-2 rounded-2xl">Hydro</span> = {hydro + ' TWh;'}</li>
-            <li><span className="text-white bg-[#62beff] p-2 rounded-2xl">Wind</span> = {wind  + ' TWh;'}</li>
-            <li><span className="text-white bg-[#e8c468] p-2 rounded-2xl">Solar</span> = {solar    + ' TWh;'}</li> 
+            <li><span className="text-black bg-[#62beff] p-2 rounded-2xl">Wind</span> = {wind  + ' TWh;'}</li>
+            <li><span className="text-black bg-[#e8c468] p-2 rounded-2xl">Solar</span> = {solar    + ' TWh;'}</li> 
             <li><span className="text-white bg-[#069932] p-2 rounded-2xl">Biofuel</span> = {biofuel    + ' TWh;'}</li>
             <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">Geothermal</span> = {geo    + ' TWh'}</li>
           </ul> 

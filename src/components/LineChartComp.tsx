@@ -4,6 +4,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -101,14 +102,14 @@ interface LineProps {
 
 export const LineChartComp = ()=>{
   const [chartData, setChartData] = useState<LineProps[]>([]);
-  const {carouselCount} = useContextApp();
+  const {year} = useContextApp();
 
   useEffect(()=>{
     fetchLineChartData()
       .then(data => {
         setChartData(data)
       })
-  },[carouselCount])
+  },[year])
 
 
   return (
@@ -166,14 +167,15 @@ export const LineChartComp = ()=>{
           </LineChart>
         </ChartContainer>
       </CardContent>
-      {/* <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this year <TrendingUp className="h-4 w-4" />
+      <CardFooter>
+        <div className="flex justify-start text-[1.2rem] font-bold">
+          <ul className="flex flex-wrap flex-col sm:flex-row gap-6">
+            <li><span className="text-black bg-[#0095ff] p-2 rounded-2xl">Wind</span></li>
+            <li><span className="text-black bg-[#e8c468] p-2 rounded-2xl">Solar</span></li>
+            <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">Geothermal</span></li> 
+          </ul> 
         </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
-        </div>
-      </CardFooter> */}
+      </CardFooter>
     </Card>
   )
 }

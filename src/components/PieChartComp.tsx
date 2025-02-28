@@ -66,7 +66,7 @@ export const PieChartComp = ()=>{
 
 
 
-  const {year} = useContextApp();
+  const {year,carouselCount} = useContextApp();
   
   // const totalPercentage = ()=> useMemo(() => {
   //   return dataChart.reduce((acc, curr) => acc + curr.share, 0)
@@ -145,7 +145,7 @@ export const PieChartComp = ()=>{
       <CardContent className="flex-1 pb-0">
         {total !== 0 && <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square w-full h-full"
+          className="mx-auto aspect-square max-w-[40rem] w-full h-full"
           
         >
           <PieChart>
@@ -200,12 +200,12 @@ export const PieChartComp = ()=>{
         </ChartContainer>}
         {total === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>}
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-      {total !== 0 && <div>
-          <ul className="flex flex-wrap gap-6">
+      <CardFooter>
+      {total !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">
+          <ul className="flex flex-wrap flex-col sm:flex-row gap-6">
             <li><span className="text-white bg-[#0095ff] p-2 rounded-2xl">Hydro</span> = {hydro + ' %;'}</li>
-            <li><span className="text-white bg-[#62beff] p-2 rounded-2xl">Wind</span> = {wind  + ' %;'}</li>
-            <li><span className="text-white bg-[#e8c468] p-2 rounded-2xl">Solar</span> = {solar    + ' %;'}</li> 
+            <li><span className="text-black bg-[#62beff] p-2 rounded-2xl">Wind</span> = {wind  + ' %;'}</li>
+            <li><span className="text-black bg-[#e8c468] p-2 rounded-2xl">Solar</span> = {solar    + ' %;'}</li> 
             <li><span className="text-white bg-[#b305b3] p-2 rounded-2xl">Other Renewables</span> = {otherRenewables    + ' %;'}</li>
           </ul> 
         </div>}
