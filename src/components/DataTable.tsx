@@ -33,6 +33,7 @@ import {
 import { useContextApp } from "@/context/useContextApp"
 import { fetchFile } from "@/utils/dataFetch"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "./ui/select"
+import { SpinnerComp } from "./SpinnerComp"
 
 
 
@@ -199,9 +200,8 @@ export function DataTable() {
 
 
   React.useEffect(()=>{
-    fetchFile(selectedFile).then(data=>setData(data)).catch(e=>console.log('Data Not Found',e));
+    fetchFile(selectedFile).then(data=>setData(data));
   },[selectedFile])
-
   
 
   return (
@@ -310,7 +310,7 @@ export function DataTable() {
               </TableRow>
             ))}
           </TableHeader>
-          <TableBody>
+          <TableBody className="relative">
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
@@ -339,6 +339,7 @@ export function DataTable() {
             )}
           </TableBody>
         </Table>
+        {data.length === 1 && <SpinnerComp className="absolute top-0 left-0 bottom-0 right-0 flex justify-center items-center"/> }
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">

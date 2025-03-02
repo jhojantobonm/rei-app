@@ -1,9 +1,11 @@
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 
-export const SpinnerComp = ()=>{
+interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>{}
+
+export const SpinnerComp = ({...props}:Props)=>{
   return (
-    <div className="absolute top-0 left-0 bottom-0 right-0 flex justify-center items-center">
+    <div {...props}>
       <AiOutlineLoading3Quarters size={'6rem'} color="green" className="animate-spin"/>
     </div>
   )

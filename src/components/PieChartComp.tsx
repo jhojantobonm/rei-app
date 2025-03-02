@@ -200,7 +200,7 @@ export const PieChartComp = ()=>{
             </Pie>
           </PieChart>
         </ChartContainer>}
-        {total === 0 && <SpinnerComp/>}
+        {total === 0 && <SpinnerComp className="absolute top-0 left-0 bottom-0 right-0 flex justify-center items-center"/>}
         {/* {total === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>} */}
       </CardContent>
       <CardFooter>
