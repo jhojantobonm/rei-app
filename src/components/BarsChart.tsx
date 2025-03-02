@@ -87,9 +87,9 @@ export const BarsChart = ()=>{
       <CardHeader>
         <CardTitle className="text-[1.4rem] text-center">Renewable energy production</CardTitle>
         <CardDescription className="text-[1rem] text-center">Data in {year}</CardDescription>
-        <YearSelector/>
+        <YearSelector className="z-10"/>
       </CardHeader>
-      <CardContent>
+      <CardContent className="min-h-[20rem]">
         {chartData.length !== 0 && <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer

@@ -142,9 +142,9 @@ export const PieChartComp = ()=>{
       <CardHeader className="">
         <CardTitle className="text-[1.4rem] text-center">Consumption share</CardTitle>
         <CardDescription className="text-[1rem] text-center">Data in {year} </CardDescription>
-        <YearSelector/>
+        <YearSelector className="z-10"/>
       </CardHeader>
-      <CardContent className="flex-1 pb-0">
+      <CardContent className="flex-1 pb-0 min-h-[20rem]">
         {total !== 0 && <ChartContainer
           config={chartConfig}
           className="mx-auto aspect-square max-w-[40rem] w-full h-full"

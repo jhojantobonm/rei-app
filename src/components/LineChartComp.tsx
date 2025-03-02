@@ -119,7 +119,7 @@ export const LineChartComp = ()=>{
         <CardTitle className="text-[1.4rem] text-center">Trend in installed capacity of production</CardTitle>
         <CardDescription className="text-[1rem] text-center">From 1965 to 2022</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="min-h-[20rem]">
       {chartData.length !== 0 && <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
