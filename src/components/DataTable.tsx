@@ -205,16 +205,16 @@ export function DataTable() {
   
 
   return (
-    <div data-testid='data-table' className="flex flex-col w-full md:h-[70rem] bg-white rounded-2xl p-5 mt-5 shadow-2xl">
+    <div data-testid='data-table' className="flex flex-col w-full md:h-[70rem] bg-background rounded-2xl p-5 mt-5 shadow-2xl text-[1.2rem]">
       <div className="flex flex-wrap justify-between py-4 gap-3">
-        <div className="flex flex-wrap gap-3">   
+        <div className="flex flex-wrap gap-3 text-[1.2rem]">   
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
                 Filter by {filterValue} <ChevronDown />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="text-[1.2rem]">
               {table
                 .getAllColumns()
                 .filter((column) => column.getCanHide())
@@ -291,7 +291,7 @@ export function DataTable() {
         </Select>
       </div>
       <div className="rounded-md border overflow-y-scroll h-full">
-        <Table>
+        <Table className=" bg-app-secondary-background">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -331,7 +331,7 @@ export function DataTable() {
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center"
+                  className="h-24 text-center text-[1.2rem]"
                 >
                   No results.
                 </TableCell>
@@ -352,6 +352,7 @@ export function DataTable() {
             size="sm"
             onClick={() => setPageIndex(prev=> prev -1)}
             disabled={!table.getCanPreviousPage()}
+            className="text-[1.2rem]"
           >
             Previous
           </Button>
@@ -360,6 +361,7 @@ export function DataTable() {
             size="sm"
             onClick={() => setPageIndex(prev=>prev + 1)}
             disabled={!table.getCanNextPage()}
+            className="text-[1.2rem]"
             
           >
             Next
