@@ -89,7 +89,7 @@ export const BarsChart = ()=>{
         <CardDescription className="text-[1rem] text-center">Data in {year}</CardDescription>
         <YearSelector/>
       </CardHeader>
-      <CardContent>
+      <CardContent className="min-h-[20rem]">
         {chartData.length !== 0 && <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer

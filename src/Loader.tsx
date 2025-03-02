@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import App from "./App";
 import { SpinnerComp } from "./components/SpinnerComp";
 
