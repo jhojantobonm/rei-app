@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { MenuButton } from "../components/MenuButton";
+import { MenuButton } from "@/components/MenuButton";
 
 describe('Test MenuButton component',()=>{
   let menuInfoItem: HTMLElement;

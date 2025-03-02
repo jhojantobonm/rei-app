@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { SpinnerComp } from "../components/SpinnerComp";
+import { SpinnerComp } from "@/components/SpinnerComp";
 import { render, screen } from "@testing-library/react";
 
 describe('Test SpinnerComp component',()=>{

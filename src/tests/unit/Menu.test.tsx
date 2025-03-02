@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom'
 import { beforeAll, describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { Menu } from "../components/Menu";
+import { Menu } from "@/components/Menu";
 
 describe('Test Menu component',()=>{
   let menuInfoItem: HTMLElement;

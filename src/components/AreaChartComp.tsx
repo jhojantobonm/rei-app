@@ -17,8 +17,8 @@ import {
 import { useEffect, useState } from "react"
 import { fetchAreaChartData } from "@/utils/dataFetch"  
 import { useContextApp } from "@/context/useContextApp"
-import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { SpinnerComp } from "./SpinnerComp"
+
 // const chartData = [
 //   { year: "January", conventional: 186, renewables: 80 },
 //   { year: "February", conventional: 305, renewables: 200 },
@@ -132,8 +132,8 @@ export const AreaChartComp = ()=>{
 
           </AreaChart>
       </ChartContainer> 
-      
       {chartData.length === 0 && <SpinnerComp/>}
+      
 
       {/* {chartData.length === 0 && <CardDescription className="text-[2rem] text-center text-[#f46762]">Data not available to   create the chart</CardDescription>} */}
 

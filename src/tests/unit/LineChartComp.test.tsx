@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { LineChartComp } from "../components/LineChartComp";
+import { LineChartComp } from "@/components/LineChartComp";
 import { render, screen } from "@testing-library/react";
 
 describe('Test LineChartComp component',()=>{

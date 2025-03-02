@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { AreaChartComp } from "../components/AreaChartComp";
+import { AreaChartComp } from "@/components/AreaChartComp";
 import { render, screen } from "@testing-library/react";
 
 describe('Test AreaChartComp component',()=>{

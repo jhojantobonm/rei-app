@@ -1,18 +1,18 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { HeaderApp } from "../components/HeaderApp";
+import { FooterApp } from "@/components/FooterApp";
 
-describe('Test Header component',()=>{
+describe('Test FooterApp component',()=>{
   let menuInfoItem: HTMLElement;
   
   beforeAll(()=>{
-    render(<HeaderApp/>);
+    render(<FooterApp/>);
     screen.debug();
   
-    menuInfoItem = screen.getByTestId('header');
+    menuInfoItem = screen.getByTestId('footer');
   });
   
-  it('should render Header component',()=>{
+  it('should render FooterApp component',()=>{
     expect(menuInfoItem).toBeInTheDocument();
   });
 })

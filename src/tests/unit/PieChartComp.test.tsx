@@ -1,18 +1,18 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { BarsChart } from "../components/BarsChart";
+import { PieChartComp } from "@/components/PieChartComp";
 import { render, screen } from "@testing-library/react";
 
-describe.skip('Test BarsChart component',()=>{
+describe('Test PieChartComp component',()=>{
   let barsChart: HTMLElement;
   
   beforeAll(()=>{
-    render(<BarsChart/>);
+    render(<PieChartComp/>);
     screen.debug();
   
-    barsChart = screen.getByTestId('bars-chart-component');
+    barsChart = screen.getByTestId('pie-chart-component');
   });
   
-  it('should render BarsChart',()=>{
+  it('should render PieChartComp',()=>{
     expect(barsChart).toBeInTheDocument();
   });
 })

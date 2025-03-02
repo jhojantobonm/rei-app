@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { CarouselCompItem } from "../components/CarouselCompItem";
+import { CarouselCompItem } from "@/components/CarouselCompItem";
 import { render, screen } from "@testing-library/react";
 
 describe('Test CarouselCompItem component',()=>{

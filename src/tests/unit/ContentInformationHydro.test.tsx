@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { ContentInformationHydro } from "../components/ContentInformationHydro";
+import { ContentInformationHydro } from "@/components/ContentInformationHydro";
 
 describe('Test ContentInformationHydro component',()=>{
   let hydro: HTMLElement;

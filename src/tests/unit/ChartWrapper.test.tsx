@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { ChartWrapper } from "../components/ChartWrapper";
+import { ChartWrapper } from "@/components/ChartWrapper";
 import { render, screen } from "@testing-library/react";
 
 describe('Test ChartWrapper component',()=>{

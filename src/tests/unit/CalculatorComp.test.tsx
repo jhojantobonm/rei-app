@@ -1,18 +1,18 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { Dashboard } from "../pages/Dashboard";
+import { CalculatorComp } from "@/components/CalculatorComp";
 import { render, screen } from "@testing-library/react";
 
-describe.skip('Test Dashboard page',()=>{
+describe('Test CalculatorComp component',()=>{
   let calculator: HTMLElement;
   
   beforeAll(()=>{
-    render(<Dashboard/>);
+    render(<CalculatorComp/>);
     screen.debug();
   
-    calculator = screen.getByTestId('dashboard-container');
+    calculator = screen.getByTestId('calculator-component');
   });
   
-  it('should render Dashboard page',()=>{
+  it('should render CalculatorComp',()=>{
     expect(calculator).toBeInTheDocument();
   });
 })

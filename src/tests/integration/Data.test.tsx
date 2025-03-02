@@ -1,18 +1,18 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { DataTable } from "../components/DataTable";
+import { Data } from "@/pages/Data";
 import { render, screen } from "@testing-library/react";
 
-describe('Test DataTable page',()=>{
+describe('Test Data page',()=>{
   let home: HTMLElement;
   
   beforeAll(()=>{
-    render(<DataTable/>);
+    render(<Data/>);
     screen.debug();
   
-    home = screen.getByTestId('data-table');
+    home = screen.getByTestId('data-container');
   });
   
-  it('should render DataTable page',()=>{
+  it('should render Data page',()=>{
     expect(home).toBeInTheDocument();
   });
 })
