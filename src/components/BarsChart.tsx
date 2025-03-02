@@ -85,7 +85,7 @@ export const BarsChart = ()=>{
   return(
     <Card data-testid='bars-chart-component' className="relative">
       <CardHeader>
-        <CardTitle className="text-[1.4rem] text-center">Renewable energy production</CardTitle>
+        <CardTitle className="text-[1.4rem] text-center ">Renewable energy production</CardTitle>
         <CardDescription className="text-[1rem] text-center">Data in {year}</CardDescription>
         <YearSelector className="z-10"/>
       </CardHeader>

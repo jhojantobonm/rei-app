@@ -19,7 +19,7 @@ export const YearSelector = ({...props}: Props)=>{
   return(
     <div data-testid='year-selector-component' {...props}>
       <Select>
-        <SelectTrigger className="w-[180px] bg-white text-[1.4rem] p-8 rounded-2xl">
+        <SelectTrigger className="w-[180px] bg-app-secondary-background text-[1.4rem] p-8 rounded-2xl text-foreground">
           <SelectValue placeholder={year}/>
         </SelectTrigger>
         <SelectContent>

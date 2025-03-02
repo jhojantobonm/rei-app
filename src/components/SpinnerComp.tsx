@@ -6,7 +6,7 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElem
 export const SpinnerComp = ({...props}:Props)=>{
   return (
     <div {...props}>
-      <AiOutlineLoading3Quarters size={'6rem'} color="green" className="animate-spin"/>
+      <AiOutlineLoading3Quarters size={'6rem'} color="var(app-background)" className="animate-spin"/>
     </div>
   )
 }

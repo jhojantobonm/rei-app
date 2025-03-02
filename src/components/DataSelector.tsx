@@ -21,7 +21,7 @@ export const DataSelector = () => {
       <div data-testid='data-selector'
       className="flex justify-center">
         <Select>
-            <SelectTrigger className="w-full bg-white text-[1.2rem] py-6">
+            <SelectTrigger className="w-full bg-app-secondary-background text-[1.2rem] py-6">
               <SelectValue placeholder="Select a file" />
             </SelectTrigger>
             <SelectContent className="p-4">

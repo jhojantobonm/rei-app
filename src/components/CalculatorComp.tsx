@@ -120,7 +120,7 @@ export const CalculatorComp = ()=>{
       </div>
       <div>
         <Label htmlFor="consumption" className="text-[1.4rem] font-light">* Total electrical consumption (kWh):</Label>
-        <Input type="number" id="consumption" placeholder="Example: 18" className="bg-white mt-2 p-7 text-[1.4rem] md:text-[1.4rem] placeholder:text-gray-300"
+        <Input type="number" id="consumption" placeholder="Example: 18" className="bg-app-secondary-background mt-2 p-7 text-[1.4rem] md:text-[1.4rem] placeholder:text-white"
         min={0}
         value={consumption}
         onChange={handleChange}
@@ -130,7 +130,7 @@ export const CalculatorComp = ()=>{
       <div>
         <Label htmlFor="capacity" className="text-[1.4rem] font-light">(optional) Total capacity (TWh):</Label>
         <Input type="number" id="capacity" disabled={!  isChecked} placeholder={totalCapacity + ''}
-          className="bg-white mt-2 p-7 text-[1.4rem] md:text-[1.4rem] placeholder:text-gray-300"
+          className="bg-app-secondary-background mt-2 p-7 text-[1.4rem] md:text-[1.4rem] placeholder:text-gray-300"
           min={1}
           value={totalCapacity}
           onChange={handleChange2}
