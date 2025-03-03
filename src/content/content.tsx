@@ -7,31 +7,37 @@ import { ContentInformationWind } from "../components/ContentInformationWind";
 import { PieChartComp } from "@/components/PieChartComp";
 import { LineChartComp } from "@/components/LineChartComp";
 import { AreaChartComp } from "@/components/AreaChartComp";
+import windImage from '@/assets/images/wind.jpeg'
+import hydroImage from '@/assets/images/hydro.jpeg'
+import solarImage from '@/assets/images/solar.jpeg'
+import biofuelImage from '@/assets/images/biofuel.jpeg'
+import geoImage from '@/assets/images/geothermal.jpeg'
+
 
 export const content = [
   {
     title:'Hydro Energy',
-    image:'https://images.pexels.com/photos/1633943/pexels-photo-1633943.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: hydroImage,
     description: <ContentInformationHydro/> 
   },
   {
     title:'Wind Energy',
-    image:'https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: windImage,
     description: <ContentInformationWind/> 
   },
   {
     title:'Solar Energy',
-    image:'https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: solarImage,
     description: <ContentInformationSolar/> 
   },
   {
     title:'Bio Fuel Energy',
-    image:'https://images.pexels.com/photos/3129643/pexels-photo-3129643.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: biofuelImage,
     description: <ContentInformationBioFuel/> 
   },
   {
     title:'Geothermal Energy',
-    image:'https://images.pexels.com/photos/7403905/pexels-photo-7403905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: geoImage,
     description: <ContentInformationGeothermal/> 
   },
 ];
