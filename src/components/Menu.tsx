@@ -3,6 +3,7 @@ import './Menu.css'
 import { useContextApp } from "../context/useContextApp";
 import { NavLink } from "react-router-dom";
 import { DarkMode } from "./DarkMode";
+import { LangSelector } from "./LangSelector";
 
 export const Menu = () => {
     const {setIsMenuOpen} = useContextApp();
@@ -33,6 +34,7 @@ export const Menu = () => {
                   <NavLink to='/data' onClick={handleClose}>Data</NavLink>
                   <NavLink to='/calculator' onClick={handleClose}>Calculator</NavLink>
                   <NavLink to='/dashboard' onClick={handleClose}>Dashboard</NavLink>
+                  <LangSelector/>
                 </ul>
               </nav>
             
