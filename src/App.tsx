@@ -7,6 +7,7 @@ import { FooterApp } from "./components/FooterApp";
 import { Data } from "./pages/Data";
 import { Calculator } from "./pages/Calculator";
 import { Dashboard } from "./pages/Dashboard";
+import './ i18n'
 
 
 function App() {
