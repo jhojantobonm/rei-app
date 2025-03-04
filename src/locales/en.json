@@ -1,6 +1,38 @@
 
 {
   "translation": {
-    "headerTitle": "My {{appName}} Header Title"
+    "information": {
+      "home-title": "INFORMATION",
+      "hydro_energy": {
+        "title": "Hydro Energy",
+        "image_alt": "This is an image about Hydro Energy",
+        "description": "<p><b>Hydro energy</b>, or <b>hydroelectric power</b>, is a renewable energy source that uses the movement of water to generate electricity. It is one of the most widely used renewable energy sources worldwide.</p>",
+        "how_it_works": {
+          "title": "How It Works",
+          "steps": {
+            "water_flow": "<p><b>Water Flow</b> - A dam or river channels water towards turbines.</p>",
+            "turbine_rotation": "<p><b>Turbine Rotation</b> - The force of moving water spins the turbines.</p>",
+            "electricity_generation": "<p><b>Electricity Generation</b> - The turbines power a generator, converting kinetic energy into electrical energy.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Advantages",
+          "list": {
+            "renewable": "✅ Renewable and sustainable",
+            "low_emissions": "✅ Low greenhouse gas emissions",
+            "reliable": "✅ Reliable and efficient"
+          }
+        },
+        "disadvantages": {
+          "title": "Disadvantages",
+          "list": {
+            "ecosystem_impact": "❌ Can impact ecosystems and fish migration",
+            "high_cost": "❌ High initial construction costs",
+            "water_dependency": "❌ Dependence on water availability"
+          }
+        }
+      }
+    }
+
   }
 }

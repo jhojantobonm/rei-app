@@ -1,6 +1,40 @@
 
 {
   "translation": {
-    "headerTitle": "Mi {{appName}} titulo de cabecera"
+    "information": {
+      "home-title": "INFORMACIÓN",
+      "hydro_energy": {
+        "title": "Energía Hidroeléctrica",
+        "image_alt": "Esta es una imagen sobre la Energía Hidroeléctrica",
+        "description": "<p>La <b>energía hidroeléctrica</b> es una fuente de energía renovable que utiliza el movimiento del agua para generar electricidad. Es una de las fuentes de energía renovable más utilizadas en todo el mundo.</p>",
+        "how_it_works": {
+          "title": "Cómo Funciona",
+          "steps": {
+            "water_flow": "<p><b>Flujo de Agua</b> - Una represa o un río canaliza el agua hacia las turbinas.</p>",
+            "turbine_rotation": "<p><b>Rotación de la Turbina</b> - La fuerza del agua en movimiento hace girar las turbinas.</p>",
+            "electricity_generation": "<p><b>Generación de Electricidad</b> - Las turbinas activan un generador, convirtiendo la energía cinética en energía eléctrica.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Ventajas",
+          "list": {
+            "renewable": "✅ Renovable y sostenible",
+            "low_emissions": "✅ Bajas emisiones de gases de efecto invernadero",
+            "reliable": "✅ Confiable y eficiente"
+          }
+        },
+        "disadvantages": {
+          "title": "Desventajas",
+          "list": {
+            "ecosystem_impact": "❌ Puede afectar los ecosistemas y la migración de peces",
+            "high_cost": "❌ Altos costos iniciales de construcción",
+            "water_dependency": "❌ Dependencia de la disponibilidad de agua"
+          }
+        }
+      }
+
+    }
+
   }
+  
 }

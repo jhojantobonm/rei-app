@@ -1,29 +1,34 @@
+import { useTranslation } from "react-i18next"
 
 interface SolarProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>{}
 
 
 export const ContentInformationHydro = (props:SolarProps) => {
+  const {t} = useTranslation();
 
   return (
     <div className="mt-4" data-testid='content-info-hydro' {...props}>
-      <p><b>Hydro energy</b>, or <b>hydroelectric power</b>, is a renewable energy source that uses the movement of water to generate electricity. It is one of the most widely used renewable energy sources worldwide.</p>
-      <h3 className="mt-4 text-3xl font-semibold">How It Works:</h3>
+      <div dangerouslySetInnerHTML={{__html: t('information.hydro_energy.description')}}></div>
+      <h3 className="mt-4 text-3xl font-semibold">{t('information.hydro_energy.how_it_works.title')}</h3>
       <ol className='pl-6 mt-4'>
-      <li><p><b>Water Flow</b> - A dam or river channels water towards turbines.</p></li>
-      <li className="mt-3.5"><p><b>Turbine Rotation</b> - The force of moving water spins the turbines.</p></li>
-      <li className="mt-3.5"><p><b>Electricity Generation</b> - The turbines power a generator, converting kinetic energy into electrical energy.</p></li>
+      <li dangerouslySetInnerHTML={{__html: t('information.hydro_energy.how_it_works.steps.water_flow')}}></li>
+      <li className="mt-3.5" 
+        dangerouslySetInnerHTML={{__html: t('information.hydro_energy.how_it_works.steps.turbine_rotation')}}
+        ></li>
+      <li className="mt-3.5" 
+        dangerouslySetInnerHTML={{__html: t('information.hydro_energy.how_it_works.steps.electricity_generation')}}></li>
       </ol>
-      <h3 className="mt-4 text-3xl font-semibold">Advantages:</h3>
+      <h3 className="mt-4 text-3xl font-semibold">{t('information.hydro_energy.advantages.title')}</h3>
       <ul className="mt-3 pl-3">
-        <li>✅ Renewable and sustainable</li>
-        <li>✅ Low greenhouse gas emissions</li>
-        <li>✅ Reliable and efficient</li>
+        <li>{t('information.hydro_energy.advantages.list.renewable')}</li>
+        <li>{t('information.hydro_energy.advantages.list.low_emissions')}</li>
+        <li>{t('information.hydro_energy.advantages.list.reliable')}</li>
       </ul>
-      <h3 className="mt-4 text-3xl font-semibold">Disadvantages:</h3>
+      <h3 className="mt-4 text-3xl font-semibold">{t('information.hydro_energy.disadvantages.title')}</h3>
       <ul className="m-3 pl-3">
-        <li>❌ Can impact ecosystems and fish migration</li>
-        <li>❌ High initial construction costs</li>
-        <li>❌ Dependence on water availability</li>
+        <li>{t('information.hydro_energy.disadvantages.list.ecosystem_impact')}</li>
+        <li>{t('information.hydro_energy.disadvantages.list.high_cost')}</li>
+        <li>{t('information.hydro_energy.disadvantages.list.water_dependency')}</li>
       </ul>
     </div>
   )

@@ -5,6 +5,7 @@ import spanishIcon from '@/assets/images/icons/spanish.png'
 import englishIcon from '@/assets/images/icons/english.png'
 import germanIcon from '@/assets/images/icons/german.png'
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 
 interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>{}
@@ -28,11 +29,19 @@ const languages = [
 ]
 
 export const LangSelector = ({...props}: Props)=>{
-  const [currentLanguage, setCurrentLanguage] = useState<string>('en');
+
+    const {i18n: {changeLanguage, language}} = useTranslation();
+    const [currentLanguage, setCurrentLanguage] = useState(language);
+  
+  
+    const handleChangeLanguage = (value: string)=>{
+      setCurrentLanguage(value);
+      changeLanguage(value);
+    }
   
   return(
     <div data-testid='lang-selector-component' {...props}>
-      <Select value={currentLanguage} onValueChange={(value)=>setCurrentLanguage(value)}>
+      <Select value={currentLanguage} onValueChange={handleChangeLanguage}>
         <SelectTrigger className="bg-app-secondary-background text-[1.4rem] p-8 rounded-2xl text-foreground">
           <SelectValue/>
         </SelectTrigger>

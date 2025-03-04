@@ -12,11 +12,13 @@ import hydroImage from '@/assets/images/hydro.jpeg'
 import solarImage from '@/assets/images/solar.jpeg'
 import biofuelImage from '@/assets/images/biofuel.jpeg'
 import geoImage from '@/assets/images/geothermal.jpeg'
+import { TFunction } from "i18next";
 
 
-export const content = [
+
+export const getContent = (t:TFunction<"translation", undefined>)=> [
   {
-    title:'Hydro Energy',
+    title: t('information.hydro_energy.title'),
     image: hydroImage,
     description: <ContentInformationHydro/> 
   },

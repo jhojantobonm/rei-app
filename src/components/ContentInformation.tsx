@@ -2,6 +2,7 @@ import { ReactNode, useEffect, useState } from "react"
 import { motion } from "framer-motion";
 import './ContentInformationSolar.css'
 import { useContextApp } from "../context/useContextApp";
+import { useTranslation } from "react-i18next";
 
 interface ContentInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   title?: string,
@@ -13,6 +14,7 @@ export const ContentInformation = ({title,image,children,...props}: ContentInfoP
   const {contentId} = useContextApp();
   const [isScaled, setIsScaled] = useState(false);
   const [isBounce,setIsBounce] = useState<boolean>(false);
+  const {t} = useTranslation();
 
 
   const handleMouseEnter = ()=>{
@@ -48,7 +50,7 @@ export const ContentInformation = ({title,image,children,...props}: ContentInfoP
               onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
             >
               <figure className="w-full h-full">
-                <img src={image} alt={`This is an image about ${title}`}
+                <img src={image} alt={t('information.hydro_energy.image_alt')}
                 className="w-full h-full object-fill" />
               </figure>
             </motion.div>
