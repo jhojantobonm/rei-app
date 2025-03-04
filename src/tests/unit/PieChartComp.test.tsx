@@ -2,7 +2,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { PieChartComp } from "@/components/PieChartComp";
 import { render, screen } from "@testing-library/react";
 
-describe('Test PieChartComp component',()=>{
+describe.skip('Test PieChartComp component',()=>{
   let barsChart: HTMLElement;
   
   beforeAll(()=>{

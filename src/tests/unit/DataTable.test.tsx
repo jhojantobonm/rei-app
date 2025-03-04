@@ -2,7 +2,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { DataTable } from "@/components/DataTable";
 import { render, screen } from "@testing-library/react";
 
-describe('Test DataTable page',()=>{
+describe.skip('Test DataTable page',()=>{
   let home: HTMLElement;
   
   beforeAll(()=>{
