@@ -31,10 +31,36 @@
             "water_dependency": "❌ Dependencia de la disponibilidad de agua"
           }
         }
+      },
+      "wind_energy": {
+        "title": "Energía Eólica",
+        "image_alt": "Esta es una imagen sobre la Energía Eólica",
+        "description": "<p><b>La energía eólica</b> es una fuente de energía renovable que convierte la energía cinética del viento en electricidad mediante aerogeneradores.</p>",
+        "how_it_works": {
+          "title": "Cómo Funciona",
+          "steps": {
+            "wind_blows": "<p><b>El Viento Sopla</b> - El viento hace girar las aspas de un aerogenerador.</p>",
+            "rotor_rotation": "<p><b>Rotación del Rotor</b> - Las aspas están conectadas a un rotor, que hace girar un generador.</p>",
+            "electricity_generation": "<p><b>Generación de Electricidad</b> - El generador convierte la energía mecánica en energía eléctrica.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Ventajas",
+          "list": {
+            "renewable": "✅ Renovable y sostenible",
+            "low_impact": "✅ Bajo impacto ambiental (sin emisiones)",
+            "versatile": "✅ Se puede instalar en tierra o en el mar"
+          }
+        },
+        "disadvantages": {
+          "title": "Desventajas",
+          "list": {
+            "variable_wind": "❌ La velocidad del viento es variable e impredecible",
+            "wildlife_impact": "❌ Puede afectar a poblaciones de aves y murciélagos",
+            "space_requirement": "❌ Requiere grandes espacios abiertos para una eficiencia óptima"
+          }
+        }
       }
-
     }
-
   }
-  
 }

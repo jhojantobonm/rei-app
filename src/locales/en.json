@@ -31,8 +31,36 @@
             "water_dependency": "❌ Dependence on water availability"
           }
         }
+      },
+      "wind_energy": {
+        "title": "Wind Energy",
+        "image_alt": "This is an image about Wind Energy",
+        "description": "<p><b>Wind energy</b> is a renewable energy source that converts the kinetic energy of the wind into electricity using wind turbines.</p>",
+        "how_it_works": {
+          "title": "How It Works",
+          "steps": {
+            "wind_blows": "<p><b>Wind Blows</b> - The wind turns the blades of a wind turbine.</p>",
+            "rotor_rotation": "<p><b>Rotation of the Rotor</b> - The blades are connected to a rotor, which spins a generator.</p>",
+            "electricity_generation": "<p><b>Electricity Generation</b> - The generator converts mechanical energy into electrical energy.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Advantages",
+          "list": {
+            "renewable": "✅ Renewable and sustainable",
+            "low_impact": "✅ Low environmental impact (no emissions)",
+            "versatile": "✅ Can be installed on land or offshore"
+          }
+        },
+        "disadvantages": {
+          "title": "Disadvantages",
+          "list": {
+            "variable_wind": "❌ Wind speed is variable and unpredictable",
+            "wildlife_impact": "❌ Can impact bird and bat populations",
+            "space_requirement": "❌ Requires large open spaces for optimal efficiency"
+          }
+        }
       }
     }
-
   }
 }

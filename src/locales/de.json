@@ -31,8 +31,36 @@
             "water_dependency": "❌ Abhängigkeit von der Wasserverfügbarkeit"
           }
         }
+      },
+      "wind_energy": {
+        "title": "Windenergie",
+        "image_alt": "Dies ist ein Bild über Windenergie",
+        "description": "<p><b>Windenergie</b> ist eine erneuerbare Energiequelle, die die kinetische Energie des Windes mit Windturbinen in Strom umwandelt.</p>",
+        "how_it_works": {
+          "title": "Wie es funktioniert",
+          "steps": {
+            "wind_blows": "<p><b>Wind weht</b> - Der Wind dreht die Rotorblätter einer Windturbine.</p>",
+            "rotor_rotation": "<p><b>Rotation des Rotors</b> - Die Blätter sind mit einem Rotor verbunden, der einen Generator antreibt.</p>",
+            "electricity_generation": "<p><b>Stromerzeugung</b> - Der Generator wandelt mechanische Energie in elektrische Energie um.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Vorteile",
+          "list": {
+            "renewable": "✅ Erneuerbar und nachhaltig",
+            "low_impact": "✅ Geringe Umweltbelastung (keine Emissionen)",
+            "versatile": "✅ Kann an Land oder auf See installiert werden"
+          }
+        },
+        "disadvantages": {
+          "title": "Nachteile",
+          "list": {
+            "variable_wind": "❌ Windgeschwindigkeit ist variabel und unvorhersehbar",
+            "wildlife_impact": "❌ Kann Vogel- und Fledermauspopulationen beeinträchtigen",
+            "space_requirement": "❌ Benötigt große offene Flächen für optimale Effizienz"
+          }
+        }
       }
-
     }
   }
 }

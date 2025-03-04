@@ -23,7 +23,7 @@ export const getContent = (t:TFunction<"translation", undefined>)=> [
     description: <ContentInformationHydro/> 
   },
   {
-    title:'Wind Energy',
+    title: t('information.wind_energy.title'),
     image: windImage,
     description: <ContentInformationWind/> 
   },
