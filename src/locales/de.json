@@ -1,0 +1,38 @@
+
+{
+  "translation": {
+    "information": {
+      "home-title": "INFORMATION",
+      "hydro_energy": {
+        "title": "Wasserkraft",
+        "image_alt": "Dies ist ein Bild über Wasserkraft",
+        "description": "<p><b>Wasserkraft</b> oder <b>hydroelektrische</b> Energie ist eine erneuerbare Energiequelle, die Bewegung von Wasser zur Stromerzeugung nutzt. Sie ist eine der am weitesten verbreiteten erneuerbaren Energiequellen weltweit.</p>",
+        "how_it_works": {
+          "title": "Wie es funktioniert",
+          "steps": {
+            "water_flow": "<p><b>Wasserfluss</b> - Ein Damm oder Fluss leitet Wasser zu Turbinen.</p>",
+            "turbine_rotation": "<p><b>Turbinenrotation</b> - Die Kraft des fließenden Wassers dreht die Turbinen.</p>",
+            "electricity_generation": "<p><b>Stromerzeugung</b> - Die Turbinen treiben einen Generator an und wandeln kinetische Energie in elektrische Energie um.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Vorteile",
+          "list": {
+            "renewable": "✅ Erneuerbar und nachhaltig",
+            "low_emissions": "✅ Geringe Treibhausgasemissionen",
+            "reliable": "✅ Zuverlässig und effizient"
+          }
+        },
+        "disadvantages": {
+          "title": "Nachteile",
+          "list": {
+            "ecosystem_impact": "❌ Kann Ökosysteme und Fischwanderungen beeinträchtigen",
+            "high_cost": "❌ Hohe Anfangskosten für den Bau",
+            "water_dependency": "❌ Abhängigkeit von der Wasserverfügbarkeit"
+          }
+        }
+      }
+
+    }
+  }
+}
