@@ -169,6 +169,31 @@
         },
         "conclusion": "Geothermie-Energie wird häufig in Ländern mit hoher vulkanischer Aktivität wie Island, den USA und den Philippinen genutzt."
       }
+    },
+    "data": {
+      "title": "DATEN",
+      "subTitle": "Von {{yearFrom}} bis {{yearTo}}",
+      "selector": {
+        "placeholder": "Wählen Sie eine Datei aus"
+      },
+      "table":{
+        "filter": {
+          "placeholder": "Filtern nach"
+        },
+        "show_columns": "Spalten anzeigen",
+        "show_rows": {
+          "title": "Anzahl der Zeilen",
+          "placeholder": "Größe wählen",
+          "show": "Zeigen"
+        },
+        "footer": {
+          "legend":{
+            "desc": "{{selected}} von {{total}} Zeilen ausgewählt"
+          },
+          "prev": "Vorherige",
+          "next": "Nächste"
+        }
+      }
     }
   }
 }

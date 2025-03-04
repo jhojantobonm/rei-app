@@ -169,6 +169,31 @@
         },
         "conclusion": "La energía geotérmica se utiliza ampliamente en países con alta actividad volcánica, como Islandia, EE.UU. y Filipinas."
       }
+    },
+    "data": {
+      "title": "DATOS",
+      "subTitle": "Desde {{yearFrom}} hasta {{yearTo}}",
+      "selector": {
+        "placeholder": "Selecciona un archivo"
+      },
+      "table":{
+        "filter": {
+          "placeholder": "Filtrar por"
+        },
+        "show_columns": "Mostrar columnas",
+        "show_rows": {
+          "title": "Número de filas",
+          "placeholder": "Selecciona el tamaño",
+          "show": "Mostrar"
+        },
+        "footer": {
+          "legend":{
+            "desc": "{{selected}} de {{total}} fila(s) seleccionadas"
+          },
+          "prev": "Anterior",
+          "next": "Siguiente"
+        }
+      }
     }
   }
 }

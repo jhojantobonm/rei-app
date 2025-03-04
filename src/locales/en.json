@@ -169,6 +169,31 @@
         },
         "conclusion": "Geothermal energy is widely used in countries with high volcanic activity, such as Iceland, the U.S., and the Philippines."
       }
+    },
+    "data": {
+      "title": "DATA",
+      "subTitle": "From {{yearFrom}} to {{yearTo}}",
+      "selector": {
+        "placeholder": "Select a file"
+      },
+      "table":{
+        "filter": {
+          "placeholder": "Filter by"
+        },
+        "show_columns": "Show columns",
+        "show_rows": {
+          "title": "Number of rows",
+          "placeholder": "Select size",
+          "show": "Show"
+        },
+        "footer": {
+          "legend":{
+            "desc": "{{selected}} of {{total}} row(s) selected"
+          },
+          "prev": "Previous",
+          "next": "Next"
+        }
+      }
     }
   }
 }

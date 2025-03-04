@@ -34,10 +34,7 @@ import { useContextApp } from "@/context/useContextApp"
 import { fetchFile } from "@/utils/dataFetch"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "./ui/select"
 import { SpinnerComp } from "./SpinnerComp"
-
-
-
-
+import { useTranslation } from "react-i18next"
 
 // const data =[
 
@@ -91,9 +88,6 @@ import { SpinnerComp } from "./SpinnerComp"
 //           "Renewables (% equivalent primary energy)": "9.16206"
 //     },
 // ]
-
-
-
 
 export function DataTable() {
   const [data, setData] = React.useState([
@@ -153,8 +147,7 @@ export function DataTable() {
     },
     ...templateColumns
   ]
-
-
+  
   const {selectedFile} = useContextApp();
 
   const keys = Object.keys(data[0]);
@@ -194,10 +187,11 @@ export function DataTable() {
     },
   })
   
-    const handleMousedown = (size: number)=>{
-      setPageSize(size)
-    }
+  const handleMousedown = (size: number)=>{
+    setPageSize(size)
+  }
 
+  const {t} = useTranslation();
 
   React.useEffect(()=>{
     fetchFile(selectedFile).then(data=>setData(data));
@@ -211,7 +205,7 @@ export function DataTable() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
-                Filter by {filterValue} <ChevronDown />
+                {t('data.table.filter.placeholder')} {filterValue} <ChevronDown />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="text-[1.2rem]">
@@ -236,7 +230,7 @@ export function DataTable() {
             </DropdownMenuContent>
           </DropdownMenu>     
           <Input
-          placeholder={`Filter by ${filterValue}...`}
+          placeholder={`${t('data.table.filter.placeholder')} ${filterValue}...`}
           value={(table.getColumn(filterValue)?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn(filterValue)?.setFilterValue(event.target.value)
@@ -249,7 +243,7 @@ export function DataTable() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
-                Show columns <ChevronDown />
+                {t('data.table.show_columns')} <ChevronDown />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -275,14 +269,14 @@ export function DataTable() {
         </div>
         <Select>
           <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Select a size" />
+            <SelectValue placeholder={t('data.table.show_rows.placeholder')} />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Number of rows</SelectLabel>
+              <SelectLabel>{t('data.table.show_rows.title')}</SelectLabel>
                 {[10, 20, 30, 50, 100].map((size) => (
                   <SelectItem key={size} value={size + ''} onMouseDown={()=>handleMousedown(size)} >
-                    Show {size}
+                    {t('data.table.show_rows.show')} {size}
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -343,8 +337,10 @@ export function DataTable() {
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
+          {t('data.table.footer.legend.desc', {
+            selected: table.getFilteredSelectedRowModel().rows.length,
+            total: table.getFilteredRowModel().rows.length
+          })}
         </div>
         <div className="space-x-2">
           <Button
@@ -354,7 +350,7 @@ export function DataTable() {
             disabled={!table.getCanPreviousPage()}
             className="text-[1.2rem]"
           >
-            Previous
+            {t('data.table.footer.prev')}
           </Button>
           <Button
             variant="outline"
@@ -364,7 +360,7 @@ export function DataTable() {
             className="text-[1.2rem]"
             
           >
-            Next
+            {t('data.table.footer.next')}
           </Button>
         </div>
       </div>

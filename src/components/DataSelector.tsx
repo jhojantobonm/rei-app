@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useContextApp } from "@/context/useContextApp"
+import { useTranslation } from "react-i18next";
 
 export const DataSelector = () => {
   const {fileList,setSelectedFile} = useContextApp();
@@ -17,16 +18,17 @@ export const DataSelector = () => {
     
   }
 
+  const {t} = useTranslation();
+
   return (
       <div data-testid='data-selector'
       className="flex justify-center">
         <Select>
             <SelectTrigger className="w-full bg-app-secondary-background text-[1.2rem] py-6">
-              <SelectValue placeholder="Select a file" />
+              <SelectValue placeholder={t('data.selector.placeholder')} />
             </SelectTrigger>
             <SelectContent className="p-4">
               <SelectGroup>
-                <SelectLabel className="text-[1.4rem]">Data Files</SelectLabel>
                 {fileList.map(f=><SelectItem key={f} value={f} 
                 className="text-[1rem]" 
                 onMouseDown={()=>handleMouseDown(f)}
