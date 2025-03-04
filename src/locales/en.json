@@ -99,6 +99,37 @@
           }
         },
         "conclusion": "Solar energy is widely used for homes, businesses, and large power plants."
+      },
+      "biofuel_energy": {
+        "title": "Biofuel Energy",
+        "image_alt": "This is an image about Biofuel Energy",
+        "description": "<p><b>Biofuel energy</b> is a renewable energy source derived from organic materials, such as plants, agricultural waste, and animal fats. It can be used for transportation, electricity generation, and heating.</p>",
+        "types": {
+          "title": "Types of Biofuels",
+          "list": {
+            "bioethanol": "<p><b>Bioethanol</b> - Made from crops like corn, sugarcane, and wheat, often blended with gasoline.</p>",
+            "biodiesel": "<p><b>Biodiesel</b> - Produced from vegetable oils, animal fats, or algae, used as an alternative to diesel fuel.</p>",
+            "biogas": "<p><b>Biogas</b> - Generated from organic waste decomposition (e.g., food waste, manure), mainly composed of methane.</p>",
+            "wood_pellets": "<p><b>Wood and Biomass Pellets</b> - Used for heating and electricity generation.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Advantages",
+          "list": {
+            "renewable": "✅ Renewable and reduces dependence on fossil fuels",
+            "waste_reduction": "✅ Can use agricultural waste, reducing waste pollution",
+            "lower_emissions": "✅ Lower carbon emissions compared to fossil fuels"
+          }
+        },
+        "disadvantages": {
+          "title": "Disadvantages",
+          "list": {
+            "food_competition": "❌ Can compete with food production (e.g., using corn for fuel instead of food)",
+            "land_usage": "❌ Requires large land areas for crops",
+            "emissions": "❌ Some biofuels still produce emissions when burned"
+          }
+        },
+        "conclusion": "Biofuels are widely used in transportation, especially in countries promoting green energy."
       }
     }
   }

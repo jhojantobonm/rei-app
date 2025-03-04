@@ -99,6 +99,37 @@
           }
         },
         "conclusion": "La energía solar se utiliza ampliamente en hogares, empresas y grandes plantas de energía."
+      },
+      "biofuel_energy": {
+        "title": "Energía de Biocombustibles",
+        "image_alt": "Esta es una imagen sobre la Energía de Biocombustibles",
+        "description": "<p><b>La energía de biocombustibles</b> es una fuente de energía renovable derivada de materiales orgánicos, como plantas, residuos agrícolas y grasas animales. Puede utilizarse para el transporte, la generación de electricidad y la calefacción.</p>",
+        "types": {
+          "title": "Tipos de Biocombustibles",
+          "list": {
+            "bioethanol": "<p><b>Bioetanol</b> - Producido a partir de cultivos como maíz, caña de azúcar y trigo, a menudo mezclado con gasolina.</p>",
+            "biodiesel": "<p><b>Biodiésel</b> - Elaborado con aceites vegetales, grasas animales o algas, usado como alternativa al diésel.</p>",
+            "biogas": "<p><b>Biogás</b> - Generado por la descomposición de residuos orgánicos (ej. desechos de alimentos, estiércol), compuesto principalmente de metano.</p>",
+            "wood_pellets": "<p><b>Pellets de madera y biomasa</b> - Utilizados para calefacción y generación de electricidad.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Ventajas",
+          "list": {
+            "renewable": "✅ Renovable y reduce la dependencia de los combustibles fósiles",
+            "waste_reduction": "✅ Puede utilizar residuos agrícolas, reduciendo la contaminación por desechos",
+            "lower_emissions": "✅ Menores emisiones de carbono en comparación con los combustibles fósiles"
+          }
+        },
+        "disadvantages": {
+          "title": "Desventajas",
+          "list": {
+            "food_competition": "❌ Puede competir con la producción de alimentos (ej. usar maíz para combustible en lugar de comida)",
+            "land_requirement": "❌ Requiere grandes extensiones de tierra para los cultivos",
+            "emissions": "❌ Algunos biocombustibles siguen produciendo emisiones al quemarse"
+          }
+        },
+        "conclusion": "Los biocombustibles se utilizan ampliamente en el transporte, especialmente en países que promueven la energía verde."
       }
     }
   }

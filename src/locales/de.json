@@ -99,6 +99,37 @@
           }
         },
         "conclusion": "Solarenergie wird häufig in Haushalten, Unternehmen und großen Kraftwerken eingesetzt."
+      },
+      "biofuel_energy": {
+        "title": "Biokraftstoffenergie",
+        "image_alt": "Dies ist ein Bild über Biokraftstoffenergie",
+        "description": "<p><b>Biokraftstoffenergie</b> ist eine erneuerbare Energiequelle, die aus organischen Materialien wie Pflanzen, landwirtschaftlichen Abfällen und tierischen Fetten gewonnen wird. Sie kann für den Transport, die Stromerzeugung und die Heizung genutzt werden.</p>",
+        "types": {
+          "title": "Arten von Biokraftstoffen",
+          "list": {
+            "bioethanol": "<p><b>Bioethanol</b> - Hergestellt aus Pflanzen wie Mais, Zuckerrohr und Weizen, oft mit Benzin gemischt.</p>",
+            "biodiesel": "<p><b>Biodiesel</b> - Produziert aus Pflanzenölen, tierischen Fetten oder Algen und als Alternative zu Diesel verwendet.</p>",
+            "biogas": "<p><b>Biogas</b> - Entsteht durch die Zersetzung organischer Abfälle (z. B. Lebensmittelreste, Gülle) und besteht hauptsächlich aus Methan.</p>",
+            "wood_pellets": "<p><b>Holz- und Biomassepellets</b> - Werden für Heizung und Stromerzeugung genutzt.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Vorteile",
+          "list": {
+            "renewable": "✅ Erneuerbar und reduziert die Abhängigkeit von fossilen Brennstoffen",
+            "waste_reduction": "✅ Kann landwirtschaftliche Abfälle nutzen und somit Umweltverschmutzung reduzieren",
+            "lower_emissions": "✅ Geringere CO₂-Emissionen im Vergleich zu fossilen Brennstoffen"
+          }
+        },
+        "disadvantages": {
+          "title": "Nachteile",
+          "list": {
+            "food_competition": "❌ Kann mit der Nahrungsmittelproduktion konkurrieren (z. B. Mais für Treibstoff statt für Lebensmittel)",
+            "land_requirement": "❌ Benötigt große Landflächen für den Anbau",
+            "emissions": "❌ Einige Biokraftstoffe erzeugen bei der Verbrennung weiterhin Emissionen"
+          }
+        },
+        "conclusion": "Biokraftstoffe werden häufig im Transportwesen eingesetzt, insbesondere in Ländern, die erneuerbare Energien fördern."
       }
     }
   }

@@ -28,12 +28,12 @@ export const getContent = (t:TFunction<"translation", undefined>)=> [
     description: <ContentInformationWind/> 
   },
   {
-    title:'Solar Energy',
+    title:t('information.solar_energy.title'),
     image: solarImage,
     description: <ContentInformationSolar/> 
   },
   {
-    title:'Bio Fuel Energy',
+    title:t('information.biofuel_energy.title'),
     image: biofuelImage,
     description: <ContentInformationBioFuel/> 
   },
