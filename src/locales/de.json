@@ -60,6 +60,45 @@
             "space_requirement": "❌ Benötigt große offene Flächen für optimale Effizienz"
           }
         }
+      },
+      "solar_energy": {
+        "title": "Solarenergie",
+        "image_alt": "Dies ist ein Bild über Solarenergie",
+        "description": "<p><b>Solarenergie</b> ist eine erneuerbare Energiequelle, die Sonnenlicht zur Erzeugung von Strom und Wärme nutzt. Sie ist eine der am weitesten verbreiteten und nachhaltigsten Energiequellen der Erde.</p>",
+        "how_it_works": {
+          "title": "Wie es funktioniert",
+          "steps": {
+            "capture_sunlight": "<p><b>Solarpaneele fangen Sonnenlicht ein</b> - Photovoltaikzellen (PV) wandeln Sonnenlicht in Strom um.</p>",
+            "conversion_power": "<p><b>Umwandlung in nutzbare Energie</b> - Ein Wechselrichter wandelt den erzeugten Gleichstrom (DC) in Wechselstrom (AC) für den Haushalts- oder Industriegebrauch um.</p>",
+            "storage": "<p><b>Speicherung (Optional)</b> - Batterien können überschüssige Energie für die Nacht oder bewölkte Tage speichern.</p>"
+          }
+        },
+        "types": {
+          "title": "Arten von Solarenergie",
+          "list": {
+            "pv": "<p><b>Photovoltaik (PV)</b> - Wandelt Sonnenlicht direkt in Strom mit Solarmodulen um.</p>",
+            "thermal": "<p><b>Solarthermische Energie</b> - Nutzt die Sonnenwärme zur Erwärmung von Wasser oder Luft für den Wohn- und Industriebereich.</p>",
+            "csp": "<p><b>Konzentrierte Solarenergie (CSP)</b> - Nutzt Spiegel oder Linsen, um Sonnenlicht zu bündeln und hohe Temperaturen für die Stromerzeugung zu erzeugen.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Vorteile",
+          "list": {
+            "renewable": "✅ Erneuerbar und reichlich vorhanden",
+            "cost_savings": "✅ Reduziert Stromkosten",
+            "low_maintenance": "✅ Geringe Wartungskosten",
+            "eco_friendly": "✅ Keine Treibhausgasemissionen"
+          }
+        },
+        "disadvantages": {
+          "title": "Nachteile",
+          "list": {
+            "sunlight_dependency": "❌ Die Energieerzeugung hängt von der Verfügbarkeit von Sonnenlicht ab",
+            "high_install_cost": "❌ Hohe Anfangsinvestitionskosten",
+            "space_requirement": "❌ Erfordert große Flächen für großflächige Installationen"
+          }
+        },
+        "conclusion": "Solarenergie wird häufig in Haushalten, Unternehmen und großen Kraftwerken eingesetzt."
       }
     }
   }

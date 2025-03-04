@@ -60,6 +60,45 @@
             "space_requirement": "❌ Requiere grandes espacios abiertos para una eficiencia óptima"
           }
         }
+      },
+      "solar_energy": {
+        "title": "Energía Solar",
+        "image_alt": "Esta es una imagen sobre la Energía Solar",
+        "description": "<p><b>La energía solar</b> es una fuente de energía renovable que aprovecha la luz del sol para generar electricidad y calor. Es una de las fuentes de energía más disponibles y sostenibles en la Tierra.</p>",
+        "how_it_works": {
+          "title": "Cómo Funciona",
+          "steps": {
+            "capture_sunlight": "<p><b>Los Paneles Solares Capturan la Luz Solar</b> - Las células fotovoltaicas (PV) convierten la luz solar en electricidad.</p>",
+            "conversion_power": "<p><b>Conversión a Energía Utilizable</b> - Un inversor convierte la corriente continua (DC) generada en corriente alterna (AC) para uso doméstico o industrial.</p>",
+            "storage": "<p><b>Almacenamiento (Opcional)</b> - Las baterías pueden almacenar el exceso de energía para la noche o días nublados.</p>"
+          }
+        },
+        "types": {
+          "title": "Tipos de Energía Solar",
+          "list": {
+            "pv": "<p><b>Energía Solar Fotovoltaica (PV)</b> - Convierte directamente la luz solar en electricidad mediante paneles solares.</p>",
+            "thermal": "<p><b>Energía Solar Térmica</b> - Utiliza el calor del sol para calentar agua o aire para uso residencial e industrial.</p>",
+            "csp": "<p><b>Energía Solar Concentrada (CSP)</b> - Usa espejos o lentes para concentrar la luz solar y generar altas temperaturas para la producción de electricidad.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Ventajas",
+          "list": {
+            "renewable": "✅ Renovable y abundante",
+            "cost_savings": "✅ Reduce las facturas de electricidad",
+            "low_maintenance": "✅ Costos de mantenimiento bajos",
+            "eco_friendly": "✅ No emite gases de efecto invernadero"
+          }
+        },
+        "disadvantages": {
+          "title": "Desventajas",
+          "list": {
+            "sunlight_dependency": "❌ La producción de energía depende de la disponibilidad de luz solar",
+            "high_install_cost": "❌ Costos iniciales de instalación elevados",
+            "space_requirement": "❌ Requiere un gran espacio para instalaciones a gran escala"
+          }
+        },
+        "conclusion": "La energía solar se utiliza ampliamente en hogares, empresas y grandes plantas de energía."
       }
     }
   }

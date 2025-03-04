@@ -60,6 +60,45 @@
             "space_requirement": "❌ Requires large open spaces for optimal efficiency"
           }
         }
+      },
+      "solar_energy": {
+        "title": "Solar Energy",
+        "image_alt": "This is an image about Solar Energy",
+        "description": "<p><b>Solar energy</b> is a renewable energy source that harnesses sunlight to generate electricity and heat. It is one of the most widely available and sustainable energy sources on Earth</p>",
+        "how_it_works": {
+          "title": "How It Works",
+          "steps": {
+            "capture_sunlight": "<p><b>Solar Panels Capture Sunlight</b> - Photovoltaic (PV) cells convert sunlight into electricity.</p>",
+            "conversion_power": "<p><b>Conversion to Usable Power </b> - An inverter converts the generated direct current (DC) into alternating current (AC) for home or industrial use.</p>",
+            "storage": "<p><b>Storage (Optional)</b> - Batteries can store excess energy for nighttime or cloudy days.</p>"
+          }
+        },
+        "types": {
+          "title": "Types of Solar Energy",
+          "list": {
+            "pv": "<p><b>Solar Photovoltaic (PV)</b> - Converts sunlight directly into electricity using solar panels.</p>",
+            "thermal": "<p><b>Solar Thermal Energy</b> - Uses the sun’s heat to warm water or air for residential and industrial use.</p>",
+            "csp": "<p><b>Concentrated Solar Power (CSP)</b> - Uses mirrors or lenses to focus sunlight and generate high temperatures for electricity production.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Advantages",
+          "list": {
+            "renewable": "✅ Renewable and abundant",
+            "cost_savings": "✅ Reduces electricity bills",
+            "low_maintenance": "✅ Low maintenance costs",
+            "eco_friendly": "✅ No greenhouse gas emissions"
+          }
+        },
+        "disadvantages": {
+          "title": "Disadvantages",
+          "list": {
+            "sunlight_dependency": "❌ Energy production depends on sunlight availability",
+            "high_install_cost": "❌ High initial installation costs",
+            "space_requirement": "❌ Requires large space for large-scale installations"
+          }
+        },
+        "conclusion": "Solar energy is widely used for homes, businesses, and large power plants."
       }
     }
   }
