@@ -130,6 +130,44 @@
           }
         },
         "conclusion": "Biokraftstoffe werden häufig im Transportwesen eingesetzt, insbesondere in Ländern, die erneuerbare Energien fördern."
+      },
+      "geothermal_energy": {
+        "title": "Geothermie-Energie",
+        "description": "<p><b>Geothermie-Energie</b> ist eine erneuerbare Energiequelle, die Wärme aus dem Erdkern nutzt, um Strom zu erzeugen und direkte Wärme bereitzustellen. Diese Energie stammt aus der natürlichen Wärme unter der Erdoberfläche, hauptsächlich aus Magma und heißen Wasserreservoirs.</p>",
+        "how_it_works": {
+          "title": "Wie es funktioniert:",
+          "steps": {
+            "heat_extraction": "<p><b>Wärmegewinnung</b> - Es werden Bohrungen durchgeführt, um heißes Wasser oder Dampf aus unterirdischen Reservoirs zu gewinnen.</p>",
+            "steam_generation": "<p><b>Dampferzeugung</b> - Die Wärme wird genutzt, um Dampf zu erzeugen.</p>",
+            "turbine_activation": "<p><b>Turbinenaktivierung</b> - Der Dampf treibt eine Turbine an, die mit einem Generator verbunden ist.</p>",
+            "electricity_production": "<p><b>Stromerzeugung</b> - Der Generator wandelt mechanische Energie in Elektrizität um.</p>"
+          }
+        },
+        "types": {
+          "title": "Arten von Geothermie-Systemen:",
+          "list": {
+            "dry_steam": "<p><b>Trockendampf-Kraftwerke</b> - Nutzen Dampf direkt aus der Erde, um Turbinen anzutreiben.</p>",
+            "flash_steam": "<p><b>Heißwasserdampf-Kraftwerke</b> - Wandeln heißes Wasser mit hohem Druck in Dampf um.</p>",
+            "binary_cycle": "<p><b>Binäre Kreislaufkraftwerke</b> - Übertragen Wärme auf eine Sekundärflüssigkeit mit niedrigerem Siedepunkt, um Dampf zu erzeugen.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Vorteile:",
+          "list": {
+            "reliable": "✅ Zuverlässig und rund um die Uhr verfügbar",
+            "low_emissions": "✅ Geringe Treibhausgasemissionen",
+            "small_land_footprint": "✅ Geringer Platzbedarf im Vergleich zu anderen erneuerbaren Energien"
+          }
+        },
+        "disadvantages": {
+          "title": "Nachteile:",
+          "list": {
+            "high_cost": "❌ Hohe anfängliche Bohr- und Installationskosten",
+            "location_limit": "❌ Begrenzung auf Gebiete mit geothermischer Aktivität",
+            "earthquake_risk": "❌ Potenzielles Risiko kleinerer Erdbeben"
+          }
+        },
+        "conclusion": "Geothermie-Energie wird häufig in Ländern mit hoher vulkanischer Aktivität wie Island, den USA und den Philippinen genutzt."
       }
     }
   }

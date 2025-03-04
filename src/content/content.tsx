@@ -38,7 +38,7 @@ export const getContent = (t:TFunction<"translation", undefined>)=> [
     description: <ContentInformationBioFuel/> 
   },
   {
-    title:'Geothermal Energy',
+    title:t('information.geothermal_energy.title'),
     image: geoImage,
     description: <ContentInformationGeothermal/> 
   },

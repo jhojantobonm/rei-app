@@ -130,6 +130,44 @@
           }
         },
         "conclusion": "Los biocombustibles se utilizan ampliamente en el transporte, especialmente en países que promueven la energía verde."
+      },
+      "geothermal_energy": {
+        "title": "Energía Geotérmica",
+        "description": "<p><b>La energía geotérmica</b> es una fuente de energía renovable que aprovecha el calor del núcleo de la Tierra para generar electricidad y proporcionar calefacción directa. Esta energía proviene del calor natural almacenado debajo de la superficie terrestre, principalmente del magma y los reservorios de agua caliente.</p>",
+        "how_it_works": {
+          "title": "Cómo Funciona:",
+          "steps": {
+            "heat_extraction": "<p><b>Extracción de Calor</b> - Se perforan pozos para acceder a agua caliente o vapor de reservorios subterráneos.</p>",
+            "steam_generation": "<p><b>Generación de Vapor</b> - El calor se utiliza para producir vapor.</p>",
+            "turbine_activation": "<p><b>Activación de la Turbina</b> - El vapor mueve una turbina conectada a un generador.</p>",
+            "electricity_production": "<p><b>Producción de Electricidad</b> - El generador convierte la energía mecánica en electricidad.</p>"
+          }
+        },
+        "types": {
+          "title": "Tipos de Sistemas Geotérmicos:",
+          "list": {
+            "dry_steam": "<p><b>Plantas de Vapor Seco</b> - Utilizan vapor directamente desde el subsuelo para mover turbinas.</p>",
+            "flash_steam": "<p><b>Plantas de Vapor Instantáneo</b> - Convierten agua caliente a alta presión en vapor.</p>",
+            "binary_cycle": "<p><b>Plantas de Ciclo Binario</b> - Transfieren calor a un fluido secundario con un punto de ebullición más bajo para generar vapor.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Ventajas:",
+          "list": {
+            "reliable": "✅ Fiable y funciona 24/7",
+            "low_emissions": "✅ Bajas emisiones de gases de efecto invernadero",
+            "small_land_footprint": "✅ Requiere poco espacio en comparación con otras energías renovables"
+          }
+        },
+        "disadvantages": {
+          "title": "Desventajas:",
+          "list": {
+            "high_cost": "❌ Altos costos iniciales de perforación e instalación",
+            "location_limit": "❌ Limitado a zonas con actividad geotérmica",
+            "earthquake_risk": "❌ Riesgo potencial de provocar pequeños sismos"
+          }
+        },
+        "conclusion": "La energía geotérmica se utiliza ampliamente en países con alta actividad volcánica, como Islandia, EE.UU. y Filipinas."
       }
     }
   }

@@ -130,6 +130,44 @@
           }
         },
         "conclusion": "Biofuels are widely used in transportation, especially in countries promoting green energy."
+      },
+      "geothermal_energy": {
+        "title": "Geothermal Energy",
+        "description": "<p><b>Geothermal energy</b> is a renewable energy source that harnesses heat from the Earth's core to generate electricity and provide direct heating. This energy comes from the natural heat stored beneath the Earth's surface, mainly from molten rock (magma) and hot water reservoirs.</p>",
+        "how_it_works": {
+          "title": "How It Works:",
+          "steps": {
+            "heat_extraction": "<p><b>Heat Extraction</b> - Wells are drilled to access hot water or steam from underground reservoirs.</p>",
+            "steam_generation": "<p><b>Steam Generation</b> - The heat is used to produce steam.</p>",
+            "turbine_activation": "<p><b>Turbine Activation</b> - The steam drives a turbine connected to a generator.</p>",
+            "electricity_production": "<p><b>Electricity Production</b> - The generator converts mechanical energy into electricity.</p>"
+          }
+        },
+        "types": {
+          "title": "Types of Geothermal Systems:",
+          "list": {
+            "dry_steam": "<p><b>Dry Steam Plants</b> - Use steam directly from underground to spin turbines.</p>",
+            "flash_steam": "<p><b>Flash Steam Plants</b> - Convert high-pressure hot water into steam.</p>",
+            "binary_cycle": "<b>Binary Cycle Plants</b> - Transfer heat to a secondary fluid with a lower boiling point to generate steam.</p>"
+          }
+        },
+        "advantages": {
+          "title": "Advantages:",
+          "list": {
+            "reliable": "✅ Reliable and operates 24/7",
+            "low_emissions": "✅ Low greenhouse gas emissions",
+            "small_land_footprint": "✅ Small land footprint compared to other renewables"
+          }
+        },
+        "disadvantages": {
+          "title": "Disadvantages:",
+          "list": {
+            "high_cost": "❌ High upfront drilling and installation costs",
+            "location_limit": "❌ Limited to areas with geothermal activity",
+            "earthquake_risk": "❌ Potential risk of triggering small earthquakes"
+          }
+        },
+        "conclusion": "Geothermal energy is widely used in countries with high volcanic activity, such as Iceland, the U.S., and the Philippines."
       }
     }
   }
