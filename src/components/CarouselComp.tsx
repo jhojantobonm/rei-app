@@ -1,13 +1,16 @@
-import { chartContents } from "@/content/content";
+import { getChartContents } from "@/content/content";
 import { useContextApp } from "@/context/useContextApp";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { CarouselCompItem } from "./CarouselCompItem";
+import { useTranslation } from "react-i18next";
 
 export const CarouselComp: React.FC = ()=>{
   const {carouselCount,setCarouselCount} = useContextApp();
+  const {t} = useTranslation();
+  const chartContents = getChartContents(t)
   const length = chartContents.length;
-
+  
   const handleClickIncrease = ()=>{
     setCarouselCount(prev=>prev + 1);
     if(carouselCount >= length-1)
@@ -20,6 +23,8 @@ export const CarouselComp: React.FC = ()=>{
       setCarouselCount(length-1);
   }
   
+
+
   return(
     <div data-testid='carousel-component' className="flex flex-wrap justify-center gap-7 items-center my-10">
       <button type="button" onClick={handleClickDecrease} className="cursor-pointer"><IoIosArrowBack size='3rem'/></button>

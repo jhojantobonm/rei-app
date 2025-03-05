@@ -19,6 +19,7 @@ import { fetchBarsChartData } from "@/utils/dataFetch"
 import { YearSelector } from "./YearSelector"
 import { useContextApp } from "@/context/useContextApp"
 import { SpinnerComp } from "./SpinnerComp"
+import { useTranslation } from "react-i18next"
 
 // const chartDataDummy = [
 //   { source: "hydro", capacity: 500, fill: "var(--color-hydro)" },
@@ -29,28 +30,7 @@ import { SpinnerComp } from "./SpinnerComp"
 // ]
 
 
-const chartConfig = {
-  hydro: {
-    label: "Hydro",
-    color: "rgb(0, 149, 255)",
-  },
-  wind: {
-    label: "Wind",
-    color: "rgb(98, 190, 255)",
-  },
-  solar: {
-    label: "Solar",
-    color: "hsl(43 74% 66%)",
-  },
-  biofuel: {
-    label: "Biofuel",
-    color: "rgb(6, 153, 50)",
-  },
-  geothermal: {
-    label: "Geothermal",
-    color: "hsl(2 87% 67%)",
-  },
-} satisfies ChartConfig
+
 
 interface BarProps {
   source: string,
@@ -59,13 +39,37 @@ interface BarProps {
 }
 
 export const BarsChart = ()=>{
+  const {t} = useTranslation();
+
+  const chartConfig = {
+    hydro: {
+      label: t('dashboard.bars_chart.sources.hydro'),
+      color: "rgb(0, 149, 255)",
+    },
+    wind: {
+      label: t('dashboard.bars_chart.sources.wind'),
+      color: "rgb(98, 190, 255)",
+    },
+    solar: {
+      label: t('dashboard.bars_chart.sources.solar'),
+      color: "hsl(43 74% 66%)",
+    },
+    biofuel: {
+      label: t('dashboard.bars_chart.sources.biofuel'),
+      color: "rgb(6, 153, 50)",
+    },
+    geothermal: {
+      label: t('dashboard.bars_chart.sources.geothermal'),
+      color: "hsl(2 87% 67%)",
+    },
+  } satisfies ChartConfig
+
   const [chartData, setDataChart] = useState<BarProps[]>([]);
   const [hydro, setHydro] = useState<number>(0);
   const [wind, setWind] = useState<number>(0);
   const [solar, setSolar] = useState<number>(0);
   const [biofuel, setBiofuel] = useState<number>(0);
   const [geo, setGeo] = useState<number>(0);
-
 
   const {year} = useContextApp()
   
@@ -85,8 +89,8 @@ export const BarsChart = ()=>{
   return(
     <Card data-testid='bars-chart-component' className="relative">
       <CardHeader>
-        <CardTitle className="text-[1.4rem] text-center ">Renewable energy production</CardTitle>
-        <CardDescription className="text-[1rem] text-center">Data in {year}</CardDescription>
+        <CardTitle className="text-[1.4rem] text-center ">{t('dashboard.bars_chart.renewable_production')}</CardTitle>
+        <CardDescription className="text-[1rem] text-center">{t('dashboard.bars_chart.data_year',{year})}</CardDescription>
         <YearSelector className="z-10"/>
       </CardHeader>
       <CardContent className="min-h-[20rem]">
@@ -135,11 +139,11 @@ export const BarsChart = ()=>{
       <CardFooter>
       {chartData.length !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">
           <ul className="flex flex-wrap flex-col sm:flex-row gap-6">
-            <li><span className="text-white bg-[#0095ff] p-2 rounded-2xl">Hydro</span> = {hydro + ' TWh;'}</li>
-            <li><span className="text-black bg-[#62beff] p-2 rounded-2xl">Wind</span> = {wind  + ' TWh;'}</li>
-            <li><span className="text-black bg-[#e8c468] p-2 rounded-2xl">Solar</span> = {solar    + ' TWh;'}</li> 
-            <li><span className="text-white bg-[#069932] p-2 rounded-2xl">Biofuel</span> = {biofuel    + ' TWh;'}</li>
-            <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">Geothermal</span> = {geo    + ' TWh'}</li>
+            <li><span className="text-white bg-[#0095ff] p-2 rounded-2xl">{t('dashboard.bars_chart.sources.hydro')}</span> = {hydro + ' TWh;'}</li>
+            <li><span className="text-black bg-[#62beff] p-2 rounded-2xl">{t('dashboard.bars_chart.sources.wind')}</span> = {wind  + ' TWh;'}</li>
+            <li><span className="text-black bg-[#e8c468] p-2 rounded-2xl">{t('dashboard.bars_chart.sources.solar')}</span> = {solar    + ' TWh;'}</li> 
+            <li><span className="text-white bg-[#069932] p-2 rounded-2xl">{t('dashboard.bars_chart.sources.biofuel')}</span> = {biofuel    + ' TWh;'}</li>
+            <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">{t('dashboard.bars_chart.sources.geothermal')}</span> = {geo    + ' TWh'}</li>
           </ul> 
         </div>} 
       </CardFooter>

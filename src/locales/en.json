@@ -206,6 +206,22 @@
       "calculate": "Calculate",
       "reset": "Reset"
     },
+    "dashboard": {
+      "title": "DASHBOARD",
+      "bars_chart":{
+        "description": "Renewable Energy Production by Source",
+        "details": "Shows the amount of energy produced by each renewable source.",
+        "renewable_production": "Renewable energy production",
+        "data_year": "Data in {{year}}",
+        "sources": {
+          "hydro": "Hydro",
+          "wind": "Wind",
+          "solar": "Solar",
+          "biofuel": "Biofuel",
+          "geothermal": "Geothermal"
+        }
+      } 
+    },
     "created_by": "Created by {{name}}"
   
   }

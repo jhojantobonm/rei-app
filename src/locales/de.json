@@ -206,6 +206,22 @@
       "calculate": "Berechnen",
       "reset": "Zurücksetzen"
     },
+    "dashboard": {
+      "title": "DASHBOARD",
+      "bars_chart": {
+        "description": "Erneuerbare Energieproduktion nach Quelle",
+        "details": "Zeigt die Menge der durch jede erneuerbare Quelle erzeugten Energie.",
+        "renewable_production": "Erzeugung erneuerbarer Energie",
+        "data_year": "Daten im Jahr {{year}}",
+        "sources": {
+          "hydro": "Wasserkraft",
+          "wind": "Windkraft",
+          "solar": "Solarenergie",
+          "biofuel": "Biokraftstoff",
+          "geothermal": "Geothermie"
+        }
+      }
+    },
     "created_by": "Erstellt von {{name}}"
   }
 }

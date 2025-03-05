@@ -44,10 +44,10 @@ export const getContent = (t:TFunction<"translation", undefined>)=> [
   },
 ];
 
-export const chartContents = [
+export const getChartContents = (t:TFunction<"translation", undefined>)=>[
   {
-    title: 'Renewable Energy Production by Source',
-    description: 'Shows the amount of energy produced by each renewable source.',
+    title: t('dashboard.bars_chart.description'),
+    description: t('dashboard.bars_chart.details'),
     chart: <BarsChart/>
   },
   {
