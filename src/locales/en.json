@@ -232,6 +232,17 @@
           "solar": "Solar",
           "other_renewables": "Other Renewables"
         }
+      },
+      "line_chart": {
+        "description": "Trend in installed capacity",
+        "details": "It shows the evolution of the installed capacity of different renewable energy sources over time.",
+        "trend": "Trend in installed capacity of production",
+        "data_range": "From 1965 to 2022",
+        "sources": {
+          "wind": "Wind",
+          "solar": "Solar",
+          "geothermal": "Geothermal"
+        }
       }
     },
     "created_by": "Created by {{name}}"

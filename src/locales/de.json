@@ -232,6 +232,17 @@
           "solar": "Solarenergie",
           "other_renewables": "Andere erneuerbare Energien"
         }
+      },
+      "line_chart": {
+        "description": "Entwicklung der installierten Kapazität",
+        "details": "Zeigt die Entwicklung der installierten Kapazität verschiedener erneuerbarer Energiequellen im Laufe der Zeit.",
+        "trend": "Entwicklung der installierten Produktionskapazität",
+        "data_range": "Von 1965 bis 2022",
+        "sources": {
+          "wind": "Windenergie",
+          "solar": "Solarenergie",
+          "geothermal": "Geothermie"
+        }
       }
     },
     "created_by": "Erstellt von {{name}}"

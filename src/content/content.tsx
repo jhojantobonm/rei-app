@@ -56,8 +56,8 @@ export const getChartContents = (t:TFunction<"translation", undefined>)=>[
     chart: <PieChartComp/>
   },
   {
-    title: 'Trend in installed capacity',
-    description: 'It shows the evolution of the installed capacity of different renewable energy sources over time.',
+    title: t('dashboard.line_chart.description'),
+    description: t('dashboard.line_chart.details'),
     chart: <LineChartComp/>
   },
   {

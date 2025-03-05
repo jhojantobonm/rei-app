@@ -232,6 +232,17 @@
           "solar": "Solar",
           "other_renewables": "Otras Renovables"
         }
+      },
+      "line_chart": {
+        "description": "Tendencia en la capacidad instalada",
+        "details": "Muestra la evolución de la capacidad instalada de diferentes fuentes de energía renovable a lo largo del tiempo.",
+        "trend": "Tendencia en la capacidad instalada de producción",
+        "data_range": "Desde 1965 hasta 2022",
+        "sources": {
+          "wind": "Eólica",
+          "solar": "Solar",
+          "geothermal": "Geotérmica"
+        }
       }
     },
     

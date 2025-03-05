@@ -18,6 +18,7 @@ import { useEffect, useState } from "react"
 import { fetchLineChartData } from "@/utils/dataFetch"
 import { useContextApp } from "@/context/useContextApp"
 import { SpinnerComp } from "./SpinnerComp"
+import { useTranslation } from "react-i18next"
 // const chartData = [
 //   { year: "1965", wind: -186, solar: 0, geothermal: 20 },
 //   { year: "1966", wind: 305, solar: 100, geothermal: 400 },
@@ -78,20 +79,7 @@ import { SpinnerComp } from "./SpinnerComp"
 //   { year: "2022", wind: 214, solar: 100, geothermal: 500 },
 // ]
 
-const chartConfig = {
-  wind: {
-    label: "Wind",
-    color: "rgb(0, 149, 255)",
-  },
-  solar: {
-    label: "Solar",
-    color: "hsl(43 74% 66%)",
-  },
-  geothermal: {
-    label: "Geothermal",
-    color: "hsl(2 87% 67%)",
-  },
-} satisfies ChartConfig
+
 
 
 interface LineProps {
@@ -102,6 +90,23 @@ interface LineProps {
 }
 
 export const LineChartComp = ()=>{
+  const {t} = useTranslation();
+
+  const chartConfig = {
+    wind: {
+      label: t('dashboard.line_chart.sources.wind'),
+      color: "rgb(0, 149, 255)",
+    },
+    solar: {
+      label:  t('dashboard.line_chart.sources.solar'),
+      color: "hsl(43 74% 66%)",
+    },
+    geothermal: {
+      label:  t('dashboard.line_chart.sources.geothermal'),
+      color: "hsl(2 87% 67%)",
+    },
+  } satisfies ChartConfig
+
   const [chartData, setChartData] = useState<LineProps[]>([]);
   const {year} = useContextApp();
 
@@ -116,8 +121,8 @@ export const LineChartComp = ()=>{
   return (
     <Card data-testid='linear-chart-component' className="relative">
       <CardHeader>
-        <CardTitle className="text-[1.4rem] text-center">Trend in installed capacity of production</CardTitle>
-        <CardDescription className="text-[1rem] text-center">From 1965 to 2022</CardDescription>
+        <CardTitle className="text-[1.4rem] text-center">{t('dashboard.line_chart.trend')}</CardTitle>
+        <CardDescription className="text-[1rem] text-center">{t('dashboard.line_chart.data_range')}</CardDescription>
       </CardHeader>
       <CardContent className="min-h-[20rem]">
       {chartData.length !== 0 && <ChartContainer config={chartConfig}>
@@ -173,9 +178,9 @@ export const LineChartComp = ()=>{
       <CardFooter>
       {chartData.length !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">
           <ul className="flex flex-wrap flex-col sm:flex-row gap-6">
-            <li><span className="text-black bg-[#0095ff] p-2 rounded-2xl">Wind</span></li>
-            <li><span className="text-black bg-[#e8c468] p-2 rounded-2xl">Solar</span></li>
-            <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">Geothermal</span></li> 
+            <li><span className="text-black bg-[#0095ff] p-2 rounded-2xl">{t('dashboard.line_chart.sources.wind')}</span></li>
+            <li><span className="text-black bg-[#e8c468] p-2 rounded-2xl">{t('dashboard.line_chart.sources.solar')}</span></li>
+            <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">{t('dashboard.line_chart.sources.geothermal')}</span></li> 
           </ul> 
         </div>}
       </CardFooter>
