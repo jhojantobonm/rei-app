@@ -194,6 +194,18 @@
           "next": "Nächste"
         }
       }
-    }
+    },
+    "calculator": {
+      "title": "RECHNER",
+      "description": "Berechnet den Prozentsatz des erneuerbaren Energieverbrauchs basierend auf Daten von 1965 bis 2022.",
+      "data_source": "Daten aus der Datei {{file}}",
+      "total_consumption": "Gesamtstromverbrauch (kWh)",
+      "total_capacity": "(optional) Gesamtkapazität (TWh)",
+      "manual_input": "Gesamtkapazität manuell eingeben",
+      "result": "Dein Verbrauch von \"{{consumption}} kWh\" im Jahr {{year}} hätte {{percentage}}% oder {{total}} kWh erneuerbare Energie",
+      "calculate": "Berechnen",
+      "reset": "Zurücksetzen"
+    },
+    "created_by": "Erstellt von {{name}}"
   }
 }

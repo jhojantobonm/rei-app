@@ -194,6 +194,19 @@
           "next": "Next"
         }
       }
-    }
+    },
+    "calculator": {
+      "title": "CALCULATOR",
+      "description": "Calculates the percentage of renewable energy consumption based on data collected from 1965 to 2022.",
+      "data_source": "Data from {{file}} file",
+      "total_consumption":"Total electrical consumption (kWh)",
+      "total_capacity":"(optional) Total capacity (TWh)",
+      "manual_input": "Enter the Total Capacity Manually",
+      "result": "Your consumption of \"{{consumption}} KWh\" in {{year}} would have {{percentage}}% or {{total}} KWh of renewable energy",
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "created_by": "Created by {{name}}"
+  
   }
 }

@@ -6,6 +6,7 @@ import { fetchRenewableData } from "@/utils/dataFetch"
 import { useEffect, useState } from "react"
 import { YearSelector } from "./YearSelector"
 import { useContextApp } from "@/context/useContextApp"
+import { useTranslation } from "react-i18next"
 
 const years: number[] = []
 for (let i = 1965; i <= 2022; i++) {
@@ -26,6 +27,8 @@ export const CalculatorComp = ()=>{
   const [consumption, setConsumption] = useState<string>('0');
   const [totalPercentage, setTotalPercentage] = useState<number>(0);
   const [isChecked, setIsChecked] = useState<boolean>(false);
+
+  const {t} = useTranslation();
 
   const handleMousedown = (y: string)=>{
     setCalculate(false);
@@ -115,11 +118,11 @@ export const CalculatorComp = ()=>{
     <div data-testid='calculator-component' className="flex flex-col flex-wrap gap-7 md:gap-20">
       
       <div>
-        <p className="text-[1.4rem] pb-2">Data from 03-modern-renewable-prod.csv file</p>
+        <p className="text-[1.4rem] pb-2">{t('calculator.data_source', {file: '03-modern-renewable-prod.csv'})}</p>
         <YearSelector/>
       </div>
       <div>
-        <Label htmlFor="consumption" className="text-[1.4rem] font-light">* Total electrical consumption (kWh):</Label>
+        <Label htmlFor="consumption" className="text-[1.4rem] font-light">* {t('calculator.total_consumption')}:</Label>
         <Input type="number" id="consumption" placeholder="Example: 18" className="bg-app-secondary-background mt-2 p-7 text-[1.4rem] md:text-[1.4rem] placeholder:text-white"
         min={0}
         value={consumption}
@@ -128,7 +131,7 @@ export const CalculatorComp = ()=>{
         />
       </div>
       <div>
-        <Label htmlFor="capacity" className="text-[1.4rem] font-light">(optional) Total capacity (TWh):</Label>
+        <Label htmlFor="capacity" className="text-[1.4rem] font-light">{t('calculator.total_capacity')}:</Label>
         <Input type="number" id="capacity" disabled={!  isChecked} placeholder={totalCapacity + ''}
           className="bg-app-secondary-background mt-2 p-7 text-[1.4rem] md:text-[1.4rem] placeholder:text-gray-300"
           min={1}
@@ -142,13 +145,13 @@ export const CalculatorComp = ()=>{
           htmlFor="terms"
           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-[1.4rem]"
         >
-          Enter the Total Capacity Manually
+          {t('calculator.manual_input')}
         </label>
       </div>
-      {calculate && <p className="text-[1.6rem] font-bold text-center">Your consumption of "{consumption} KWh" in {year} would have {totalPercentage}% or {Number((Number(consumption) * Number(((totalPercentage * 100 / 100)).toFixed(2))/100).toFixed(2))} KWh of renewable energy</p>}
+      {calculate && <p className="text-[1.6rem] font-bold text-center">{t('calculator.result', {consumption,year,percentage:totalPercentage, total: Number((Number(consumption) * Number(((totalPercentage * 100 / 100)).toFixed(2))/100).toFixed(2))})}</p>}
       <div className="flex justify-around">
-        <Button className="cursor-pointer text-[1.4rem] h-[4rem] w-fit" onClick={handleCalculate}>Calculate</Button>
-        <Button className="cursor-pointer text-[1.4rem] h-[4rem] w-fit" onClick={handleReset}>Reset</Button>
+        <Button className="cursor-pointer text-[1.4rem] h-[4rem] w-fit" onClick={handleCalculate}>{t('calculator.calculate')}</Button>
+        <Button className="cursor-pointer text-[1.4rem] h-[4rem] w-fit" onClick={handleReset}>{t('calculator.reset')}</Button>
       </div>
     </div>
   )
