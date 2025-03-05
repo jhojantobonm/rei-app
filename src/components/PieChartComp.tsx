@@ -19,6 +19,7 @@ import { useContextApp } from "@/context/useContextApp"
 import { fetchPieChartData } from "@/utils/dataFetch"
 import { useEffect, useState } from "react"
 import { SpinnerComp } from "./SpinnerComp"
+import { useTranslation } from "react-i18next"
 
 // const chartData = [
 //   { source: "hydro", share: 275, fill: "var(--color-hydro)" },
@@ -27,35 +28,42 @@ import { SpinnerComp } from "./SpinnerComp"
 //   { source: "otherRenewables", share: 190, fill: "var(--color-otherRenewables)" },
 // ]
 
-const chartConfig = {
-  share: {
-    label: "Share",
-  },
-  hydro: {
-    label: "Hydro",
-    color: "rgb(0, 149, 255)",
-  },
-  wind: {
-    label: "Wind",
-    color: "rgb(98, 190, 255)",
-  },
-  solar: {
-    label: "Solar",
-    color: "hsl(43 74% 66%)",
-  },
-  otherRenewables: {
-    label: "Other Renewables",
-    color: "hsl(300, 95%, 36%)",
-  },
-} satisfies ChartConfig
 
-interface PieProps {
-  source: string,
-  share: number,
-  fill: string
-}
 
 export const PieChartComp = ()=>{
+  const {t} = useTranslation();
+
+
+  const chartConfig = {
+    share: {
+      label: "Share",
+    },
+    hydro: {
+      label: t('dashboard.pie_chart.sources.hydro'),
+      color: "rgb(0, 149, 255)",
+    },
+    wind: {
+      label: t('dashboard.pie_chart.sources.wind'),
+      color: "rgb(98, 190, 255)",
+    },
+    solar: {
+      label: t('dashboard.pie_chart.sources.solar'),
+      color: "hsl(43 74% 66%)",
+    },
+    otherRenewables: {
+      label: t('dashboard.pie_chart.sources.other_renewables'),
+      color: "hsl(300, 95%, 36%)",
+    },
+  } satisfies ChartConfig
+  
+  interface PieProps {
+    source: string,
+    share: number,
+    fill: string
+  }
+
+
+
   const [dataChart, setData] = useState<PieProps[]>([]);
   const [totalPercentage, setTotalPercentage] = useState<number>(0);
   const [total, setTotal] = useState<number>(0);
@@ -63,7 +71,6 @@ export const PieChartComp = ()=>{
   const [wind, setWind] = useState<number>(0);
   const [solar, setSolar] = useState<number>(0);
   const [otherRenewables, setOtherRenewables] = useState<number>(0);
-
 
 
 
@@ -140,8 +147,8 @@ export const PieChartComp = ()=>{
   return (
     <Card data-testid='pie-chart-component' className="relative flex flex-col">
       <CardHeader className="">
-        <CardTitle className="text-[1.4rem] text-center">Consumption share</CardTitle>
-        <CardDescription className="text-[1rem] text-center">Data in {year} </CardDescription>
+        <CardTitle className="text-[1.4rem] text-center">{t('dashboard.pie_chart.consumption_share')}</CardTitle>
+        <CardDescription className="text-[1rem] text-center">{t('dashboard.pie_chart.data_year',{year})} </CardDescription>
         <YearSelector className="z-10"/>
       </CardHeader>
       <CardContent className="flex-1 pb-0 min-h-[20rem]">
@@ -206,10 +213,10 @@ export const PieChartComp = ()=>{
       <CardFooter>
       {total !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">
           <ul className="flex flex-wrap flex-col sm:flex-row gap-6">
-            <li><span className="text-white bg-[#0095ff] p-2 rounded-2xl">Hydro</span> = {hydro + ' %;'}</li>
-            <li><span className="text-black bg-[#62beff] p-2 rounded-2xl">Wind</span> = {wind  + ' %;'}</li>
-            <li><span className="text-black bg-[#e8c468] p-2 rounded-2xl">Solar</span> = {solar    + ' %;'}</li> 
-            <li><span className="text-white bg-[#b305b3] p-2 rounded-2xl">Other Renewables</span> = {otherRenewables    + ' %;'}</li>
+            <li><span className="text-white bg-[#0095ff] p-2 rounded-2xl">{t('dashboard.pie_chart.sources.hydro')}</span> = {hydro + ' %;'}</li>
+            <li><span className="text-black bg-[#62beff] p-2 rounded-2xl">{t('dashboard.pie_chart.sources.wind')}</span> = {wind  + ' %;'}</li>
+            <li><span className="text-black bg-[#e8c468] p-2 rounded-2xl">{t('dashboard.pie_chart.sources.solar')}</span> = {solar    + ' %;'}</li> 
+            <li><span className="text-white bg-[#b305b3] p-2 rounded-2xl">{t('dashboard.pie_chart.sources.other_renewables')}</span> = {otherRenewables    + ' %;'}</li>
           </ul> 
         </div>}
       </CardFooter>

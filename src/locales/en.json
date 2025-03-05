@@ -220,7 +220,19 @@
           "biofuel": "Biofuel",
           "geothermal": "Geothermal"
         }
-      } 
+      },
+      "pie_chart": {
+        "description": "Participation of Renewable Energies",
+        "details": "Shows the percentage of each type of renewable energy in total electricity consumption.",
+        "consumption_share": "Consumption share",
+        "data_year": "Data in {{year}}",
+        "sources": {
+          "hydro": "Hydro",
+          "wind": "Wind",
+          "solar": "Solar",
+          "other_renewables": "Other Renewables"
+        }
+      }
     },
     "created_by": "Created by {{name}}"
   

@@ -220,8 +220,22 @@
           "biofuel": "Biocombustible",
           "geothermal": "Geotérmica"
         }
+      },
+      "pie_chart": {
+        "description": "Participación de Energías Renovables",
+        "details": "Muestra el porcentaje de cada tipo de energía renovable en el consumo total de electricidad.",
+        "consumption_share": "Participación en el consumo",
+        "data_year": "Datos en {{year}}",
+        "sources": {
+          "hydro": "Hidráulica",
+          "wind": "Eólica",
+          "solar": "Solar",
+          "other_renewables": "Otras Renovables"
+        }
       }
     },
+    
+      
     "created_by": "Creado por {{name}}"
   }
 }

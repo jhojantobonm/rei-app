@@ -220,6 +220,18 @@
           "biofuel": "Biokraftstoff",
           "geothermal": "Geothermie"
         }
+      },
+      "pie_chart": {
+        "description": "Beteiligung erneuerbarer Energien",
+        "details": "Zeigt den Prozentsatz jeder Art erneuerbarer Energie am gesamten Stromverbrauch.",
+        "consumption_share": "Anteil am Verbrauch",
+        "data_year": "Daten aus {{year}}",
+        "sources": {
+          "hydro": "Wasserkraft",
+          "wind": "Windkraft",
+          "solar": "Solarenergie",
+          "other_renewables": "Andere erneuerbare Energien"
+        }
       }
     },
     "created_by": "Erstellt von {{name}}"

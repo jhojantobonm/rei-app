@@ -51,8 +51,8 @@ export const getChartContents = (t:TFunction<"translation", undefined>)=>[
     chart: <BarsChart/>
   },
   {
-    title: 'Participation of Renewable Energies',
-    description: 'Shows the percentage of each type of renewable energy in total electricity consumption.',
+    title: t('dashboard.pie_chart.description'),
+    description: t('dashboard.pie_chart.details'),
     chart: <PieChartComp/>
   },
   {
