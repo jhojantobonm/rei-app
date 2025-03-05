@@ -243,6 +243,16 @@
           "solar": "Solar",
           "geothermal": "Geotérmica"
         }
+      },
+      "area_chart": {
+        "description": "Comparación entre el Consumo de Energía Renovable y Convencional",
+        "details": "Compara el consumo de energía renovable con el consumo de energía convencional a lo largo del tiempo.",
+        "comparison": "Consumo de energías renovables vs convencionales",
+        "data_range": "Desde 1965 hasta 2022",
+        "sources": {
+          "renewables": "Renovables",
+          "conventional": "Convencional"
+        }
       }
     },
     

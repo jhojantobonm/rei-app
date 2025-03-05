@@ -243,6 +243,16 @@
           "solar": "Solarenergie",
           "geothermal": "Geothermie"
         }
+      },
+      "area_chart": {
+        "description": "Vergleich zwischen Erneuerbarem und Konventionellem Energieverbrauch",
+        "details": "Vergleicht den Verbrauch erneuerbarer Energie mit dem konventionellen Energieverbrauch im Laufe der Zeit.",
+        "comparison": "Erneuerbare vs. konventionelle Energieverbrauch",
+        "data_range": "Von 1965 bis 2022",
+        "sources": {
+          "renewables": "Erneuerbare",
+          "conventional": "Konventionell"
+        }
       }
     },
     "created_by": "Erstellt von {{name}}"

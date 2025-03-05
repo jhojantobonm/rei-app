@@ -61,8 +61,8 @@ export const getChartContents = (t:TFunction<"translation", undefined>)=>[
     chart: <LineChartComp/>
   },
   {
-    title: 'Comparison between Renewable and Conventional Energy Consumption',
-    description: 'Compares renewable energy consumption with conventional energy consumption over time.',
+    title: t('dashboard.area_chart.description'),
+    description: t('dashboard.area_chart.details'),
     chart: <AreaChartComp/>
   },
 ]

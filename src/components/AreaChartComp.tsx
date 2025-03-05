@@ -18,6 +18,7 @@ import { useEffect, useState } from "react"
 import { fetchAreaChartData } from "@/utils/dataFetch"  
 import { useContextApp } from "@/context/useContextApp"
 import { SpinnerComp } from "./SpinnerComp"
+import { useTranslation } from "react-i18next"
 
 // const chartData = [
 //   { year: "January", conventional: 186, renewables: 80 },
@@ -28,16 +29,6 @@ import { SpinnerComp } from "./SpinnerComp"
 //   { year: "June", conventional: 214, renewables: 140 },
 // ]
 
-const chartConfig = {
-  conventional: {
-    label: "Conventional",
-    color: "hsl(2 87% 67%)",
-  },
-  renewables: {
-    label: "Renewables",
-    color: "rgb(6, 153, 50)",
-  },
-} satisfies ChartConfig
 
 
 interface AreaProps {
@@ -49,6 +40,19 @@ interface AreaProps {
 
 
 export const AreaChartComp = ()=>{
+    const {t} = useTranslation();
+
+    const chartConfig = {
+      conventional: {
+        label: t('dashboard.area_chart.sources.conventional'),
+        color: "hsl(2 87% 67%)",
+      },
+      renewables: {
+        label: t('dashboard.area_chart.sources.renewables'),
+        color: "rgb(6, 153, 50)",
+      },
+    } satisfies ChartConfig
+  
     const [chartData, setChartData] = useState<AreaProps[]>([]);
     const {year} = useContextApp();
   
@@ -64,8 +68,8 @@ export const AreaChartComp = ()=>{
   return(
     <Card data-testid='area-chart-component' className="relative">
       <CardHeader>
-      <CardTitle className="text-[1.4rem] text-center">Renewables vs Conventional energy consumption</CardTitle>
-      <CardDescription className="text-[1rem] text-center">From 1965 to 2022</CardDescription>
+      <CardTitle className="text-[1.4rem] text-center">{t('dashboard.area_chart.comparison')}</CardTitle>
+      <CardDescription className="text-[1rem] text-center">{t('dashboard.area_chart.data_range')}</CardDescription>
       </CardHeader>
       <CardContent>
 
@@ -141,8 +145,8 @@ export const AreaChartComp = ()=>{
       <CardFooter>
       {chartData.length !== 0 && <div className="flex justify-start text-[1.2rem] font-bold">
           <ul className="flex flex-wrap flex-col sm:flex-row gap-6">
-            <li><span className="text-white bg-[#069932] p-2 rounded-2xl">Renewables</span></li>
-            <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">Conventional</span></li>
+            <li><span className="text-white bg-[#069932] p-2 rounded-2xl">{t('dashboard.area_chart.sources.renewables')}</span></li>
+            <li><span className="text-white bg-[#f46762] p-2 rounded-2xl">{t('dashboard.area_chart.sources.conventional')}</span></li>
           </ul> 
         </div>} 
       </CardFooter>
