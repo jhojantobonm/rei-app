@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useEffect, useState} from "react";
 import { fetchList } from "@/utils/dataFetch";
+import { useTranslation } from "react-i18next";
 
 
 type Props = {
@@ -54,11 +55,14 @@ export function AppProvider({children}:ProviderProps){
   const [isDark, setIsDark] = useState<boolean | undefined>(()=>{
     return localStorage.getItem('theme') === 'dark';
   });
-
+  
+  const {i18n: {language}} = useTranslation();
+  
   useEffect(()=>{
+    document.documentElement.setAttribute('lang',language);
     fetchList()
       .then(data=>setFileList(data));
-  
+    
   
 },[])
 

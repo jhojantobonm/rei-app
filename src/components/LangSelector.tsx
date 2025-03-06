@@ -4,7 +4,7 @@ import { useContextApp } from "@/context/useContextApp";
 import spanishIcon from '@/assets/images/icons/spanish.png'
 import englishIcon from '@/assets/images/icons/english.png'
 import germanIcon from '@/assets/images/icons/german.png'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 
@@ -32,12 +32,19 @@ export const LangSelector = ({...props}: Props)=>{
 
     const {i18n: {changeLanguage, language}} = useTranslation();
     const [currentLanguage, setCurrentLanguage] = useState(language);
+
   
+  const handleChangeLanguage = (value: string)=>{
+    setCurrentLanguage(value);
+    changeLanguage(value);
+  }
   
-    const handleChangeLanguage = (value: string)=>{
-      setCurrentLanguage(value);
-      changeLanguage(value);
-    }
+  useEffect(()=>{
+    console.log(currentLanguage);
+    document.documentElement.setAttribute('lang',currentLanguage);
+    
+  },[currentLanguage])
+
   
   return(
     <div data-testid='lang-selector-component' {...props}>
