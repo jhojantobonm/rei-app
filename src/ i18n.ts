@@ -4,7 +4,7 @@ import enJSON from "@/locales/en.json"
 import esJSON from "@/locales/es.json"
 import deJSON from "@/locales/de.json"
 import LanguageDetector from "i18next-browser-languagedetector";
-import HttpBackend from "i18next-http-backend";
+// import HttpBackend from "i18next-http-backend";
 
 
 // i18n
