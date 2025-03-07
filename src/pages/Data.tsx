@@ -4,6 +4,7 @@ import { HeaderApp } from '../components/HeaderApp'
 import './Data.css'
 import { DataSelector } from '@/components/DataSelector'
 import { useTranslation } from 'react-i18next'
+import { Download } from '@/components/Download'
 
 
 export const Data = () => {
@@ -16,6 +17,7 @@ export const Data = () => {
         <section
           className='p-10 pb-24 md:pl-[9rem] md:pr-[9rem]'
         >
+        <Download/>
         <DataSelector/>
         <DataTable/>
         </section>

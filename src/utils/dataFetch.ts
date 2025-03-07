@@ -56,3 +56,29 @@ export const fetchAreaChartData = async ()=>{
   const data = await response.json();
   return await data;
 }
+
+export const fetchDownloadFile = async (name: string) => {
+  try {
+    const response = await fetch(`${config.apiUrl}/files/download/${name}`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to download file: ${response.statusText}`);
+    }
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    // Create a temporary <a> element to trigger download
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = name; // Set the filename
+    document.body.appendChild(a);
+    a.click();
+
+    // Clean up
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error("Error downloading file:", error);
+  }
+};
