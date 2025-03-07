@@ -40,7 +40,7 @@ export const LangSelector = ({...props}: Props)=>{
   }
   
   useEffect(()=>{
-    console.log(currentLanguage);
+    // console.log(currentLanguage);
     document.documentElement.setAttribute('lang',currentLanguage);
     
   },[currentLanguage])

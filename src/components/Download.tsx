@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 
 export const Download: React.FC = ()=>{
   const {selectedFile} = useContextApp();
-  console.log(selectedFile);
+  // console.log(selectedFile);
   
   return(
     <div data-testid='download-component'>
