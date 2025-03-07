@@ -99,7 +99,7 @@ export function DataTable() {
     }
   ]);
 
-  const [pageSize, setPageSize] = React.useState<number>(20);
+  const [pageSize, setPageSize] = React.useState<string>('20');
   const [pageIndex, setPageIndex] = React.useState(0);
 
   const dataKeys = Object.keys(data[0]);
@@ -177,18 +177,18 @@ export function DataTable() {
       rowSelection,
       pagination: {
         pageIndex,
-        pageSize,
+        pageSize: Number(pageSize),
       },
     },
     onPaginationChange: (updater) => {
-      const newPagination = typeof updater === "function" ? updater({ pageIndex, pageSize }) : updater;
-      setPageIndex(newPagination.pageIndex);
-      setPageSize(newPagination.pageSize);
+      const newPagination = typeof updater === "function" ? updater({ pageIndex, pageSize: Number(pageSize) }) : updater;
+      (newPagination.pageIndex);
+      setPageSize(newPagination.pageSize + '');
     },
   })
   
-  const handleMousedown = (size: number)=>{
-    setPageSize(size)
+  const handleSelect = (value: string)=>{
+    setPageSize(value)
   }
 
   const {t} = useTranslation();
@@ -267,15 +267,15 @@ export function DataTable() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <Select>
+        <Select value={pageSize} onValueChange={handleSelect}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder={t('data.table.show_rows.placeholder')} />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
               <SelectLabel>{t('data.table.show_rows.title')}</SelectLabel>
-                {[10, 20, 30, 50, 100].map((size) => (
-                  <SelectItem key={size} value={size + ''} onMouseDown={()=>handleMousedown(size)} >
+                {['10', '20', '30', '50', '100'].map((size) => (
+                  <SelectItem key={size} value={size}>
                     {t('data.table.show_rows.show')} {size}
                   </SelectItem>
                 ))}

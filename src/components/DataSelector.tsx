@@ -11,10 +11,10 @@ import { useContextApp } from "@/context/useContextApp"
 import { useTranslation } from "react-i18next";
 
 export const DataSelector = () => {
-  const {fileList,setSelectedFile} = useContextApp();
+  const {fileList,selectedFile,setSelectedFile} = useContextApp();
  
-  const handleMouseDown = (text: string)=>{
-    setSelectedFile(text);
+  const handleSelect = (value: string)=>{
+    setSelectedFile(value);
     
   }
 
@@ -23,7 +23,7 @@ export const DataSelector = () => {
   return (
       <div data-testid='data-selector'
       className="flex justify-center">
-        <Select>
+        <Select value={selectedFile} onValueChange={handleSelect}>
             <SelectTrigger className="w-full bg-app-secondary-background text-[1.2rem] py-6">
               <SelectValue placeholder={t('data.selector.placeholder')} />
             </SelectTrigger>
@@ -31,7 +31,6 @@ export const DataSelector = () => {
               <SelectGroup>
                 {fileList.map(f=><SelectItem key={f} value={f} 
                 className="text-[1rem]" 
-                onMouseDown={()=>handleMouseDown(f)}
                 >{f}</SelectItem>)}
               </SelectGroup>
             </SelectContent>
