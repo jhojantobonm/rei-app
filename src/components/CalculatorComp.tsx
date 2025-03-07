@@ -3,7 +3,7 @@ import { Label } from "@/components/ui/label"
 import { Button } from "./ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { fetchRenewableData } from "@/utils/dataFetch"
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { YearSelector } from "./YearSelector"
 import { useContextApp } from "@/context/useContextApp"
 import { useTranslation } from "react-i18next"
@@ -12,6 +12,7 @@ const years: number[] = []
 for (let i = 1965; i <= 2022; i++) {
   years.push(i)
 }
+
 
 
 
@@ -29,6 +30,8 @@ export const CalculatorComp = ()=>{
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const {t} = useTranslation();
+
+  const inputConsumptionRef = useRef<HTMLInputElement>(null);
 
   const handleMousedown = (y: string)=>{
     setCalculate(false);
@@ -114,6 +117,10 @@ export const CalculatorComp = ()=>{
     handleMousedown(year);
   },[year]);
 
+  useLayoutEffect(()=>{
+    inputConsumptionRef.current?.focus();
+  },[])
+
   return(
     <div data-testid='calculator-component' className="flex flex-col flex-wrap gap-7 md:gap-20">
       
@@ -127,7 +134,7 @@ export const CalculatorComp = ()=>{
         min={0}
         value={consumption}
         onChange={handleChange}
-        
+        ref={inputConsumptionRef}
         />
       </div>
       <div>
