@@ -10,7 +10,7 @@ export function Loader(){
     return () => clearTimeout(timer); // Cleanup timeout
   }, []);
   return<>
-  {isLoading ? <div className="w-[100vw] h-[100vh] flex justify-center items-center"><SpinnerComp/></div> : <App /> }
+  {isLoading ? <SpinnerComp/> : <App /> }
   </> 
 }
 
