@@ -1,4 +1,4 @@
-import { useInsertionEffect } from "react"
+import { useLayoutEffect } from "react"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 
@@ -6,7 +6,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai"
 interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>{}
 
 export const SpinnerComp = ({...props}:Props)=>{
-  useInsertionEffect(() => {
+  useLayoutEffect(() => {
     const style = document.createElement("style");
     style.textContent = `
       @keyframes rotateSpinner{
@@ -29,7 +29,7 @@ export const SpinnerComp = ({...props}:Props)=>{
       }
         
       .dynamic-class-spinner{
-        width: 6rem; height: 6rem;
+        width: 60px; height: 60px;
         animation: rotateSpinner 1s linear infinite;
       }
       
