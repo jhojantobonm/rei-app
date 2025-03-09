@@ -14,7 +14,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { fetchBarsChartData } from "@/utils/dataFetch"
 import { YearSelector } from "./YearSelector"
 import { useContextApp } from "@/context/useContextApp"
@@ -41,28 +41,30 @@ interface BarProps {
 export const BarsChart = ()=>{
   const {t} = useTranslation();
 
-  const chartConfig = {
-    hydro: {
-      label: t('dashboard.bars_chart.sources.hydro'),
-      color: "rgb(0, 149, 255)",
-    },
-    wind: {
-      label: t('dashboard.bars_chart.sources.wind'),
-      color: "rgb(98, 190, 255)",
-    },
-    solar: {
-      label: t('dashboard.bars_chart.sources.solar'),
-      color: "hsl(43 74% 66%)",
-    },
-    biofuel: {
-      label: t('dashboard.bars_chart.sources.biofuel'),
-      color: "rgb(6, 153, 50)",
-    },
-    geothermal: {
-      label: t('dashboard.bars_chart.sources.geothermal'),
-      color: "hsl(2 87% 67%)",
-    },
-  } satisfies ChartConfig
+  const chartConfig = useMemo(()=>(
+    {
+      hydro: {
+        label: t('dashboard.bars_chart.sources.hydro'),
+        color: "rgb(0, 149, 255)",
+      },
+      wind: {
+        label: t('dashboard.bars_chart.sources.wind'),
+        color: "rgb(98, 190, 255)",
+      },
+      solar: {
+        label: t('dashboard.bars_chart.sources.solar'),
+        color: "hsl(43 74% 66%)",
+      },
+      biofuel: {
+        label: t('dashboard.bars_chart.sources.biofuel'),
+        color: "rgb(6, 153, 50)",
+      },
+      geothermal: {
+        label: t('dashboard.bars_chart.sources.geothermal'),
+        color: "hsl(2 87% 67%)",
+      },
+    } satisfies ChartConfig
+  ),[]) 
 
   const [chartData, setDataChart] = useState<BarProps[]>([]);
   const [hydro, setHydro] = useState<number>(0);

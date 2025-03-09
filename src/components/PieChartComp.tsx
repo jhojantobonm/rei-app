@@ -17,7 +17,7 @@ import {
 import { YearSelector } from "./YearSelector"
 import { useContextApp } from "@/context/useContextApp"
 import { fetchPieChartData } from "@/utils/dataFetch"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { SpinnerComp } from "./SpinnerComp"
 import { useTranslation } from "react-i18next"
 
@@ -34,27 +34,29 @@ export const PieChartComp = ()=>{
   const {t} = useTranslation();
 
 
-  const chartConfig = {
-    share: {
-      label: "Share",
-    },
-    hydro: {
-      label: t('dashboard.pie_chart.sources.hydro'),
-      color: "rgb(0, 149, 255)",
-    },
-    wind: {
-      label: t('dashboard.pie_chart.sources.wind'),
-      color: "rgb(98, 190, 255)",
-    },
-    solar: {
-      label: t('dashboard.pie_chart.sources.solar'),
-      color: "hsl(43 74% 66%)",
-    },
-    otherRenewables: {
-      label: t('dashboard.pie_chart.sources.other_renewables'),
-      color: "hsl(300, 95%, 36%)",
-    },
-  } satisfies ChartConfig
+  const chartConfig = useMemo(()=>(
+    {
+      share: {
+        label: "Share",
+      },
+      hydro: {
+        label: t('dashboard.pie_chart.sources.hydro'),
+        color: "rgb(0, 149, 255)",
+      },
+      wind: {
+        label: t('dashboard.pie_chart.sources.wind'),
+        color: "rgb(98, 190, 255)",
+      },
+      solar: {
+        label: t('dashboard.pie_chart.sources.solar'),
+        color: "hsl(43 74% 66%)",
+      },
+      otherRenewables: {
+        label: t('dashboard.pie_chart.sources.other_renewables'),
+        color: "hsl(300, 95%, 36%)",
+      },
+    } satisfies ChartConfig
+  ),[])
   
   interface PieProps {
     source: string,

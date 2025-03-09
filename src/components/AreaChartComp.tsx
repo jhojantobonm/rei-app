@@ -14,7 +14,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { fetchAreaChartData } from "@/utils/dataFetch"  
 import { useContextApp } from "@/context/useContextApp"
 import { SpinnerComp } from "./SpinnerComp"
@@ -42,16 +42,18 @@ interface AreaProps {
 export const AreaChartComp = ()=>{
     const {t} = useTranslation();
 
-    const chartConfig = {
-      conventional: {
-        label: t('dashboard.area_chart.sources.conventional'),
-        color: "hsl(2 87% 67%)",
-      },
-      renewables: {
-        label: t('dashboard.area_chart.sources.renewables'),
-        color: "rgb(6, 153, 50)",
-      },
-    } satisfies ChartConfig
+    const chartConfig = useMemo(()=>(
+      {
+        conventional: {
+          label: t('dashboard.area_chart.sources.conventional'),
+          color: "hsl(2 87% 67%)",
+        },
+        renewables: {
+          label: t('dashboard.area_chart.sources.renewables'),
+          color: "rgb(6, 153, 50)",
+        },
+      } satisfies ChartConfig
+    ),[])
   
     const [chartData, setChartData] = useState<AreaProps[]>([]);
     const {year} = useContextApp();

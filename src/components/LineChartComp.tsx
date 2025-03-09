@@ -14,7 +14,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { fetchLineChartData } from "@/utils/dataFetch"
 import { useContextApp } from "@/context/useContextApp"
 import { SpinnerComp } from "./SpinnerComp"
@@ -92,20 +92,22 @@ interface LineProps {
 export const LineChartComp = ()=>{
   const {t} = useTranslation();
 
-  const chartConfig = {
-    wind: {
-      label: t('dashboard.line_chart.sources.wind'),
-      color: "rgb(0, 149, 255)",
-    },
-    solar: {
-      label:  t('dashboard.line_chart.sources.solar'),
-      color: "hsl(43 74% 66%)",
-    },
-    geothermal: {
-      label:  t('dashboard.line_chart.sources.geothermal'),
-      color: "hsl(2 87% 67%)",
-    },
-  } satisfies ChartConfig
+  const chartConfig = useMemo(()=>(
+    {
+      wind: {
+        label: t('dashboard.line_chart.sources.wind'),
+        color: "rgb(0, 149, 255)",
+      },
+      solar: {
+        label:  t('dashboard.line_chart.sources.solar'),
+        color: "hsl(43 74% 66%)",
+      },
+      geothermal: {
+        label:  t('dashboard.line_chart.sources.geothermal'),
+        color: "hsl(2 87% 67%)",
+      },
+    } satisfies ChartConfig
+  ),[])
 
   const [chartData, setChartData] = useState<LineProps[]>([]);
   const {year} = useContextApp();
