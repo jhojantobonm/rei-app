@@ -4,9 +4,11 @@ import { useContextApp } from "../context/useContextApp";
 import { NavLink } from "react-router-dom";
 import { DarkMode } from "./DarkMode";
 import { LangSelector } from "./LangSelector";
+import { useTranslation } from "react-i18next";
 
 export const Menu = () => {
     const {setIsMenuOpen} = useContextApp();
+    const {t} = useTranslation();
 
     const handleClose = ()=>{
       setIsMenuOpen(false);
@@ -30,10 +32,10 @@ export const Menu = () => {
               <nav>
                 <ul className="flex flex-col items-center gap-6 text-2xl">
                   <DarkMode/>
-                  <NavLink to='/' onClick={handleClose}>Home</NavLink>
-                  <NavLink to='/data' onClick={handleClose}>Data</NavLink>
-                  <NavLink to='/calculator' onClick={handleClose}>Calculator</NavLink>
-                  <NavLink to='/dashboard' onClick={handleClose}>Dashboard</NavLink>
+                  <NavLink to='/' onClick={handleClose}>{t('menu.home')}</NavLink>
+                  <NavLink to='/data' onClick={handleClose}>{t('menu.data')}</NavLink>
+                  <NavLink to='/calculator' onClick={handleClose}>{t('menu.calculator')}</NavLink>
+                  <NavLink to='/dashboard' onClick={handleClose}>{t('menu.dashboard')}</NavLink>
                   <LangSelector/>
                 </ul>
               </nav>

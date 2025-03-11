@@ -255,6 +255,12 @@
         }
       }
     },
+    "menu":{
+      "home": "Home",
+      "data": "Data",
+      "calculator": "Calculator",
+      "dashboard": "Dashboard"
+    },
     "created_by": "Created by {{name}}"
   
   }

@@ -255,6 +255,12 @@
         }
       }
     },
+    "menu": {
+      "home": "Startseite",
+      "data": "Daten",
+      "calculator": "Rechner",
+      "dashboard": "Dashboard"
+    },
     "created_by": "Erstellt von {{name}}"
   }
 }

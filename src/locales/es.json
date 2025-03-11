@@ -255,8 +255,12 @@
         }
       }
     },
-    
-      
+    "menu": {
+      "home": "Inicio",
+      "data": "Datos",
+      "calculator": "Calculadora",
+      "dashboard": "Tablero"
+    },
     "created_by": "Creado por {{name}}"
   }
 }
